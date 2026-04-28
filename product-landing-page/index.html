@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alpha 1 Enhanced Multivitamin — the daily nutritional foundation built for people who need their body and mind to show up consistently. 300mg Lion's Mane. 22 Essential Nutrients. 0 Fillers.">
+  <title>Alpha 1 Enhanced Multivitamin — Valor Vitals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       VARIABLES
+    ============================================================ */
+    :root {
+      --bg:            #1a1a1a;
+      --bg-card:       #212121;
+      --bg-elevated:   #262626;
+      --text-primary:  #f2f0eb;
+      --text-secondary:#9e9c96;
+      --text-muted:    #5a5855;
+      --accent:        #FF6B00;
+      --accent-hover:  #e05e00;
+      --accent-dim:    rgba(255,107,0,0.1);
+      --border:        #2c2c2c;
+      --border-mid:    #363636;
+      --font-display:  'Barlow Condensed', system-ui, sans-serif;
+      --font-body:     'Barlow', system-ui, -apple-system, sans-serif;
+      --max-width:     1100px;
+      --header-h:      56px;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      line-height: 1.02;
+      letter-spacing: 0.01em;
+    }
+
+    /* ============================================================
+       UTILITIES
+    ============================================================ */
+    .section-label {
+      display: block;
+      font-size: 0.63rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.22em;
+      color: var(--accent); margin-bottom: 0.8rem;
+    }
+
+    /* ============================================================
+       ANNOUNCEMENT BAR (slim, above header)
+    ============================================================ */
+    .announce-bar {
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1.5rem;
+      text-align: center;
+    }
+    .announce-bar p {
+      font-size: 0.7rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--text-secondary);
+    }
+    .announce-bar strong { color: var(--accent); }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .site-header {
+      position: sticky; top: 0; z-index: 300;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 1.5rem;
+      height: var(--header-h);
+      background: rgba(26,26,26,0.98);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-primary); text-decoration: none;
+    }
+    .logo span { color: var(--accent); }
+    .header-right { display: flex; align-items: center; gap: 1.25rem; }
+    .header-nav-link {
+      font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-secondary); text-decoration: none;
+      display: none;
+    }
+    @media (min-width: 768px) { .header-nav-link { display: block; } }
+    .header-nav-link:hover { color: var(--text-primary); }
+    .header-cta {
+      display: inline-block; padding: 0.5rem 1.25rem;
+      background: var(--accent); color: #fff;
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      text-decoration: none; border: none; cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .header-cta:hover { background: var(--accent-hover); }
+
+    /* ============================================================
+       BUY BOX — first section, above the fold
+    ============================================================ */
+    .buy-box-section {
+      padding: 2rem 1.5rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .buy-box {
+      max-width: 980px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr;
+      gap: 2rem; align-items: start;
+    }
+    @media (min-width: 720px) {
+      .buy-box { grid-template-columns: 1.05fr 1fr; gap: 3.5rem; align-items: start; }
+    }
+
+    /* ---- Image Carousel ---- */
+    .img-carousel { display: flex; flex-direction: column; gap: 0.6rem; }
+    .img-main-wrap {
+      background: var(--bg-elevated);
+      display: flex; align-items: center; justify-content: center;
+      min-height: 300px; overflow: hidden;
+    }
+    @media (min-width: 720px) { .img-main-wrap { min-height: 380px; } }
+    .img-main {
+      max-height: 420px; width: auto;
+      object-fit: contain;
+      transition: opacity 0.15s ease;
+    }
+    .img-thumbs { display: flex; gap: 0.5rem; }
+    .img-thumb {
+      flex: 1; cursor: pointer;
+      border: 1.5px solid transparent;
+      background: var(--bg-elevated);
+      padding: 0.35rem;
+      opacity: 0.5;
+      transition: border-color 0.15s, opacity 0.15s;
+    }
+    .img-thumb:hover { opacity: 0.75; }
+    .img-thumb.is-active { border-color: var(--accent); opacity: 1; }
+    .img-thumb img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+
+    /* ---- Purchase Panel ---- */
+    .purchase-panel {}
+
+    .panel-rating {
+      display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.85rem;
+    }
+    .stars { color: var(--accent); font-size: 0.8rem; letter-spacing: 0.06em; }
+    .rating-link {
+      font-size: 0.72rem; color: var(--text-muted);
+      text-decoration: none; border-bottom: 1px solid var(--border-mid);
+      transition: color 0.15s;
+    }
+    .rating-link:hover { color: var(--text-secondary); }
+
+    .panel-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 900;
+      text-transform: uppercase; line-height: 1.04; margin-bottom: 0.25rem;
+    }
+    .panel-subtitle {
+      font-size: 0.73rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin-bottom: 1rem;
+    }
+
+    /* Benefit chips */
+    .b-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 1.25rem; }
+    .b-chip {
+      font-size: 0.6rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-mid);
+      padding: 0.22rem 0.55rem;
+      white-space: nowrap;
+    }
+
+    /* Purchase toggle */
+    .purchase-toggle { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 1.1rem; }
+    .toggle-opt { position: relative; }
+    .toggle-opt input[type="radio"] {
+      position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+    }
+    .toggle-lbl {
+      display: flex; align-items: flex-start; gap: 0.8rem;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      user-select: none;
+    }
+    .toggle-opt input:checked + .toggle-lbl {
+      border-color: var(--accent); background: var(--accent-dim);
+    }
+    .radio-dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      border: 2px solid var(--text-muted); flex-shrink: 0;
+      margin-top: 0.3rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.15s;
+    }
+    .toggle-opt input:checked + .toggle-lbl .radio-dot { border-color: var(--accent); }
+    .radio-dot::after {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); opacity: 0; transition: opacity 0.15s;
+    }
+    .toggle-opt input:checked + .toggle-lbl .radio-dot::after { opacity: 1; }
+    .toggle-txt { flex: 1; min-width: 0; }
+    .toggle-row { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+    .toggle-name {
+      font-size: 0.68rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted);
+    }
+    .toggle-opt input:checked + .toggle-lbl .toggle-name { color: var(--text-primary); }
+    .toggle-price {
+      font-family: var(--font-display);
+      font-size: 1.55rem; font-weight: 900; color: var(--text-primary); line-height: 1;
+    }
+    .toggle-per { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.12rem; }
+    .toggle-pills { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-top: 0.5rem; }
+    .t-pill {
+      font-size: 0.58rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--accent);
+      background: rgba(255,107,0,0.1);
+      border: 1px solid rgba(255,107,0,0.28);
+      padding: 0.16rem 0.48rem;
+    }
+
+    /* CTA */
+    .btn-buy {
+      display: block; width: 100%;
+      padding: 1.05rem 2rem;
+      background: var(--accent); color: #fff;
+      font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      text-align: center; border: none; cursor: pointer;
+      transition: background 0.15s; margin-bottom: 0;
+    }
+    .btn-buy:hover { background: var(--accent-hover); }
+
+    /* Sub-accordions inside buy box — large, bold, gamified */
+    .bba-wrap { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem; }
+    .bba-item {
+      background: var(--bg-elevated);
+      border: 1.5px solid var(--border-mid);
+      transition: border-color 0.15s;
+    }
+    .bba-item:hover { border-color: var(--accent); }
+    .bba-item.is-open { border-color: var(--accent); }
+    .bba-trigger {
+      width: 100%; background: none; border: none;
+      padding: 1rem 1.1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; cursor: pointer; text-align: left;
+    }
+    .bba-trigger-left { display: flex; align-items: center; gap: 0.75rem; }
+    .bba-trigger-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border-mid); flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .bba-item:hover .bba-trigger-dot,
+    .bba-item.is-open .bba-trigger-dot { background: var(--accent); }
+    .bba-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--text-primary);
+      transition: color 0.15s;
+    }
+    .bba-icon {
+      width: 22px; height: 22px; flex-shrink: 0;
+      border: 1.5px solid var(--border-mid); border-radius: 50%;
+      position: relative; transition: border-color 0.15s, background 0.15s;
+    }
+    .bba-item:hover .bba-icon,
+    .bba-item.is-open .bba-icon { border-color: var(--accent); background: rgba(255,107,0,0.08); }
+    .bba-icon::before, .bba-icon::after {
+      content: ''; position: absolute; background: var(--text-secondary);
+      transition: background 0.15s;
+    }
+    .bba-item:hover .bba-icon::before,
+    .bba-item:hover .bba-icon::after,
+    .bba-item.is-open .bba-icon::before,
+    .bba-item.is-open .bba-icon::after { background: var(--accent); }
+    .bba-icon::before { width: 10px; height: 1.5px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .bba-icon::after {
+      width: 1.5px; height: 10px; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      transition: transform 0.18s, opacity 0.18s, background 0.15s;
+    }
+    .bba-item.is-open .bba-icon::after { transform: translate(-50%,-50%) rotate(90deg); opacity: 0; }
+    .bba-body { display: none; padding: 0 1.1rem 1.1rem; }
+    .bba-item.is-open .bba-body { display: block; }
+    .bba-body ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .bba-body li {
+      display: flex; gap: 0.6rem;
+      font-size: 1rem; color: var(--text-secondary); line-height: 1.65;
+    }
+    .bba-body li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+
+    /* ============================================================
+       SPECS / TRUST BAR
+    ============================================================ */
+    .trust-section {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+    }
+    .trust-inner { max-width: var(--max-width); margin: 0 auto; }
+
+    /* Specs ticker */
+    .specs-row {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border); margin-bottom: 1.5rem;
+    }
+    .spec-item {
+      font-family: var(--font-display);
+      font-size: clamp(0.78rem, 2vw, 0.95rem); font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent); padding: 0 1.1rem; white-space: nowrap;
+    }
+    .spec-pipe { width: 1px; height: 1rem; background: var(--border-mid); flex-shrink: 0; }
+
+    /* Trust badges */
+    .trust-badges {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: center; gap: 1rem 2.25rem; margin-bottom: 1.5rem;
+    }
+    .trust-badge { display: flex; align-items: center; gap: 0.5rem; }
+    .trust-badge-icon { width: 17px; height: 17px; flex-shrink: 0; color: var(--accent); }
+    .trust-badge-text {
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.09em;
+      color: var(--text-secondary); white-space: nowrap;
+    }
+
+    /* Social proof */
+
+    /* ============================================================
+       LIFESTYLE IMAGE STRIP
+    ============================================================ */
+    .lifestyle-strip {
+      display: flex; overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .lifestyle-strip::-webkit-scrollbar { display: none; }
+    @media (min-width: 720px) {
+      .lifestyle-strip { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; }
+    }
+    .lifestyle-card {
+      flex: 0 0 78vw; scroll-snap-align: start;
+      position: relative; overflow: hidden; min-height: 400px;
+      background: var(--bg-elevated);
+    }
+    @media (min-width: 720px) { .lifestyle-card { flex: none; min-height: 440px; } }
+    .lifestyle-card img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      opacity: 0.65; display: block; position: absolute; inset: 0;
+      transition: opacity 0.3s, transform 0.4s;
+    }
+    .lifestyle-card:hover img { opacity: 0.78; transform: scale(1.02); }
+    .lifestyle-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 4rem 1.4rem 1.5rem;
+      background: linear-gradient(to top, rgba(26,26,26,1) 0%, rgba(26,26,26,0.7) 60%, transparent 100%);
+    }
+    .lifestyle-label {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.03em;
+      color: var(--accent); margin-bottom: 0.4rem;
+      line-height: 1.05;
+    }
+    .lifestyle-quote {
+      font-size: clamp(0.9rem, 1.8vw, 1rem); color: var(--text-secondary);
+      line-height: 1.6; font-style: italic;
+    }
+
+    /* ============================================================
+       READINESS EQUATION
+    ============================================================ */
+    .readiness-section {
+      padding: 5rem 1.5rem;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .readiness-inner { max-width: var(--max-width); margin: 0 auto; text-align: center; }
+    .readiness-inner h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; margin-bottom: 3rem; }
+    .equation {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3rem;
+    }
+    .eq-part { display: flex; flex-direction: column; align-items: center; }
+    .eq-label {
+      font-size: 0.58rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 0.4rem;
+    }
+    .eq-val {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 3vw, 1.45rem); font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-primary);
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      padding: 0.65rem 1.25rem; white-space: nowrap;
+    }
+    .eq-val--result {
+      color: var(--accent); border-color: rgba(255,107,0,0.3); background: rgba(255,107,0,0.07);
+    }
+    .eq-op {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 900;
+      color: var(--accent); line-height: 1; padding-top: 1.3rem;
+    }
+    .readiness-copy {
+      max-width: 56ch; margin: 0 auto;
+      color: var(--text-secondary); font-size: 1rem; line-height: 1.8;
+    }
+
+    /* ============================================================
+       INGREDIENT CARDS (THE GEAR LIST)
+    ============================================================ */
+    .gear-section { padding: 5rem 1.5rem; }
+    .gear-inner { max-width: var(--max-width); margin: 0 auto; }
+    .gear-header { margin-bottom: 2.75rem; }
+    .gear-header h2 { font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 900; }
+    .gear-grid {
+      display: grid; grid-template-columns: 1fr; gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+    }
+    @media (min-width: 600px) { .gear-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .gear-grid { grid-template-columns: repeat(3, 1fr); } }
+    .gear-card {
+      background: var(--bg); padding: 1.6rem 1.5rem;
+      border-top: 2px solid transparent; transition: border-color 0.2s;
+    }
+    .gear-card:hover { border-top-color: var(--accent); }
+    .gear-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 0.75rem; margin-bottom: 0.85rem;
+    }
+    .gear-name {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.02em; color: var(--text-primary); line-height: 1.2;
+    }
+    .gear-dose {
+      font-family: var(--font-display); font-size: 1.4rem; font-weight: 900;
+      color: var(--accent); flex-shrink: 0; line-height: 1;
+    }
+    .gear-rule { width: 1.75rem; height: 1px; background: var(--border); margin-bottom: 0.85rem; }
+    .gear-why-lbl {
+      font-size: 0.58rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--text-muted); margin-bottom: 0.4rem;
+    }
+    .gear-why { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+
+    /* ============================================================
+       BODY AS GEAR — split layout on desktop
+    ============================================================ */
+    .body-gear-section {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .body-gear-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px) {
+      .body-gear-grid {
+        grid-template-columns: 1fr 1fr;
+        min-height: 600px;
+      }
+    }
+    .body-gear-text {
+      padding: 4rem 1.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    @media (min-width: 900px) {
+      .body-gear-text {
+        padding: 5rem clamp(2rem, 4vw, 4rem) 5rem clamp(1.5rem, 5vw, 5rem);
+      }
+    }
+    .body-gear-text h2 {
+      font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 900;
+      line-height: 0.96; margin-bottom: 2.5rem;
+    }
+    .body-gear-copy { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; }
+    .body-gear-copy p + p { margin-top: 1.15rem; }
+    .body-gear-tagline {
+      font-family: var(--font-display); font-size: 1.25rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-primary);
+      margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .body-gear-img-col {
+      position: relative; overflow: hidden;
+      min-height: 360px;
+      background: var(--bg-elevated);
+    }
+    .body-gear-img-col img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      opacity: 0.8;
+    }
+
+    /* ============================================================
+       FIELD REPORTS (TESTIMONIALS)
+    ============================================================ */
+    .field-section { padding: 5rem 1.5rem; }
+    .field-inner { max-width: var(--max-width); margin: 0 auto; }
+    .section-hd { margin-bottom: 2.75rem; }
+    .section-hd h2 { font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 900; }
+    .field-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media (min-width: 540px) { .field-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px) { .field-grid { grid-template-columns: repeat(4, 1fr); } }
+    .field-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .field-photo {
+      position: relative; height: 220px; overflow: hidden; background: var(--bg-elevated);
+    }
+    .field-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      object-position: center top; opacity: 0.72;
+    }
+    .field-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 1rem 0.85rem;
+      background: linear-gradient(to top, rgba(26,26,26,1), rgba(26,26,26,0.5) 60%, transparent);
+    }
+    .field-label {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent);
+    }
+    .field-body { padding: 1.2rem 1.2rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .field-quote {
+      font-size: 0.87rem; color: var(--text-secondary);
+      font-style: italic; line-height: 1.68; flex: 1; margin-bottom: 1rem;
+    }
+    .field-attr { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
+    .field-note { font-size: 0.7rem; color: var(--text-muted); font-style: italic; margin-top: 0.6rem; }
+
+    /* ============================================================
+       30-DAY GUARANTEE
+    ============================================================ */
+    .guarantee-section {
+      padding: 5rem 1.5rem;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .guarantee-inner { max-width: 520px; margin: 0 auto; text-align: center; }
+    .g-ring {
+      display: inline-flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      width: 80px; height: 80px;
+      border: 2px solid var(--accent); border-radius: 50%; margin-bottom: 1.75rem;
+    }
+    .g-num { font-family: var(--font-display); font-size: 1.7rem; font-weight: 900; color: var(--accent); line-height: 1; }
+    .g-lbl { font-size: 0.48rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+    .guarantee-section h2 { font-size: clamp(1.5rem, 4vw, 2.4rem); font-weight: 900; margin-bottom: 1rem; }
+    .guarantee-copy { font-size: 1rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 2rem; }
+    .btn-cta {
+      display: inline-block; padding: 1rem 2.5rem;
+      background: var(--accent); color: #fff;
+      font-family: var(--font-body); font-size: 0.82rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      text-decoration: none; border: none; cursor: pointer; transition: background 0.15s;
+    }
+    .btn-cta:hover { background: var(--accent-hover); }
+
+    /* ============================================================
+       TECHNICALS (ACCORDION)
+    ============================================================ */
+    .tech-section { padding: 4rem 1.5rem 5rem; }
+    .tech-inner { max-width: 860px; margin: 0 auto; }
+    .acc-item { border-bottom: 1px solid var(--border); }
+    .acc-item:first-child { border-top: 1px solid var(--border); }
+    .acc-trigger {
+      width: 100%; background: none; border: none;
+      padding: 1.5rem 0; display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem; cursor: pointer; text-align: left;
+    }
+    .acc-title {
+      font-family: var(--font-display); font-size: 1.35rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-primary);
+    }
+    .acc-icon { width: 20px; height: 20px; flex-shrink: 0; position: relative; }
+    .acc-icon::before, .acc-icon::after { content: ''; position: absolute; background: var(--text-secondary); }
+    .acc-icon::before { width: 14px; height: 1.5px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .acc-icon::after {
+      width: 1.5px; height: 14px; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      transition: transform 0.18s, opacity 0.18s;
+    }
+    .acc-item.is-open .acc-icon::after { transform: translate(-50%,-50%) rotate(90deg); opacity: 0; }
+    .acc-body { display: none; padding-bottom: 2rem; }
+    .acc-item.is-open .acc-body { display: block; }
+    .acc-intro { font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.25rem; }
+    .supp-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .supp-table thead th {
+      text-align: left; padding: 0.5rem 0.4rem 0.5rem 0;
+      font-family: var(--font-display); font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--text-muted); font-size: 0.65rem; border-bottom: 1px solid var(--border);
+    }
+    .supp-table thead th:last-child { text-align: right; }
+    .supp-table tbody td {
+      padding: 0.58rem 0.4rem 0.58rem 0;
+      border-bottom: 1px solid rgba(44,44,44,0.7);
+      color: var(--text-secondary); vertical-align: top;
+    }
+    .supp-table tbody td:first-child { color: var(--text-primary); }
+    .supp-table tbody td:last-child { text-align: right; white-space: nowrap; }
+    .supp-table tr.featured td:first-child { color: var(--accent); }
+    .supp-placeholder {
+      font-style: italic; color: var(--text-muted); font-size: 0.78rem;
+      padding: 1rem 0; border-bottom: 1px solid rgba(44,44,44,0.7);
+    }
+    .supp-note { font-size: 0.7rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.6; }
+    .usage-copy { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85; }
+
+    /* ============================================================
+       ABOUT VALOR VITALS
+    ============================================================ */
+    .about-section {
+      padding: 5rem 1.5rem;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('../media/Placeholder images/20260403_1441_Image Generation_simple_compose_01knadsgj8e16b7jbe3ven4kr1 (1).png') center / cover no-repeat;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+    .about-inner {
+      max-width: var(--max-width); margin: 0 auto;
+      position: relative;
+    }
+    .about-header { margin-bottom: 3.5rem; text-align: center; }
+    .about-header h2 { font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 900; margin-bottom: 1.25rem; }
+    .about-intro { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; max-width: 74ch; margin-left: auto; margin-right: auto; }
+
+    .founder-grid {
+      display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 3.5rem;
+    }
+    @media (min-width: 640px) { .founder-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .founder-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .founder-card {
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      padding: 1.75rem 1.5rem; display: flex; flex-direction: column; gap: 1rem;
+      border-top: 2px solid var(--border); transition: border-top-color 0.2s;
+    }
+    .founder-card:hover { border-top-color: var(--accent); }
+    .founder-avatar {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--accent-dim); border: 1.5px solid rgba(255,107,0,0.35);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); flex-shrink: 0;
+    }
+    .founder-name {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-primary); margin-bottom: 0.15rem;
+    }
+    .founder-title {
+      font-size: 0.65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 0.65rem;
+    }
+    .founder-bio { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+
+    .values-strip {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      padding-top: 2.5rem; border-top: 1px solid var(--border);
+    }
+    .value-item {
+      font-family: var(--font-display);
+      font-size: clamp(0.85rem, 2vw, 1.05rem); font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-secondary); padding: 0.5rem 1.5rem; white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .value-item:hover { color: var(--text-primary); }
+    .value-pipe { width: 1px; height: 1.1rem; background: var(--border-mid); flex-shrink: 0; align-self: center; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .site-footer {
+      padding: 3rem 1.5rem; background: #101010;
+      border-top: 1px solid var(--border); text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-primary); margin-bottom: 0.45rem;
+    }
+    .footer-tagline {
+      font-family: var(--font-display); font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1.75rem;
+    }
+    .footer-legal { font-size: 0.68rem; color: var(--text-muted); line-height: 1.65; max-width: 58ch; margin: 0 auto 1rem; }
+    .footer-copy { font-size: 0.7rem; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       ANNOUNCEMENT BAR
+  ============================================================ -->
+  <div class="announce-bar">
+    <p><strong>Free Shipping</strong> on all Maintenance Protocol orders</p>
+  </div>
+
+
+  <!-- ============================================================
+       HEADER (sticky — stays at top as user scrolls)
+  ============================================================ -->
+  <header class="site-header">
+    <a href="#" class="logo">Valor <span>Vitals</span></a>
+    <div class="header-right">
+      <a href="#gear-list" class="header-nav-link">Ingredients</a>
+      <a href="#field-reports" class="header-nav-link">Reviews</a>
+      <a href="#buy" class="header-cta">Start Your Protocol</a>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       BUY BOX — ABOVE THE FOLD
+       This is the first section. Image carousel left, purchase panel right.
+       No hero. Paid traffic lands here and sees the product immediately.
+  ============================================================ -->
+  <section class="buy-box-section" id="buy">
+    <div class="buy-box">
+
+      <!-- LEFT: Image Carousel -->
+      <div class="img-carousel">
+        <div class="img-main-wrap">
+          <img
+            class="img-main"
+            id="main-product-img"
+            src="../media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png"
+            alt="Valor Vitals Alpha 1 Enhanced Multivitamin — 60 capsules, 30-day supply"
+            loading="eager"
+          >
+        </div>
+        <div class="img-thumbs">
+          <div class="img-thumb is-active"
+            data-full="../media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png"
+            role="button" tabindex="0" aria-label="Front of bottle">
+            <img src="../media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png" alt="Front">
+          </div>
+          <div class="img-thumb"
+            data-full="../media/Product and brand images/VALORVITALS-Multivitamin-Back.png"
+            role="button" tabindex="0" aria-label="Back of bottle — supplement facts">
+            <img src="../media/Product and brand images/VALORVITALS-Multivitamin-Back.png" alt="Back">
+          </div>
+          <div class="img-thumb"
+            data-full="../media/Product and brand images/VALORVITALS-Multivitamin-Side.png"
+            role="button" tabindex="0" aria-label="Side of bottle">
+            <img src="../media/Product and brand images/VALORVITALS-Multivitamin-Side.png" alt="Side">
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Purchase Panel -->
+      <div class="purchase-panel">
+
+        <!-- Star rating anchors to field reports section -->
+        <div class="panel-rating">
+          <span class="stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+          <a href="#field-reports" class="rating-link">4.9 · See reviews</a>
+        </div>
+
+        <h1 class="panel-title">A1 Enhanced Multivitamin</h1>
+        <p class="panel-subtitle">Daily Performance Foundation · 60 Capsules · 30-Day Supply</p>
+
+        <!-- Benefit chips: ingredient/feature shorthand -->
+        <div class="b-chips">
+          <span class="b-chip">300mg Lion's Mane</span>
+          <span class="b-chip">Curcumin C3 Complex®</span>
+          <span class="b-chip">22 Essential Nutrients</span>
+          <span class="b-chip">BioPerine® Absorption</span>
+          <span class="b-chip">0 Fillers</span>
+        </div>
+
+        <!-- Purchase toggle — Maintenance Protocol pre-selected -->
+        <div class="purchase-toggle" role="group" aria-label="Select purchase type">
+
+          <!-- One-Time -->
+          <div class="toggle-opt">
+            <input type="radio" name="purchase-type" id="opt-one-time" value="one-time">
+            <label for="opt-one-time" class="toggle-lbl">
+              <div class="radio-dot" aria-hidden="true"></div>
+              <div class="toggle-txt">
+                <div class="toggle-row">
+                  <div class="toggle-name">One-Time Purchase</div>
+                  <div class="toggle-price">$44.99</div>
+                </div>
+                <div class="toggle-per">$1.50 / day</div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Maintenance Protocol — pre-selected -->
+          <div class="toggle-opt">
+            <input type="radio" name="purchase-type" id="opt-subscribe" value="subscribe" checked>
+            <label for="opt-subscribe" class="toggle-lbl">
+              <div class="radio-dot" aria-hidden="true"></div>
+              <div class="toggle-txt">
+                <div class="toggle-row">
+                  <div class="toggle-name">Maintenance Protocol</div>
+                  <div class="toggle-price">$40.49<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);">/mo</span></div>
+                </div>
+                <div class="toggle-per">$1.35 / day</div>
+                <div class="toggle-pills">
+                  <span class="t-pill">10% Savings</span>
+                  <span class="t-pill">Free Shipping</span>
+                  <span class="t-pill">30-Day Readiness Guarantee</span>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Foundation Stack — A1 + B1 Hydration subscription -->
+          <div class="toggle-opt">
+            <input type="radio" name="purchase-type" id="opt-bundle" value="bundle">
+            <label for="opt-bundle" class="toggle-lbl">
+              <div class="radio-dot" aria-hidden="true"></div>
+              <div class="toggle-txt">
+                <div class="toggle-row">
+                  <div class="toggle-name">Foundation Stack</div>
+                  <div class="toggle-price">$80.98<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);">/mo</span></div>
+                </div>
+                <div class="toggle-per">A1 Multivitamin + B1 Hydration · $2.70 / day</div>
+                <div class="toggle-pills">
+                  <span class="t-pill">10% Savings</span>
+                  <span class="t-pill">Free Shipping</span>
+                  <span class="t-pill">Full Daily Stack</span>
+                  <span class="t-pill">30-Day Guarantee</span>
+                </div>
+              </div>
+            </label>
+          </div>
+
+        </div>
+
+        <button class="btn-buy" type="button">Start Your Protocol</button>
+
+        <!-- Sub-accordions: Key Benefits / Subscription Benefits / Shipping & Returns -->
+        <div class="bba-wrap">
+
+          <div class="bba-item">
+            <button class="bba-trigger" type="button" aria-expanded="false" aria-controls="bba-benefits">
+              <div class="bba-trigger-left">
+                <div class="bba-trigger-dot" aria-hidden="true"></div>
+                <span class="bba-name">Key Benefits</span>
+              </div>
+              <div class="bba-icon" aria-hidden="true"></div>
+            </button>
+            <div class="bba-body" id="bba-benefits">
+              <ul>
+                <li>Lion's Mane supports cognitive function, focus, and mental clarity</li>
+                <li>Curcumin manages natural inflammation from hard use — training, shifts, stress</li>
+                <li>BioPerine increases bioavailability so your body actually absorbs what's in the capsule</li>
+                <li>Magnesium Glycinate supports muscle function, nerve signaling, and stress resilience</li>
+                <li>Active B12 for consistent energy without stimulants</li>
+                <li>22 essential nutrients cover the daily baseline most people miss</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bba-item">
+            <button class="bba-trigger" type="button" aria-expanded="false" aria-controls="bba-sub">
+              <div class="bba-trigger-left">
+                <div class="bba-trigger-dot" aria-hidden="true"></div>
+                <span class="bba-name">Subscription Benefits</span>
+              </div>
+              <div class="bba-icon" aria-hidden="true"></div>
+            </button>
+            <div class="bba-body" id="bba-sub">
+              <ul>
+                <li>10% off every order, every time</li>
+                <li>Free shipping on all subscription orders</li>
+                <li>30-Day Readiness Guarantee included</li>
+                <li>Skip, pause, or cancel anytime — no friction</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bba-item">
+            <button class="bba-trigger" type="button" aria-expanded="false" aria-controls="bba-ship">
+              <div class="bba-trigger-left">
+                <div class="bba-trigger-dot" aria-hidden="true"></div>
+                <span class="bba-name">Shipping &amp; Returns</span>
+              </div>
+              <div class="bba-icon" aria-hidden="true"></div>
+            </button>
+            <div class="bba-body" id="bba-ship">
+              <ul>
+                <li>Free shipping on all subscription orders</li>
+                <li>Orders processed within 1–2 business days</li>
+                <li>30-Day Readiness Guarantee — return within 30 days, no questions, no friction</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div><!-- /purchase-panel -->
+
+    </div><!-- /buy-box -->
+  </section>
+
+
+  <!-- ============================================================
+       TRUST / SPECS BAR
+  ============================================================ -->
+  <div class="trust-section">
+    <div class="trust-inner">
+
+      <!-- Specs row -->
+      <div class="specs-row">
+        <span class="spec-item">300mg Lion's Mane</span>
+        <div class="spec-pipe"></div>
+        <span class="spec-item">22 Essential Nutrients</span>
+        <div class="spec-pipe"></div>
+        <span class="spec-item">0 Fillers</span>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <svg class="trust-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span class="trust-badge-text">30-Day Guarantee</span>
+        </div>
+        <div class="trust-badge">
+          <svg class="trust-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="trust-badge-text">0 Fillers</span>
+        </div>
+        <div class="trust-badge">
+          <svg class="trust-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 19 6 19 18 12 22 5 18 5 6"/></svg>
+          <span class="trust-badge-text">300mg Lion's Mane</span>
+        </div>
+        <div class="trust-badge">
+          <svg class="trust-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="trust-badge-text">22 Essential Nutrients</span>
+        </div>
+        <div class="trust-badge">
+          <svg class="trust-badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <span class="trust-badge-text">Free Shipping with Sub</span>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       LIFESTYLE IMAGE STRIP (horizontal scroll on mobile, 4-col on desktop)
+  ============================================================ -->
+  <div class="lifestyle-strip" aria-label="Customer experiences">
+
+    <div class="lifestyle-card">
+      <img src="../media/Placeholder images/20260403_1441_Image Generation_simple_compose_01knadsgj9e8h9vg6agqv1x9qz (1).png" alt="Veteran in field environment" loading="lazy">
+      <div class="lifestyle-caption">
+        <div class="lifestyle-label">Recovery. Maintained.</div>
+        <p class="lifestyle-quote">"A daily baseline I could feel. Clearer head. Less joint noise."</p>
+      </div>
+    </div>
+
+    <div class="lifestyle-card">
+      <img src="../media/Placeholder images/20260403_1853_Image Generation_simple_compose_01knaw7xbdem6tj5kzc9x9c5xw.png" alt="First responders on scene" loading="lazy">
+      <div class="lifestyle-caption">
+        <div class="lifestyle-label">Stay Asset-Ready</div>
+        <p class="lifestyle-quote">"I don't have the luxury of a bad day. This is part of how I stay consistent."</p>
+      </div>
+    </div>
+
+    <div class="lifestyle-card">
+      <img src="../media/Placeholder images/20260403_1445_Image Generation_simple_compose_01knae1vjhfbpv95c4kfnt9hx9.png" alt="Operators at ease" loading="lazy">
+      <div class="lifestyle-caption">
+        <div class="lifestyle-label">Clear the Fog</div>
+        <p class="lifestyle-quote">"The clearest head I've had in years. Not dramatic. Just consistent."</p>
+      </div>
+    </div>
+
+    <div class="lifestyle-card">
+      <img src="../media/Placeholder images/20260403_1445_Image Generation_simple_compose_01knae1vjjesjaby2gtaasccr2.png" alt="Soldiers, candid moment" loading="lazy">
+      <div class="lifestyle-caption">
+        <div class="lifestyle-label">Show Up Every Day</div>
+        <p class="lifestyle-quote">"It's the part I do every morning without thinking about it."</p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ============================================================
+       READINESS EQUATION
+  ============================================================ -->
+  <section class="readiness-section">
+    <div class="readiness-inner">
+      <span class="section-label">The Formula</span>
+      <h2>What it takes to stay capable.</h2>
+      <div class="equation" role="img" aria-label="Fuel: Micronutrients + Focus: Lion's Mane + Maintenance: Curcumin = Total Capability">
+        <div class="eq-part">
+          <span class="eq-label">Fuel</span>
+          <span class="eq-val">Micronutrients</span>
+        </div>
+        <span class="eq-op" aria-hidden="true">+</span>
+        <div class="eq-part">
+          <span class="eq-label">Focus</span>
+          <span class="eq-val">Lion's Mane</span>
+        </div>
+        <span class="eq-op" aria-hidden="true">+</span>
+        <div class="eq-part">
+          <span class="eq-label">Maintenance</span>
+          <span class="eq-val">Curcumin</span>
+        </div>
+        <span class="eq-op" aria-hidden="true">=</span>
+        <div class="eq-part">
+          <span class="eq-label">Result</span>
+          <span class="eq-val eq-val--result">Total Capability</span>
+        </div>
+      </div>
+      <p class="readiness-copy">Most multivitamins cover the basics and stop there. Alpha 1 is built differently — starting with the full nutritional foundation your body needs every day, then adding the ingredients that support mental clarity, manage inflammation, and help your body absorb what you're giving it. Two capsules. One daily habit. The foundation everything else depends on.</p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       INGREDIENT CARDS (THE GEAR LIST)
+  ============================================================ -->
+  <section class="gear-section" id="gear-list">
+    <div class="gear-inner">
+      <div class="gear-header">
+        <span class="section-label">The Gear List</span>
+        <h2>Every ingredient. Exact dosage. Plain reason it's here.</h2>
+      </div>
+      <div class="gear-grid">
+
+        <div class="gear-card">
+          <div class="gear-top">
+            <div class="gear-name">Lion's Mane Mushroom Extract</div>
+            <div class="gear-dose">300mg</div>
+          </div>
+          <div class="gear-rule"></div>
+          <div class="gear-why-lbl">Why it's here</div>
+          <p class="gear-why">Lion's Mane supports cognitive function, focus, and mental clarity. When mental sharpness is part of your job — and part of being a parent, a partner, and a person others count on — this is the ingredient that keeps the edge.</p>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-top">
+            <div class="gear-name">Curcumin C3 Complex®</div>
+            <div class="gear-dose">500mg</div>
+          </div>
+          <div class="gear-rule"></div>
+          <div class="gear-why-lbl">Why it's here</div>
+          <p class="gear-why">Curcumin is a clinically studied turmeric extract used to manage the natural inflammation that comes from years of hard use — training, shifts, stress, and the daily physical toll of an active life. Not a painkiller. A maintenance ingredient.</p>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-top">
+            <div class="gear-name">BioPerine® Black Pepper Extract</div>
+            <div class="gear-dose">5mg</div>
+          </div>
+          <div class="gear-rule"></div>
+          <div class="gear-why-lbl">Why it's here</div>
+          <p class="gear-why">Your body can't use what it can't absorb. BioPerine is a patented extract that significantly increases the bioavailability of the other nutrients in Alpha 1. It's in here because the right dose only works if your body actually gets it.</p>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-top">
+            <div class="gear-name">Magnesium Glycinate</div>
+            <div class="gear-dose">25mg</div>
+          </div>
+          <div class="gear-rule"></div>
+          <div class="gear-why-lbl">Why it's here</div>
+          <p class="gear-why">Magnesium Glycinate is a highly bioavailable form of magnesium that supports muscle function, nerve signaling, and stress resilience. Most people don't get enough. The glycinate form absorbs better than the oxide form found in most supplements.</p>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-top">
+            <div class="gear-name">Methylcobalamin B12</div>
+            <div class="gear-dose">24mcg</div>
+          </div>
+          <div class="gear-rule"></div>
+          <div class="gear-why-lbl">Why it's here</div>
+          <p class="gear-why">This is the active form of B12 — the form your body uses directly, without conversion. It supports energy metabolism and nervous system function without stimulants. Consistent energy, not a spike.</p>
+        </div>
+
+        <div class="gear-card">
+          <div class="gear-top">
+            <div class="gear-name">22 Essential Nutrients</div>
+            <div class="gear-dose" style="font-size:0.95rem;padding-top:0.2rem;">Full Panel</div>
+          </div>
+          <div class="gear-rule"></div>
+          <div class="gear-why-lbl">Why it's here</div>
+          <p class="gear-why">The nutritional foundation. Vitamins A through Zinc. The daily baseline that covers what most people miss in a normal diet — especially people running hard, sleeping less than ideal, and not always eating as clean as they'd like.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       BODY AS GEAR — split layout: text left, image right on desktop
+  ============================================================ -->
+  <section class="body-gear-section">
+    <div class="body-gear-grid">
+      <div class="body-gear-text">
+        <span class="section-label">The Standard</span>
+        <h2>The only piece of equipment you carry 24/7.</h2>
+        <div class="body-gear-copy">
+          <p>Most people run their gear dry and wonder why it fails. They push hard, ignore the warning signs, and assume the body will just keep performing. It won't — not indefinitely, and not without maintenance.</p>
+          <p>Your body is no different from any piece of gear you've relied on. The harder you run it, the more it needs to be taken care of.</p>
+          <p>Alpha 1 is the daily maintenance protocol required to stay ready — not for the gym, not for aesthetics, but for when life taps you on the shoulder and you need to step up.</p>
+          <p>You can't control when that moment comes. You can control whether you're ready for it.</p>
+        </div>
+        <div class="body-gear-tagline">Stay Healthy. Stay Capable.</div>
+      </div>
+      <div class="body-gear-img-col">
+        <img src="../media/Placeholder images/20260403_1852_Image Generation_simple_compose_01knaw5tt0fzxbyqhn4f4ttx3k.png" alt="Two Marines at dawn, looking toward the horizon" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ABOUT VALOR VITALS
+  ============================================================ -->
+  <section class="about-section">
+    <div class="about-inner">
+
+      <div class="about-header">
+        <span class="section-label">About Valor Vitals</span>
+        <h2>Built by people who've been there.</h2>
+        <p class="about-intro">Valor Vitals started because Callon Nichols — a Marine infantry officer, Naval Academy graduate, and certified EMT — couldn't find a supplement built for the way he lived. Not a gym product. Not a wellness brand. A daily nutritional foundation for people who need to show up consistently, for work and for the people who depend on them. He built it with Ryan Bassham, a product veteran from the outdoor gear industry, and Andrew T., a retired Navy SEAL with over two decades of special operations service. The standard they held was simple: would they take it themselves, every day, without question.</p>
+      </div>
+
+      <div class="founder-grid">
+
+        <div class="founder-card">
+          <div class="founder-avatar">CN</div>
+          <div class="founder-info">
+            <div class="founder-name">Callon Nichols</div>
+            <div class="founder-title">Co-Founder &amp; CEO</div>
+            <p class="founder-bio">Marine infantry officer. Naval Academy graduate. Harvard Business School alumnus. Certified EMT. Husband, father of twin daughters. Built Valor Vitals because he needed it and couldn't find it.</p>
+          </div>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-avatar">RB</div>
+          <div class="founder-info">
+            <div class="founder-name">Ryan Bassham</div>
+            <div class="founder-title">Co-Founder &amp; CMO</div>
+            <p class="founder-bio">Veteran of SITKA Outdoors and PEAX Equipment. Hunter and guide who knows the difference between gear that performs under real conditions and gear that just looks good on a shelf.</p>
+          </div>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-avatar">AT</div>
+          <div class="founder-info">
+            <div class="founder-name">Andrew T.</div>
+            <div class="founder-title">Head of Strategy</div>
+            <p class="founder-bio">NSWDG Warrant Officer. Retired Navy SEAL with over 20 years of special operations service. He understands what operational readiness actually requires — and what cuts against it.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="values-strip">
+        <span class="value-item">Quality Only</span>
+        <div class="value-pipe"></div>
+        <span class="value-item">Mission Focused</span>
+        <div class="value-pipe"></div>
+        <span class="value-item">Veteran Excellence</span>
+        <div class="value-pipe"></div>
+        <span class="value-item">Crew Mentality</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FIELD REPORTS (TESTIMONIALS)
+       Note: Replace photos with actual customer/persona images before launch.
+  ============================================================ -->
+  <section class="field-section" id="field-reports">
+    <div class="field-inner">
+      <div class="section-hd">
+        <span class="section-label">Field Reports</span>
+        <h2>From the people who actually use it.</h2>
+        <p class="field-note">Placeholder photos — final customer images will be added before launch.</p>
+      </div>
+      <div class="field-grid">
+
+        <div class="field-card">
+          <div class="field-photo">
+            <img src="../media/Callon USMC images/461032885_10102166965395891_4434481379080616667_n.jpg" alt="Veteran" loading="lazy">
+            <div class="field-caption"><span class="field-label">Recovery. Maintained.</span></div>
+          </div>
+          <div class="field-body">
+            <p class="field-quote">"I've been running hard for a long time. The aches were starting to feel permanent. Alpha 1 didn't fix everything — but it gave me a daily baseline I could feel. Clearer head. Less joint noise. That matters."</p>
+            <p class="field-attr">— Marcus, Former Infantry, 34</p>
+          </div>
+        </div>
+
+        <div class="field-card">
+          <div class="field-photo">
+            <img src="../media/Callon USMC images/460865918_10102166965595491_4454075635647669338_n.jpg" alt="First responder" loading="lazy">
+            <div class="field-caption"><span class="field-label">Stay Asset-Ready</span></div>
+          </div>
+          <div class="field-body">
+            <p class="field-quote">"I work 12-hour shifts and come home to a family that needs me present. I don't have the luxury of a bad day. Alpha 1 is part of how I stay consistent — not just at work, but when I walk through the door."</p>
+            <p class="field-attr">— Ryan, EMT, 38</p>
+          </div>
+        </div>
+
+        <div class="field-card">
+          <div class="field-photo">
+            <img src="../media/Callon USMC images/464490073_10102208575718471_6840503625009628346_n.jpg" alt="Professional" loading="lazy">
+            <div class="field-caption"><span class="field-label">Clear the Fog</span></div>
+          </div>
+          <div class="field-body">
+            <p class="field-quote">"I started noticing the brain fog in my late 30s. I didn't talk about it — I just worked around it. Alpha 1 with the Lion's Mane is the clearest head I've had in years. Not dramatic. Just consistent."</p>
+            <p class="field-attr">— Derek, Project Manager, 41</p>
+          </div>
+        </div>
+
+        <div class="field-card">
+          <div class="field-photo">
+            <img src="../media/Callon USMC images/461003738_10102166965590501_5770008581325399253_n.jpg" alt="Father" loading="lazy">
+            <div class="field-caption"><span class="field-label">Show Up Every Day</span></div>
+          </div>
+          <div class="field-body">
+            <p class="field-quote">"My kids don't care if I'm tired. They need their dad. That's all the motivation I need to take care of myself. Alpha 1 is a small part of a bigger commitment — but it's the part I do every morning without thinking about it."</p>
+            <p class="field-attr">— James, Father of Three, 43</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       30-DAY GUARANTEE
+  ============================================================ -->
+  <section class="guarantee-section">
+    <div class="guarantee-inner">
+      <div class="g-ring" aria-hidden="true">
+        <span class="g-num">30</span>
+        <span class="g-lbl">Day</span>
+      </div>
+      <h2>30-Day Readiness Guarantee</h2>
+      <p class="guarantee-copy">If Alpha 1 isn't right for you, we'll make it right. Return it within 30 days, no questions, no friction. That's the standard.</p>
+      <a href="#buy" class="btn-cta">Start Your Protocol</a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       TECHNICALS (COLLAPSIBLE ACCORDION)
+  ============================================================ -->
+  <section class="tech-section">
+    <div class="tech-inner">
+
+      <div class="acc-item">
+        <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="acc-supp-body">
+          <span class="acc-title">Full Supplement Facts</span>
+          <div class="acc-icon" aria-hidden="true"></div>
+        </button>
+        <div class="acc-body" id="acc-supp-body" role="region">
+          <p class="acc-intro">Everything in Alpha 1, listed plainly.</p>
+          <!-- INSERT full vitamin/mineral panel from certified label before launch -->
+          <table class="supp-table">
+            <thead>
+              <tr>
+                <th>Ingredient</th>
+                <th>Per Serving (2 Capsules)</th>
+                <th>% DV</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="3" class="supp-placeholder">Full vitamin and mineral panel (22 essential nutrients) — insert from certified supplement facts label before launch.</td>
+              </tr>
+              <tr class="featured"><td>Magnesium <em>(as Magnesium Glycinate)</em></td><td>25 mg</td><td>6%</td></tr>
+              <tr class="featured"><td>Vitamin B12 <em>(as Methylcobalamin)</em></td><td>24 mcg</td><td>1,000%</td></tr>
+              <tr class="featured"><td>Lion's Mane Mushroom Extract <em>(Hericium erinaceus)</em></td><td>300 mg</td><td>†</td></tr>
+              <tr class="featured"><td>Curcumin C3 Complex® <em>(Curcuma longa root extract)</em></td><td>500 mg</td><td>†</td></tr>
+              <tr class="featured"><td>BioPerine® Black Pepper Extract <em>(Piper nigrum fruit extract)</em></td><td>5 mg</td><td>†</td></tr>
+            </tbody>
+          </table>
+          <p class="supp-note">† Daily Value not established. Serving Size: 2 Capsules. Servings Per Container: 30. Other Ingredients: [Insert from certified label].</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="acc-usage-body">
+          <span class="acc-title">Usage Instructions</span>
+          <div class="acc-icon" aria-hidden="true"></div>
+        </button>
+        <div class="acc-body" id="acc-usage-body" role="region">
+          <p class="usage-copy">Take two (2) capsules daily, preferably with food. Consistent daily use is how this works — not a loading phase, not a cycle. A habit.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="acc-protocol-body">
+          <span class="acc-title">The Full Protocol</span>
+          <div class="acc-icon" aria-hidden="true"></div>
+        </button>
+        <div class="acc-body" id="acc-protocol-body" role="region">
+          <p class="usage-copy">Alpha 1 covers your nutritional foundation. B1 Hydration covers what gets lost during hard physical work — electrolytes, hydration, cellular performance. The two together form the complete daily stack: one handles what your body needs to build and maintain, the other handles what it needs to operate.</p>
+          <p class="usage-copy" style="margin-top: 1.1rem;">Most people think about hydration during and after exercise. That's the minimum. The full protocol means staying ahead of the deficit — every day, not just on hard days. Alpha 1 in the morning. B1 when you need it. No complicated routine. Two habits that cover the baseline your body actually requires.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="footer-logo">Valor Vitals</div>
+    <div class="footer-tagline">Stay Healthy. Stay Capable.</div>
+    <p class="footer-legal">These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary.</p>
+    <p class="footer-copy">© Valor Vitals. All rights reserved.</p>
+  </footer>
+
+
+  <script>
+    // Image carousel
+    (function() {
+      var mainImg = document.getElementById('main-product-img');
+      var thumbs = document.querySelectorAll('.img-thumb');
+      thumbs.forEach(function(thumb) {
+        function activate() {
+          thumbs.forEach(function(t) { t.classList.remove('is-active'); });
+          thumb.classList.add('is-active');
+          mainImg.style.opacity = '0';
+          setTimeout(function() { mainImg.src = thumb.dataset.full; mainImg.style.opacity = '1'; }, 120);
+        }
+        thumb.addEventListener('click', activate);
+        thumb.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+      });
+    })();
+
+    // Buy box sub-accordions
+    document.querySelectorAll('.bba-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        var item = trigger.closest('.bba-item');
+        var open = item.classList.contains('is-open');
+        item.classList.toggle('is-open', !open);
+        trigger.setAttribute('aria-expanded', String(!open));
+      });
+    });
+
+    // Main page accordions
+    document.querySelectorAll('.acc-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        var item = trigger.closest('.acc-item');
+        var open = item.classList.contains('is-open');
+        item.classList.toggle('is-open', !open);
+        trigger.setAttribute('aria-expanded', String(!open));
+      });
+    });
+  </script>
+
+</body>
+</html>
