@@ -7,7 +7,7 @@
   <title>Alpha 1 Enhanced Multivitamin — Valor Vitals</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@600;700;800;900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ============================================================
        VARIABLES
@@ -19,13 +19,13 @@
       --text-primary:  #f2f0eb;
       --text-secondary:#9e9c96;
       --text-muted:    #5a5855;
-      --accent:        #FF6B00;
-      --accent-hover:  #e05e00;
-      --accent-dim:    rgba(255,107,0,0.1);
+      --accent:        #f4b335;
+      --accent-hover:  #d99a20;
+      --accent-dim:    rgba(244,179,53,0.1);
       --border:        #2c2c2c;
       --border-mid:    #363636;
-      --font-display:  'Barlow Condensed', system-ui, sans-serif;
-      --font-body:     'Barlow', system-ui, -apple-system, sans-serif;
+      --font-display:  'Tomorrow', system-ui, sans-serif;
+      --font-body:     'Outfit', system-ui, -apple-system, sans-serif;
       --max-width:     1100px;
       --header-h:      56px;
     }
@@ -108,7 +108,7 @@
     .header-nav-link:hover { color: var(--text-primary); }
     .header-cta {
       display: inline-block; padding: 0.5rem 1.25rem;
-      background: var(--accent); color: #fff;
+      background: var(--accent); color: #1a1a1a;
       font-size: 0.7rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.12em;
       text-decoration: none; border: none; cursor: pointer;
@@ -179,19 +179,19 @@
       text-transform: uppercase; line-height: 1.04; margin-bottom: 0.25rem;
     }
     .panel-subtitle {
-      font-size: 0.73rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text-muted); margin-bottom: 1rem;
+      font-size: 0.8rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: var(--text-secondary); margin-bottom: 1rem;
     }
 
     /* Benefit chips */
     .b-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 1.25rem; }
     .b-chip {
-      font-size: 0.6rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.07em;
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
       color: var(--text-secondary);
       border: 1px solid var(--border-mid);
-      padding: 0.22rem 0.55rem;
+      padding: 0.28rem 0.65rem;
       white-space: nowrap;
     }
 
@@ -214,7 +214,7 @@
     }
     .radio-dot {
       width: 16px; height: 16px; border-radius: 50%;
-      border: 2px solid var(--text-muted); flex-shrink: 0;
+      border: 2px solid var(--text-secondary); flex-shrink: 0;
       margin-top: 0.3rem;
       display: flex; align-items: center; justify-content: center;
       transition: border-color 0.15s;
@@ -228,30 +228,30 @@
     .toggle-txt { flex: 1; min-width: 0; }
     .toggle-row { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
     .toggle-name {
-      font-size: 0.68rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted);
+      font-size: 0.8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);
     }
     .toggle-opt input:checked + .toggle-lbl .toggle-name { color: var(--text-primary); }
     .toggle-price {
       font-family: var(--font-display);
-      font-size: 1.55rem; font-weight: 900; color: var(--text-primary); line-height: 1;
+      font-size: 1.8rem; font-weight: 900; color: var(--text-primary); line-height: 1;
     }
-    .toggle-per { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.12rem; }
+    .toggle-per { font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.15rem; }
     .toggle-pills { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-top: 0.5rem; }
     .t-pill {
-      font-size: 0.58rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.07em;
+      font-size: 0.67rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
       color: var(--accent);
-      background: rgba(255,107,0,0.1);
-      border: 1px solid rgba(255,107,0,0.28);
-      padding: 0.16rem 0.48rem;
+      background: rgba(244,179,53,0.1);
+      border: 1px solid rgba(244,179,53,0.28);
+      padding: 0.22rem 0.55rem;
     }
 
     /* CTA */
     .btn-buy {
       display: block; width: 100%;
       padding: 1.05rem 2rem;
-      background: var(--accent); color: #fff;
+      background: var(--accent); color: #1a1a1a;
       font-family: var(--font-body); font-size: 0.85rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.14em;
       text-align: center; border: none; cursor: pointer;
@@ -295,7 +295,7 @@
       position: relative; transition: border-color 0.15s, background 0.15s;
     }
     .bba-item:hover .bba-icon,
-    .bba-item.is-open .bba-icon { border-color: var(--accent); background: rgba(255,107,0,0.08); }
+    .bba-item.is-open .bba-icon { border-color: var(--accent); background: rgba(244,179,53,0.08); }
     .bba-icon::before, .bba-icon::after {
       content: ''; position: absolute; background: var(--text-secondary);
       transition: background 0.15s;
@@ -429,7 +429,7 @@
       padding: 0.65rem 1.25rem; white-space: nowrap;
     }
     .eq-val--result {
-      color: var(--accent); border-color: rgba(255,107,0,0.3); background: rgba(255,107,0,0.07);
+      color: var(--accent); border-color: rgba(244,179,53,0.3); background: rgba(244,179,53,0.07);
     }
     .eq-op {
       font-family: var(--font-display);
@@ -588,7 +588,7 @@
     .guarantee-copy { font-size: 1rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 2rem; }
     .btn-cta {
       display: inline-block; padding: 1rem 2.5rem;
-      background: var(--accent); color: #fff;
+      background: var(--accent); color: #1a1a1a;
       font-family: var(--font-body); font-size: 0.82rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.14em;
       text-decoration: none; border: none; cursor: pointer; transition: background 0.15s;
@@ -685,7 +685,7 @@
     .founder-card:hover { border-top-color: var(--accent); }
     .founder-avatar {
       width: 52px; height: 52px; border-radius: 50%;
-      background: var(--accent-dim); border: 1.5px solid rgba(255,107,0,0.35);
+      background: var(--accent-dim); border: 1.5px solid rgba(244,179,53,0.35);
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-display); font-size: 1.1rem; font-weight: 900;
       text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); flex-shrink: 0;
@@ -1169,7 +1169,7 @@
       <div class="about-header">
         <span class="section-label">About Valor Vitals</span>
         <h2>Built by people who've been there.</h2>
-        <p class="about-intro">Valor Vitals started because Callon Nichols — a Marine infantry officer, Naval Academy graduate, and certified EMT — couldn't find a supplement built for the way he lived. Not a gym product. Not a wellness brand. A daily nutritional foundation for people who need to show up consistently, for work and for the people who depend on them. He built it with Ryan Bassham, a product veteran from the outdoor gear industry, and Andrew T., a retired Navy SEAL with over two decades of special operations service. The standard they held was simple: would they take it themselves, every day, without question.</p>
+        <p class="about-intro">Valor Vitals started because Callon Nichols — a Marine officer, Naval Academy graduate, and certified EMT — couldn't find a supplement built for the way he lived. Not a gym product. Not a wellness brand. A daily nutritional foundation for people who need to show up consistently, for work and for the people who depend on them. He built it with Ryan Bassham, a product veteran from the outdoor gear industry, and Andrew T., a retired Navy SEAL with over two decades of special operations service. The standard they held was simple: would they take it themselves, every day, without question.</p>
       </div>
 
       <div class="founder-grid">
@@ -1179,7 +1179,7 @@
           <div class="founder-info">
             <div class="founder-name">Callon Nichols</div>
             <div class="founder-title">Co-Founder &amp; CEO</div>
-            <p class="founder-bio">Marine infantry officer. Naval Academy graduate. Harvard Business School alumnus. Certified EMT. Husband, father of twin daughters. Built Valor Vitals because he needed it and couldn't find it.</p>
+            <p class="founder-bio">Marine officer. Naval Academy graduate. Harvard Business School alumnus. Certified EMT. Husband, father of twin daughters. Built Valor Vitals because he needed it and couldn't find it.</p>
           </div>
         </div>
 
