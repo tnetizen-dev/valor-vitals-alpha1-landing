@@ -660,7 +660,7 @@
     .about-section::before {
       content: '';
       position: absolute; inset: 0;
-      background: url('../media/Placeholder images/20260403_1441_Image Generation_simple_compose_01knadsgj8e16b7jbe3ven4kr1 (1).png') center / cover no-repeat;
+      background: url('media/Placeholder images/20260403_1441_Image Generation_simple_compose_01knadsgj8e16b7jbe3ven4kr1 (1).png') center / cover no-repeat;
       opacity: 0.07;
       pointer-events: none;
     }
@@ -771,26 +771,26 @@
           <img
             class="img-main"
             id="main-product-img"
-            src="../media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png"
+            src="media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png"
             alt="Valor Vitals Alpha 1 Enhanced Multivitamin — 60 capsules, 30-day supply"
             loading="eager"
           >
         </div>
         <div class="img-thumbs">
           <div class="img-thumb is-active"
-            data-full="../media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png"
+            data-full="media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png"
             role="button" tabindex="0" aria-label="Front of bottle">
-            <img src="../media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png" alt="Front">
+            <img src="media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png" alt="Front">
           </div>
           <div class="img-thumb"
-            data-full="../media/Product and brand images/VALORVITALS-Multivitamin-Back.png"
+            data-full="media/Product and brand images/VALORVITALS-Multivitamin-Back.png"
             role="button" tabindex="0" aria-label="Back of bottle — supplement facts">
-            <img src="../media/Product and brand images/VALORVITALS-Multivitamin-Back.png" alt="Back">
+            <img src="media/Product and brand images/VALORVITALS-Multivitamin-Back.png" alt="Back">
           </div>
           <div class="img-thumb"
-            data-full="../media/Product and brand images/VALORVITALS-Multivitamin-Side.png"
+            data-full="media/Product and brand images/VALORVITALS-Multivitamin-Side.png"
             role="button" tabindex="0" aria-label="Side of bottle">
-            <img src="../media/Product and brand images/VALORVITALS-Multivitamin-Side.png" alt="Side">
+            <img src="media/Product and brand images/VALORVITALS-Multivitamin-Side.png" alt="Side">
           </div>
         </div>
       </div>
@@ -994,7 +994,7 @@
   <div class="lifestyle-strip" aria-label="Customer experiences">
 
     <div class="lifestyle-card">
-      <img src="../media/Lifestyle Photos/vv_lifestyle_fire_3.jpg" alt="Firefighter in action" loading="lazy">
+      <img src="media/Lifestyle Photos/vv_lifestyle_fire_3.jpg" alt="Firefighter in action" loading="lazy">
       <div class="lifestyle-caption">
         <div class="lifestyle-label">Stay Asset-Ready</div>
         <p class="lifestyle-quote">"I don't have the luxury of a bad day. This is part of how I stay consistent."</p>
@@ -1002,7 +1002,7 @@
     </div>
 
     <div class="lifestyle-card">
-      <img src="../media/Lifestyle Photos/vv_lifestyle_fitness.jpg" alt="Fitness lifestyle" loading="lazy">
+      <img src="media/Lifestyle Photos/vv_lifestyle_fitness.jpg" alt="Fitness lifestyle" loading="lazy">
       <div class="lifestyle-caption">
         <div class="lifestyle-label">Recovery. Maintained.</div>
         <p class="lifestyle-quote">"A daily baseline I could feel. Clearer head. Less joint noise."</p>
@@ -1010,7 +1010,7 @@
     </div>
 
     <div class="lifestyle-card">
-      <img src="../media/Lifestyle Photos/vv_lifestyle_EMS.jpg" alt="EMS responder lifestyle" loading="lazy">
+      <img src="media/Lifestyle Photos/vv_lifestyle_EMS.jpg" alt="EMS responder lifestyle" loading="lazy">
       <div class="lifestyle-caption">
         <div class="lifestyle-label">Show Up Every Day</div>
         <p class="lifestyle-quote">"It's the part I do every morning without thinking about it."</p>
@@ -1018,7 +1018,7 @@
     </div>
 
     <div class="lifestyle-card">
-      <img src="../media/Lifestyle Photos/vv_lifestyle_police.jpg" alt="Law enforcement lifestyle" loading="lazy">
+      <img src="media/Lifestyle Photos/vv_lifestyle_police.jpg" alt="Law enforcement lifestyle" loading="lazy">
       <div class="lifestyle-caption">
         <div class="lifestyle-label">Clear the Fog</div>
         <p class="lifestyle-quote">"The clearest head I've had in years. Not dramatic. Just consistent."</p>
@@ -1154,7 +1154,7 @@
         <div class="body-gear-tagline">Stay Healthy. Stay Capable.</div>
       </div>
       <div class="body-gear-img-col">
-        <img src="../media/Lifestyle Photos/vv_lifestyle_fire_1.jpg" alt="Firefighter in action" loading="lazy">
+        <img src="media/Lifestyle Photos/vv_lifestyle_fire_1.jpg" alt="Firefighter in action" loading="lazy">
       </div>
     </div>
   </section>
@@ -1386,8 +1386,8 @@
     // Swap product image when Foundation Stack is selected
     (function() {
       var mainImg = document.getElementById('main-product-img');
-      var singleImg = '../media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png';
-      var bundleImg = '../media/Product and brand images/VALORVITALS-Multivitamin-Hydration Bundle.png';
+      var singleImg = 'media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png';
+      var bundleImg = 'media/Product and brand images/VALORVITALS-Multivitamin-Hydration Bundle.png';
       document.querySelectorAll('input[name="purchase-type"]').forEach(function(radio) {
         radio.addEventListener('change', function() {
           var next = this.value === 'bundle' ? bundleImg : singleImg;
