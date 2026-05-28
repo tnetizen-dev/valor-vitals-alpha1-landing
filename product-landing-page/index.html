@@ -541,31 +541,32 @@
     @media (min-width: 960px) { .field-grid { grid-template-columns: repeat(4, 1fr); } }
     .field-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      display: flex; flex-direction: column; overflow: hidden;
+      display: flex; flex-direction: column;
+      padding: 2rem 1.75rem;
+      position: relative;
     }
-    .field-photo {
-      position: relative; height: 220px; overflow: hidden; background: var(--bg-elevated);
-    }
-    .field-photo img {
-      width: 100%; height: 100%; object-fit: cover;
-      object-position: center top; opacity: 0.72;
-    }
-    .field-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 2.5rem 1rem 0.85rem;
-      background: linear-gradient(to top, rgba(26,26,26,1), rgba(26,26,26,0.5) 60%, transparent);
+    .field-card::before {
+      content: '\201C';
+      display: block;
+      font-size: 4rem; line-height: 0.8;
+      color: var(--accent); opacity: 0.45;
+      margin-bottom: 0.75rem;
+      font-family: Georgia, 'Times New Roman', serif;
     }
     .field-label {
-      font-family: var(--font-display); font-size: 1rem; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent);
+      font-family: var(--font-display); font-size: 0.65rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent);
+      margin-bottom: 0.9rem;
     }
-    .field-body { padding: 1.2rem 1.2rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
     .field-quote {
-      font-size: 0.87rem; color: var(--text-secondary);
-      font-style: italic; line-height: 1.68; flex: 1; margin-bottom: 1rem;
+      font-size: 1.05rem; color: var(--text-primary);
+      font-style: italic; line-height: 1.8; flex: 1; margin-bottom: 1.5rem;
     }
-    .field-attr { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); }
-    .field-note { font-size: 0.7rem; color: var(--text-muted); font-style: italic; margin-top: 0.6rem; }
+    .field-attr {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--text-muted);
+      padding-top: 1rem; border-top: 1px solid var(--border);
+    }
 
     /* ============================================================
        30-DAY GUARANTEE
@@ -833,20 +834,19 @@
             </label>
           </div>
 
-          <!-- Maintenance Protocol — pre-selected -->
+          <!-- Subscribe and Save — pre-selected -->
           <div class="toggle-opt">
             <input type="radio" name="purchase-type" id="opt-subscribe" value="subscribe" checked>
             <label for="opt-subscribe" class="toggle-lbl">
               <div class="radio-dot" aria-hidden="true"></div>
               <div class="toggle-txt">
                 <div class="toggle-row">
-                  <div class="toggle-name">Maintenance Protocol</div>
+                  <div class="toggle-name">Subscribe and Save</div>
                   <div class="toggle-price">$40.49<span style="font-size:0.85rem;font-weight:500;color:var(--text-muted);">/mo</span></div>
                 </div>
-                <div class="toggle-per">$1.35 / day</div>
+                <div class="toggle-per">$1.35 / day · A1 Multivitamin only</div>
                 <div class="toggle-pills">
                   <span class="t-pill">10% Savings</span>
-                  <span class="t-pill">Free Shipping</span>
                   <span class="t-pill">30-Day Readiness Guarantee</span>
                 </div>
               </div>
@@ -994,7 +994,7 @@
   <div class="lifestyle-strip" aria-label="Customer experiences">
 
     <div class="lifestyle-card">
-      <img src="../media/Placeholder images/20260403_1441_Image Generation_simple_compose_01knadsgj9e8h9vg6agqv1x9qz (1).png" alt="Veteran in field environment" loading="lazy">
+      <img src="../media/Lifestyle Photos/vv_lifestyle_fitness.jpg" alt="Fitness lifestyle" loading="lazy">
       <div class="lifestyle-caption">
         <div class="lifestyle-label">Recovery. Maintained.</div>
         <p class="lifestyle-quote">"A daily baseline I could feel. Clearer head. Less joint noise."</p>
@@ -1018,7 +1018,7 @@
     </div>
 
     <div class="lifestyle-card">
-      <img src="../media/Placeholder images/20260403_1445_Image Generation_simple_compose_01knae1vjjesjaby2gtaasccr2.png" alt="Soldiers, candid moment" loading="lazy">
+      <img src="../media/Lifestyle Photos/vv_lifestyle_EMS.jpg" alt="EMS responder lifestyle" loading="lazy">
       <div class="lifestyle-caption">
         <div class="lifestyle-label">Show Up Every Day</div>
         <p class="lifestyle-quote">"It's the part I do every morning without thinking about it."</p>
@@ -1154,7 +1154,7 @@
         <div class="body-gear-tagline">Stay Healthy. Stay Capable.</div>
       </div>
       <div class="body-gear-img-col">
-        <img src="../media/Placeholder images/20260403_1852_Image Generation_simple_compose_01knaw5tt0fzxbyqhn4f4ttx3k.png" alt="Two Marines at dawn, looking toward the horizon" loading="lazy">
+        <img src="../media/Lifestyle Photos/vv_lifestyle_fire_1.jpg" alt="Firefighter in action" loading="lazy">
       </div>
     </div>
   </section>
@@ -1219,59 +1219,37 @@
 
   <!-- ============================================================
        FIELD REPORTS (TESTIMONIALS)
-       Note: Replace photos with actual customer/persona images before launch.
   ============================================================ -->
   <section class="field-section" id="field-reports">
     <div class="field-inner">
       <div class="section-hd">
         <span class="section-label">Field Reports</span>
         <h2>From the people who actually use it.</h2>
-        <p class="field-note">Placeholder photos — final customer images will be added before launch.</p>
       </div>
       <div class="field-grid">
 
         <div class="field-card">
-          <div class="field-photo">
-            <img src="../media/Callon USMC images/461032885_10102166965395891_4434481379080616667_n.jpg" alt="Veteran" loading="lazy">
-            <div class="field-caption"><span class="field-label">Recovery. Maintained.</span></div>
-          </div>
-          <div class="field-body">
-            <p class="field-quote">"I've been running hard for a long time. The aches were starting to feel permanent. Alpha 1 didn't fix everything — but it gave me a daily baseline I could feel. Clearer head. Less joint noise. That matters."</p>
-            <p class="field-attr">— Marcus, Former Infantry, 34</p>
-          </div>
+          <span class="field-label">Recovery. Maintained.</span>
+          <p class="field-quote">"I've been running hard for a long time. The aches were starting to feel permanent. Alpha 1 didn't fix everything — but it gave me a daily baseline I could feel. Clearer head. Less joint noise. That matters."</p>
+          <p class="field-attr">— Marcus, Former Infantry, 34</p>
         </div>
 
         <div class="field-card">
-          <div class="field-photo">
-            <img src="../media/Callon USMC images/460865918_10102166965595491_4454075635647669338_n.jpg" alt="First responder" loading="lazy">
-            <div class="field-caption"><span class="field-label">Stay Asset-Ready</span></div>
-          </div>
-          <div class="field-body">
-            <p class="field-quote">"I work 12-hour shifts and come home to a family that needs me present. I don't have the luxury of a bad day. Alpha 1 is part of how I stay consistent — not just at work, but when I walk through the door."</p>
-            <p class="field-attr">— Ryan, EMT, 38</p>
-          </div>
+          <span class="field-label">Stay Asset-Ready</span>
+          <p class="field-quote">"I work 12-hour shifts and come home to a family that needs me present. I don't have the luxury of a bad day. Alpha 1 is part of how I stay consistent — not just at work, but when I walk through the door."</p>
+          <p class="field-attr">— Ryan, EMT, 38</p>
         </div>
 
         <div class="field-card">
-          <div class="field-photo">
-            <img src="../media/Callon USMC images/464490073_10102208575718471_6840503625009628346_n.jpg" alt="Professional" loading="lazy">
-            <div class="field-caption"><span class="field-label">Clear the Fog</span></div>
-          </div>
-          <div class="field-body">
-            <p class="field-quote">"I started noticing the brain fog in my late 30s. I didn't talk about it — I just worked around it. Alpha 1 with the Lion's Mane is the clearest head I've had in years. Not dramatic. Just consistent."</p>
-            <p class="field-attr">— Derek, Project Manager, 41</p>
-          </div>
+          <span class="field-label">Clear the Fog</span>
+          <p class="field-quote">"I started noticing the brain fog in my late 30s. I didn't talk about it — I just worked around it. Alpha 1 with the Lion's Mane is the clearest head I've had in years. Not dramatic. Just consistent."</p>
+          <p class="field-attr">— Derek, Project Manager, 41</p>
         </div>
 
         <div class="field-card">
-          <div class="field-photo">
-            <img src="../media/Callon USMC images/461003738_10102166965590501_5770008581325399253_n.jpg" alt="Father" loading="lazy">
-            <div class="field-caption"><span class="field-label">Show Up Every Day</span></div>
-          </div>
-          <div class="field-body">
-            <p class="field-quote">"My kids don't care if I'm tired. They need their dad. That's all the motivation I need to take care of myself. Alpha 1 is a small part of a bigger commitment — but it's the part I do every morning without thinking about it."</p>
-            <p class="field-attr">— James, Father of Three, 43</p>
-          </div>
+          <span class="field-label">Show Up Every Day</span>
+          <p class="field-quote">"My kids don't care if I'm tired. They need their dad. That's all the motivation I need to take care of myself. Alpha 1 is a small part of a bigger commitment — but it's the part I do every morning without thinking about it."</p>
+          <p class="field-attr">— James, Father of Three, 43</p>
         </div>
 
       </div>
@@ -1404,6 +1382,20 @@
         trigger.setAttribute('aria-expanded', String(!open));
       });
     });
+
+    // Swap product image when Foundation Stack is selected
+    (function() {
+      var mainImg = document.getElementById('main-product-img');
+      var singleImg = '../media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png';
+      var bundleImg = '../media/Product and brand images/VALORVITALS-Multivitamin-Hydration Bundle.png';
+      document.querySelectorAll('input[name="purchase-type"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+          var next = this.value === 'bundle' ? bundleImg : singleImg;
+          mainImg.style.opacity = '0';
+          setTimeout(function() { mainImg.src = next; mainImg.style.opacity = '1'; }, 120);
+        });
+      });
+    })();
   </script>
 
 </body>
