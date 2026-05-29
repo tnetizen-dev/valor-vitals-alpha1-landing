@@ -771,26 +771,26 @@
           <img
             class="img-main"
             id="main-product-img"
-            src="media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png"
+            src="https://cdn.shopify.com/s/files/1/0646/4195/7987/files/91702848-5a75-4712-8eb9-ef2dbcf12cb9_d89a5549-cba9-4eae-8882-632c8582e724.png?v=1768853410"
             alt="Valor Vitals Alpha 1 Enhanced Multivitamin — 60 capsules, 30-day supply"
             loading="eager"
           >
         </div>
         <div class="img-thumbs">
           <div class="img-thumb is-active"
-            data-full="media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png"
+            data-full="https://cdn.shopify.com/s/files/1/0646/4195/7987/files/91702848-5a75-4712-8eb9-ef2dbcf12cb9_d89a5549-cba9-4eae-8882-632c8582e724.png?v=1768853410"
             role="button" tabindex="0" aria-label="Front of bottle">
-            <img src="media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png" alt="Front">
+            <img src="https://cdn.shopify.com/s/files/1/0646/4195/7987/files/91702848-5a75-4712-8eb9-ef2dbcf12cb9_d89a5549-cba9-4eae-8882-632c8582e724.png?v=1768853410" alt="Front">
           </div>
           <div class="img-thumb"
-            data-full="media/Product and brand images/VALORVITALS-Multivitamin-Back.png"
+            data-full="https://cdn.shopify.com/s/files/1/0646/4195/7987/files/VALORVITALS-Multivitamin-Back.png?v=1769270461"
             role="button" tabindex="0" aria-label="Back of bottle — supplement facts">
-            <img src="media/Product and brand images/VALORVITALS-Multivitamin-Back.png" alt="Back">
+            <img src="https://cdn.shopify.com/s/files/1/0646/4195/7987/files/VALORVITALS-Multivitamin-Back.png?v=1769270461" alt="Back">
           </div>
           <div class="img-thumb"
-            data-full="media/Product and brand images/VALORVITALS-Multivitamin-Side.png"
+            data-full="https://cdn.shopify.com/s/files/1/0646/4195/7987/files/VALORVITALS-Multivitamin-Side.png?v=1769119845"
             role="button" tabindex="0" aria-label="Side of bottle">
-            <img src="media/Product and brand images/VALORVITALS-Multivitamin-Side.png" alt="Side">
+            <img src="https://cdn.shopify.com/s/files/1/0646/4195/7987/files/VALORVITALS-Multivitamin-Side.png?v=1769119845" alt="Side">
           </div>
         </div>
       </div>
@@ -876,7 +876,7 @@
 
         </div>
 
-        <button class="btn-buy" type="button">Start Your Protocol</button>
+        <button class="btn-buy" type="button" id="btn-buy">Start Your Protocol</button>
 
         <!-- Sub-accordions: Key Benefits / Subscription Benefits / Shipping & Returns -->
         <div class="bba-wrap">
@@ -1383,10 +1383,26 @@
       });
     });
 
+    // Route buy button based on selected purchase option
+    (function() {
+      var VARIANT = '43958843605091';
+      var SELLING_PLAN = 'APPSTLE_PLAN_ID'; // TODO: replace with Appstle selling_plan ID
+      var urls = {
+        'one-time':  'https://valorvitals.com/cart/' + VARIANT + ':1',
+        'subscribe': 'https://valorvitals.com/cart/' + VARIANT + ':1?selling_plan=' + SELLING_PLAN,
+        'bundle':    'https://valorvitals.com/products/a1-multi-vitamin' // TODO: update when B1 Hydration bundle exists
+      };
+      document.getElementById('btn-buy').addEventListener('click', function() {
+        var selected = document.querySelector('input[name="purchase-type"]:checked');
+        var url = urls[selected ? selected.value : 'one-time'];
+        window.location.href = url;
+      });
+    })();
+
     // Swap product image when Foundation Stack is selected
     (function() {
       var mainImg = document.getElementById('main-product-img');
-      var singleImg = 'media/Product and brand images/VALORVITALS-Multivitamin-Front (1).png';
+      var singleImg = 'https://cdn.shopify.com/s/files/1/0646/4195/7987/files/91702848-5a75-4712-8eb9-ef2dbcf12cb9_d89a5549-cba9-4eae-8882-632c8582e724.png?v=1768853410';
       var bundleImg = 'media/Product and brand images/VALORVITALS-Multivitamin-Hydration Bundle.png';
       document.querySelectorAll('input[name="purchase-type"]').forEach(function(radio) {
         radio.addEventListener('change', function() {
