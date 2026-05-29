@@ -1390,7 +1390,7 @@
       var urls = {
         'one-time':  'https://valorvitals.com/cart/' + VARIANT + ':1',
         'subscribe': 'https://valorvitals.com/cart/' + VARIANT + ':1?selling_plan=' + SELLING_PLAN,
-        'bundle':    'https://valorvitals.com/products/a1-multi-vitamin' // TODO: update when B1 Hydration bundle exists
+        'bundle':    'https://valorvitals.com/cart/43965201449059:1'
       };
       document.getElementById('btn-buy').addEventListener('click', function() {
         var selected = document.querySelector('input[name="purchase-type"]:checked');
@@ -1403,7 +1403,7 @@
     (function() {
       var mainImg = document.getElementById('main-product-img');
       var singleImg = 'https://cdn.shopify.com/s/files/1/0646/4195/7987/files/91702848-5a75-4712-8eb9-ef2dbcf12cb9_d89a5549-cba9-4eae-8882-632c8582e724.png?v=1768853410';
-      var bundleImg = 'media/Product and brand images/VALORVITALS-Multivitamin-Hydration Bundle.png';
+      var bundleImg = 'https://cdn.shopify.com/s/files/1/0646/4195/7987/files/b2b1a1_3.png?v=1769270461';
       document.querySelectorAll('input[name="purchase-type"]').forEach(function(radio) {
         radio.addEventListener('change', function() {
           var next = this.value === 'bundle' ? bundleImg : singleImg;
