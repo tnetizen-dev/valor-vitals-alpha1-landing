@@ -1,8 +1,11 @@
 # PRD: Valor Vitals Hydration Long-Form Sales Page
 
-**Version:** 1.0 — 2026-08-26
-**Format:** Single-column long-form sales page (advertorial), cold Meta traffic
+**Version:** 2.0 — 2026-08-29
+**Format:** Single-column long-form sales page, cold Meta traffic
 **Strategy source:** `sales page copy/2026-08-25-longform-page-strategy.md` · `offer/2026-08-25-hydration-offer-structure-and-game-plan.md`
+**Restructured per:** `sales page copy/2026-08-28-restructure-ian-feedback.md` (Ian Stanley review, 27 Aug)
+
+> **v2 changed the page's sequence, not its content.** If you are reading this to make a change, read §1.1 first — the single most likely mistake on this page is reintroducing the problem-first opening that v1 had.
 
 ---
 
@@ -12,7 +15,25 @@ One job: convert a stranger who is tired at 2pm into a first-time buyer of a $29
 
 It is **not** trying to sell the A1, build a brand, or explain the full product line. The A1 arrives later, in the post-purchase flow and by email. Anything on this page that isn't moving someone toward the $29 is cut.
 
-**Audience:** men, roughly 30–55, who work long physical or high-stress days — trades, first responders, shift workers, active civilians. They already drink water. They already own an electrolyte product. They have mis-diagnosed the afternoon wall as age.
+**Audience:** men, roughly 30–55, who work long physical or high-stress days — trades, first responders, shift workers, active civilians.
+
+## 1.1 Awareness level — the thing that decides the structure
+
+**This reader is product-aware and solution-aware. They already own an electrolyte product.**
+
+That single fact drives the whole section order. They are not arriving asking *why am I tired at 2pm.* They are arriving asking *why would I switch.* The page answers that in the first screen and spends the rest of its length proving it.
+
+Ian Stanley, reviewing the v1 build on 27 Aug:
+
+> "You're in a product-aware market, and you're in a problem-aware market. The people who are clicking on this already know hydration salts exist. You don't need to explain to them this. I just go straight — go against the competition of why you're different… It's the ingredients."
+
+**Concretely, this forbids:**
+
+- Opening with problem agitation. v1 spent 2,366px — the largest section on the page — establishing a problem the reader has already lived through.
+- Burying palatinose. It was at 20% depth in v1 and Ian had to open the packaging image to find it. It is the entire reason to switch brands and it belongs in the first two screens.
+- Treating the comparison table as supporting evidence. It is the proof of the hero's claim and sits directly behind it.
+
+The problem material still appears — compressed, at 22–30%, answering *why does that matter to me* rather than opening the page.
 
 ---
 
@@ -55,25 +76,39 @@ Depth percentages are targets for the **built page at 375px**, and they are requ
 
 | # | ID | Section | Depth | Copy key |
 |---|---|---|---|---|
-| 1 | `hero` | Hero | 0% | `S1_HERO` |
-| 2 | `trust` | Trust ribbon | ~3% | `S2_TRUST` |
-| 3 | `problem` | Problem agitation | 5–18% | `S3_PROBLEM` |
-| 4 | `mechanism` | **Palatinose reveal** | 18–24% | `S4_MECHANISM` |
-| 5 | `cta-1` | **Buy button 1 + sticky bar activates** | **24%** | `CTA_PRIMARY` |
-| 6 | `founder` | Founder credibility | 26–36% | `S5_FOUNDER` |
-| 7 | `cta-2` | Buy button 2 | 36% | `CTA_PRIMARY` |
-| 8 | `panel` | Ingredient comparison | 38–48% | `S6_PANEL` |
-| 9 | `transformation` | Before / after | 48–56% | `S7_TRANSFORMATION` |
-| 10 | `cta-3` | Buy button 3 | 56% | `CTA_PRIMARY` |
-| 11 | `offer` | Offer and price | 58–68% | `S8_OFFER` |
-| 12 | `cta-4` | **Buy button 4 — inline offer module** | 68% | `S9_STACK` |
-| 13 | `guarantee` | The guarantee | 70–80% | `S10_GUARANTEE` |
-| 14 | `cta-5` | Buy button 5 | 80% | `CTA_PRIMARY` |
-| 15 | `faq` | FAQ | 82–92% | `S11_FAQ` |
-| 16 | `close` | Close | 92–97% | `S12_CLOSE` |
+| 1 | `hero` | Hero — the fourth ingredient | 0% | `S1_HERO` |
+| 2 | `trust` | Trust ribbon | ~4% | `S2_TRUST` |
+| 3 | `mechanism` | **The fourth ingredient explained** | 5–14% | `S3_MECHANISM` |
+| 4 | `panel` | **Ingredient panel + comparison table** | 14–21% | `S4_PANEL` |
+| 5 | `cta-1` | **Buy button 1 + sticky bar activates** | **21%** | `CTA_PRIMARY` |
+| 6 | `why-yours-quits` | Why the one you're using quits on you | 22–30% | `S5_WHY_YOURS_QUITS` |
+| 7 | `built-for` | Built for a twelve-hour day — and Callon | 30–41% | `S6_BUILT_FOR` |
+| 8 | `cta-2` | Buy button 2 | 41% | `CTA_PRIMARY` |
+| 9 | `transformation` | Before / after | 42–50% | `S7_TRANSFORMATION` |
+| 10 | `cta-3` | Buy button 3 | 50% | `CTA_PRIMARY` |
+| 11 | `offer` | Offer and price | 51–64% | `S8_OFFER` |
+| 12 | `cta-4` | **Buy button 4 — inline offer module** | 64% | `S9_STACK` |
+| 13 | `guarantee` | The guarantee | 66–74% | `S10_GUARANTEE` |
+| 14 | `cta-5` | Buy button 5 | 74% | `CTA_PRIMARY` |
+| 15 | `faq` | FAQ | 75–90% | `S11_FAQ` |
+| 16 | `close` | Close | 91–96% | `S12_CLOSE` |
 | 17 | `cta-6` | Buy button 6 — final | 97% | `CTA_PRIMARY` |
 
 **Nothing renders after `cta-6`** except a minimal legal footer. The ConversionWise audit flagged exactly this on the A1 page: it ended on a CTA and then restarted with more education, and "it reads like the page ran out and then started again."
+
+### Changes from v1 (measured depths → targets)
+
+| Section | v1 measured | v2 target |
+|---|---|---|
+| Mechanism (palatinose) | 18–24% | **5–14%** |
+| Comparison table | 38–48% | **14–21%** |
+| Buy button 1 | 27.3% | **21%** |
+| Problem block | 5–18% (2,366px) | **22–30%, compressed ~50%** |
+| Founder | 28–37% | 30–41%, merged with the stakes framing |
+| Buy button 4 (module) | 76.6%, button at 83.6% | **64%** |
+| Guarantee | 84% | **66–74%** |
+
+Section IDs `problem` and `founder` from v1 no longer exist. `why-yours-quits` and `built-for` replace them, and the analytics events change accordingly — see `analytics-events.md`.
 
 ### Why no buy button in the hero
 
@@ -134,18 +169,18 @@ Native `<details>`/`<summary>`. First item open by default, rest closed. Each op
 
 ---
 
-## 5. The comparison table (`S6_PANEL`)
+## 5. The comparison table (`S4_PANEL`)
 
 **This is the highest-leverage asset on the page.** Build it as a real table, not an image — it must be readable at 375px and selectable by screen readers.
 
-- Rows: sodium, potassium, magnesium, slow-release carbohydrate, added cane sugar, artificial dyes, stimulants
+- Rows: sodium, potassium, magnesium, **chloride, vitamin C**, slow-release carbohydrate, added cane sugar, stimulants — chloride and vitamin C were added in v2 after the real panel was read; both are on Valor's label and were missing from v1
 - Columns: **Valor Vitals** | Leading zero-sugar stick | Leading tablet | Leading sugar stick
 - **Never name a competitor.** Generic descriptors only. This was a decision made on 24 Aug, not an oversight
 - Valor's column gets the accent treatment; competitor columns stay neutral
 - Where a competitor has a zero or a gap, show it as a visible absence rather than a dash lost in a grid — the whole argument is "every one of them has a hole in the panel somewhere"
 - Horizontal scroll inside its own `overflow-x: auto` container. The page body must never scroll sideways
 
-⚠️ **Every number in this table traces to `email/Payday Resupply — Broadcast Email + SMS 2026-07-31.md` and needs confirming against a photo of the actual B1/B2 panel before this page goes live.** Competitor figures need sourcing too. Build it; don't launch it unverified.
+⚠️ **Valor's figures are now confirmed** against a photograph of the real B1 back panel: sodium 800mg, potassium 300mg (as potassium citrate), magnesium 75mg (as magnesium malate), chloride 1200mg, vitamin C 100mg, isomaltulose as Palatinose™ 4g. **Every competitor figure remains an unverified placeholder and must be sourced from current published labels before launch.** Build it; don't launch it unverified.
 
 ---
 
@@ -175,6 +210,8 @@ Read `core/brand-voice.md` and `memory/glossary.md` in full. The load-bearing on
 
 ---
 
-## 8. Out of scope for v1
+## 8. Out of scope
 
-Reviews and testimonials (no volume yet), video (add once footage exists — CXL cites above-fold video tests at +46% and +25% sales, so this is a v2 priority), subscription option on this page (the ascension happens post-purchase), A1 cross-sell anywhere on the page.
+Reviews and testimonials (no volume yet), video (add once footage exists — CXL cites above-fold video tests at +46% and +25% sales, so this is a priority for the next revision), subscription option on this page (the ascension happens post-purchase), A1 cross-sell anywhere on the page.
+
+**Also out of scope, deliberately:** several of Ian's angles are ad material rather than page material — the "why is it expensive" ingredient explainer, the founder-podcast format, the not-first-but-better story as a standalone hook. Those belong in a creative brief, not on this page. His own note: *"Everything I say doesn't mean it has to be the lead… all of those can also be different ads."*
