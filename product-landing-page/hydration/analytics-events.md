@@ -1,6 +1,6 @@
 # Analytics Event Spec: Hydration Long-Form Sales Page
 
-**Version:** 1.0 — 2026-08-26
+**Version:** 2.0 — 2026-08-29 (section IDs updated for the v2 restructure)
 
 ## Why this file exists
 
@@ -27,11 +27,11 @@ Add a `?debug=1` flag that also `console.log`s every event. The build isn't done
 
 | Event | Fires when | Why it matters |
 |---|---|---|
-| `section_view_problem` | `#problem` enters viewport | Did they start reading |
-| `section_view_mechanism` | `#mechanism` enters viewport | Did they reach the argument |
-| `section_view_cta_1` | `#cta-1` enters viewport | **The single most important number on the page.** Baseline to beat: 11.3% of mobile sessions currently reach 75% depth on the A1 PDP |
-| `section_view_founder` | `#founder` enters viewport | |
-| `section_view_panel` | `#panel` enters viewport | Did they reach the comparison — the strongest asset |
+| `section_view_mechanism` | `#mechanism` enters viewport | Did they reach the differentiator — now the second section |
+| `section_view_panel` | `#panel` enters viewport | Did they reach the comparison — the proof, now at 14% |
+| `section_view_cta_1` | `#cta-1` enters viewport | **The single most important number on the page.** Baseline to beat: 11.3% of mobile sessions reached 75% depth on the A1 PDP |
+| `section_view_why_yours_quits` | `#why-yours-quits` enters viewport | |
+| `section_view_built_for` | `#built-for` enters viewport | Stakes framing + founder |
 | `section_view_transformation` | `#transformation` enters viewport | |
 | `section_view_offer` | `#offer` enters viewport | Did they reach the price |
 | `section_view_guarantee` | `#guarantee` enters viewport | |
@@ -71,9 +71,9 @@ This is where the buy-box-versus-anchor-scroll question gets answered.
 
 | Event | Fires when | Params |
 |---|---|---|
-| `faq_open` | An accordion item opens | `{ question_id: 'taste' \| 'timing' \| 'caffeine' \| 'blood_sugar' \| 'difference' \| 'subscribe' \| 'guarantee' \| 'flavor' \| 'shipping' }` |
+| `faq_open` | An accordion item opens | `{ question_id: 'taste' \| 'timing' \| 'caffeine' \| 'added_sugars' \| 'fasting' \| 'blood_sugar' \| 'difference' \| 'subscribe' \| 'guarantee' \| 'flavor' \| 'shipping' }` |
 
-Which questions get opened is real qualitative data at this traffic volume — it's the closest thing to a free objection survey you'll get. If `blood_sugar` or `difference` dominate, that content belongs higher on the page.
+Which questions get opened is real qualitative data at this traffic volume — it's the closest thing to a free objection survey you'll get. If `added_sugars`, `fasting`, `blood_sugar` or `difference` dominate, that content belongs higher on the page.
 
 ---
 
