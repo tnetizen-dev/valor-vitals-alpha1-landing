@@ -1,6 +1,6 @@
 # Analytics Event Spec: Hydration Long-Form Sales Page
 
-**Version:** 3.0 — 2026-09-03 (section IDs updated for the v3 copy rewrite)
+**Version:** 2.0 — 2026-08-29 (section IDs updated for the v2 restructure)
 
 ## Why this file exists
 
@@ -27,14 +27,12 @@ Add a `?debug=1` flag that also `console.log`s every event. The build isn't done
 
 | Event | Fires when | Why it matters |
 |---|---|---|
-| `section_view_why_carb` | `#why-carb` enters viewport | Did they reach the mechanism explanation |
-| `section_view_formula` | `#formula` enters viewport | Did they reach the full panel |
-| `section_view_cta_1` | `#cta-1` enters viewport | **The single most important number on the page.** Baseline to beat: 28% of mobile sessions reach 25% depth on the A1 PDP. `cta-1` now sits at 20% |
-| `section_view_compare` | `#compare` enters viewport | Did they reach the comparison table |
-| `section_view_why_others_quit` | `#why-others-quit` enters viewport | |
-| `section_view_built_for` | `#built-for` enters viewport | Founder section |
-| `section_view_before_after` | `#before-after` enters viewport | |
-| `section_view_keep_yours` | `#keep-yours` enters viewport | The lowered ask |
+| `section_view_mechanism` | `#mechanism` enters viewport | Did they reach the differentiator — now the second section |
+| `section_view_panel` | `#panel` enters viewport | Did they reach the comparison — the proof, now at 14% |
+| `section_view_cta_1` | `#cta-1` enters viewport | **The single most important number on the page.** Baseline to beat: 11.3% of mobile sessions reached 75% depth on the A1 PDP |
+| `section_view_why_yours_quits` | `#why-yours-quits` enters viewport | |
+| `section_view_built_for` | `#built-for` enters viewport | Stakes framing + founder |
+| `section_view_transformation` | `#transformation` enters viewport | |
 | `section_view_offer` | `#offer` enters viewport | Did they reach the price |
 | `section_view_guarantee` | `#guarantee` enters viewport | |
 | `section_view_faq` | `#faq` enters viewport | |
@@ -50,7 +48,7 @@ This is where the buy-box-versus-anchor-scroll question gets answered.
 
 | Event | Fires when | Params |
 |---|---|---|
-| `drawer_open` | Drawer opens | `{ source: 'cta-1'…'cta-6' \| 'sticky_bar', depth_pct }` — capture depth BEFORE the scroll lock |
+| `drawer_open` | Drawer opens | `{ source: 'cta-1'…'cta-6' \| 'sticky_bar', depth_pct }` |
 | `drawer_flavor_select` | A flavour is chosen | `{ flavor: 'B1' \| 'B2', source }` |
 | `drawer_upgrade_toggle` | Second-flavour row is checked or unchecked | `{ checked: true \| false, source }` |
 | `drawer_dismiss` | Closed without adding to cart | `{ source, seconds_open, flavor_selected: true \| false }` |
@@ -73,9 +71,9 @@ This is where the buy-box-versus-anchor-scroll question gets answered.
 
 | Event | Fires when | Params |
 |---|---|---|
-| `faq_open` | An accordion item opens | `{ question_id: 'taste' \| 'timing' \| 'caffeine' \| 'added_sugars' \| 'fasting' \| 'difference' \| 'subscribe' \| 'guarantee' \| 'flavor' \| 'shipping' }` |
+| `faq_open` | An accordion item opens | `{ question_id: 'taste' \| 'timing' \| 'caffeine' \| 'added_sugars' \| 'fasting' \| 'blood_sugar' \| 'difference' \| 'subscribe' \| 'guarantee' \| 'flavor' \| 'shipping' }` |
 
-Which questions get opened is real qualitative data at this traffic volume — it's the closest thing to a free objection survey you'll get. If `added_sugars`, `fasting` or `difference` dominate, that content belongs higher on the page.
+Which questions get opened is real qualitative data at this traffic volume — it's the closest thing to a free objection survey you'll get. If `added_sugars`, `fasting`, `blood_sugar` or `difference` dominate, that content belongs higher on the page.
 
 ---
 
@@ -107,7 +105,7 @@ Create a **distinct custom conversion** for this page's purchase. If the hydrati
 
 What actually gets read at the week 6–7 checkpoint, in priority order:
 
-1. **`section_view_cta_1` ÷ sessions** — what share of sessions reach the first buy button at 20% depth. Against the A1 PDP baseline of 28% reaching 25% depth, this should clear it comfortably. If it doesn't, nothing else matters
+1. **`section_view_cta_1` ÷ sessions** — did more people reach a buy button than the 11.3% who currently reach 75% depth on the A1 PDP. If this fails, nothing else matters
 2. **`drawer_open` ÷ `section_view_cta_1`** — does the ask work once they see it
 3. **`drawer_add_to_cart` ÷ `drawer_open`** — does the drawer work
 4. **`drawer_upgrade_toggle` checked ÷ `drawer_add_to_cart`** — second-flavour attach rate, against Ian's 35% bump benchmark

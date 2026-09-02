@@ -1,336 +1,449 @@
 # Copy: Valor Vitals Hydration Long-Form Sales Page
 
-**Version:** 2.0 — 2026-08-29
-**Source:** `sales page copy/hyrdation_sales_page.md` (Email Game Changers system)
-**Restructured per:** Ian Stanley, Bootcamp Sales Page Review, 27 Aug 2026 — see `sales page copy/2026-08-28-restructure-ian-feedback.md`
-**v1 archived at:** `copy-hydration-sales-page-v1-archive.md`
+**Version:** 3.0 — 2026-09-03
+**Source:** Rewritten in Email Game Changers from V1, against Ian Stanley's consolidated notes (`sales page copy/2026-09-02-EGC-notes.md`). Reviewed and approved by Tracy.
+**Prior versions:** `_superseded/copy-v2-archive.md`, `copy-hydration-sales-page-v1-archive.md`
 
-**Instruction to the builder: use this verbatim.** Every section is keyed to a PRD section ID. If something you need isn't here, flag it — don't write it.
+**Builder: use this verbatim.** Every section is keyed to a PRD section ID. If something you need isn't here, flag it — don't write it.
 
----
+### What changed from v2
 
-## What changed in v2, and why
-
-The v1 deck was built on a problem-first structure: establish the pain, name the mis-diagnosis, reveal the mechanism, sell the fix. Ian's review says that's the wrong structure for this reader.
-
-> "You're in a product-aware market… The people who are clicking on this already know hydration salts exist. You don't need to explain to them this. I just go straight — go against the competition of why you're different. What is the difference? It's the ingredients."
->
-> "You have great shit. It's just in the wrong order on the page."
-
-So v2 is **the same material resequenced**, not a rewrite. Roughly 70% of v1 carries over word for word.
-
-| Change | Reason |
-|---|---|
-| **New hero** — leads with the four-ingredient claim, not the afternoon wall | Reader is product-aware. "The Afternoon Wall Isn't Age" was flagged as confusing. The *missing ingredient* half of that headline survives |
-| **Palatinose promoted** from 20% depth to the second section | *"It needs to be led with."* Ian had to open the packaging image to find it |
-| **Comparison table promoted** from 38% to 14% | It's the proof of the claim the hero makes |
-| **Problem block compressed ~50%** and moved below the mechanism | Still earns its place — just answering "why does that matter to me" rather than opening the page |
-| **Stakes section merged with the founder story** | Callon's service is what makes the twelve-hour framing credible. They belong adjacent |
-| **Calories and carbs stated in the hero** | Ian's most specific ask. He hit the sugar objection live and unprompted |
-| **Two FAQ answers added** — added sugars, keto/fasting | The printed panel says "Includes 4g Added Sugars." Two independent reviewers found this in 24 hours |
-| **"We were late" beat added** to the founder section | Ian's not-first-but-better angle, minus the unprovable superlative |
-
-### Four of Ian's lines did NOT ship as spoken
-
-Per the standing rule that his feedback outranks prior instructions **except** where it collides with brand rules or product truth. Each keeps its underlying idea; the reasoning is in the restructure doc, §4.
-
-1. **"Wrong ratios"** — unsubstantiated claim about competitors' formulation. Ships as the table, letting the reader conclude.
-2. **The cramp mechanism** — already ruled out in `offer/2026-08-24-hydration-messaging-strategy.md`; sports-medicine consensus attributes exercise-associated cramps to neuromuscular control and fatigue, not electrolyte imbalance. Ships as the stakes escalation without the cramp claim.
-3. **"We are now the best"** — unprovable superlative beside a specific comparison, and against the voice rules. Ships as "we were late, and that turned out to be the advantage."
-4. **"Won't kick you out of keto"** — Ian hedged this himself. 4g of carbohydrate does break a fast. Ships as the numbers, stated plainly.
+The whole page was rewritten in EGC rather than edited. It is roughly half the length of v2. The opening now goes straight from the headline into palatinose; the mechanism gets its own section; the emotional agitation material is largely gone. Two things below are **additions I made that are not in the approved copy** — both are flagged inline and need Tracy's sign-off.
 
 ---
 
-## `S1_HERO` — REWRITTEN
+## `S1_HERO`
 
 # Every Electrolyte Stick Has the Same Three Ingredients. We Added a Fourth.
 
-Sodium, potassium, magnesium. Every pack on the shelf has them, and so do we — dosed for a twelve-hour day rather than a forty-five-minute workout.
+It's called palatinose.
 
-But the reason your current packet stops carrying you somewhere around two o'clock isn't the three it has. It's the one it doesn't.
+You've probably never seen it on an electrolyte label because almost nobody in this category uses it.
 
-**$29 for your first bag.** 30 sticks, 30 days.
-25 calories and 4g of carbohydrate per stick — the full panel is further down, nothing hidden.
+Most hydration packs have sodium, potassium, and magnesium. So does ours. We use them in what we believe to be the right ratios.
 
-Use the whole bag. If three o'clock isn't different, keep it and we'll refund you.
+But we added something else.
 
-*[scroll cue]*
+Palatinose is a slow-release carbohydrate derived from beet sugar. The technical name is isomaltulose.
+
+And before the word "carbohydrate" loses you: it's only 4 grams of carbohydrate and 25 calories per stick.
+
+That's it.
+
+Palatinose has a stronger molecular bond than table sugar, so your body breaks it down four to five times more slowly. It's low glycemic, with a glycemic index of 32.
+
+And that matters for more than energy.
 
 ---
 
-## `S2_TRUST` — unchanged
+## `S2_TRUST`
+
+⚠️ **ADDITION — needs Tracy's approval.** Not in the EGC copy. Carried forward from v2 and from the ConversionWise audit, which listed a trust ribbon as a Priority 1 item. Its job here is to make the guarantee visible to someone who never scrolls past the first screen, without spending words in the opening.
 
 Veteran-owned · Made in the USA · 90-day guarantee · No stimulants
 
 ---
 
-## `S3_MECHANISM` — PROMOTED from 20% depth, opening lines reworked
+## `S3_WHY_CARB`
 
-### The Fourth Ingredient Is Called Palatinose
+### Here's Why We Put a Carbohydrate in a Hydration Product
 
-You've almost certainly never seen it on a label, because almost nobody in this category uses it.
+Your small intestine absorbs glucose and sodium together.
 
-The technical name is isomaltulose. It's a carbohydrate derived from beet sugar with a stronger molecular bond — which means your body breaks it down four to five times slower than it breaks down table sugar.
+That's one of the basic principles behind oral rehydration. When carbohydrate is available alongside sodium, it participates in the transport process your body uses to absorb sodium and fluid.
 
-Glycemic index of 32, compared to roughly 65 for regular sugar. That's not a smaller sugar rush. That's a **different shape entirely.** Not a spike and a drop. A level line across the whole back half of your day.
+The difference with palatinose is how slowly it becomes available.
 
-It also absorbs across the full length of the small intestine instead of dumping at the front — which means the energy is extended, not immediate. It doesn't hit you like a pre-workout. It just keeps the lights on.
+Regular sugar is broken down quickly. Palatinose breaks down more slowly and is absorbed along the full length of the small intestine.
 
-Almost nobody uses it because it costs more than sugar, and most brands would rather keep that money and put it toward bigger sodium numbers and better packaging.
+So instead of having the carbohydrate available for a short period, it remains available for that sodium-glucose transport process over a longer window.
 
-That's the whole difference. Everything below is us showing our work.
+If you've ever heard of someone taking casein protein before bed because it releases amino acids more slowly than other proteins, it's a similar idea.
 
----
+Slow release is the point.
 
-## `S4_PANEL` — PROMOTED from 38% depth
+We wanted a hydration product for long days, so using a carbohydrate that gets burned through quickly didn't make much sense to us.
 
-### Here's What "Made Right" Actually Looks Like
+And using no carbohydrate at all meant leaving out part of the absorption equation.
 
-I went through a lot of ingredient panels before we formulated this. And what I kept finding was that every leading product had at least one zero — or a near-zero — somewhere in the lineup that told you what they'd decided not to prioritize.
-
-Valor Vitals Hydration, per stick:
-
-- **800mg sodium** — dosed for people who actually sweat for a living, not for someone who did a 45-minute spin class
-- **300mg potassium** — 50% more than the leading zero-sugar stick
-- **75mg magnesium** — as magnesium malate, not the oxide most cheap products use. More than any of the category leaders. The leading zero-sugar stick has 60mg. The leading tablet has 25mg. The leading sugar stick has none at all.
-- **1200mg chloride** — the electrolyte nobody talks about and most products under-dose
-- **100mg vitamin C** — 111% of your daily value
-- **4g palatinose** — the slow-release carbohydrate that makes the whole thing actually work for the back half of your day
-- **No caffeine, no stimulants, no added cane sugar, no artificial dyes** — nothing to crash from, nothing to regret at 9pm when you're trying to sleep
-
-Read across any comparison table and every competitor has a hole in the panel somewhere. We don't.
-
-### Comparison table data
-
-*(Builder: render as a real table per PRD §5. Never name a competitor.)*
-
-| Per stick | **Valor Vitals** | Leading zero-sugar stick | Leading tablet | Leading sugar stick |
-|---|---|---|---|---|
-| Sodium | **800mg** | 1000mg | 300mg | 500mg |
-| Potassium | **300mg** | 200mg | 150mg | 370mg |
-| Magnesium | **75mg** (malate) | 60mg | 25mg | — none |
-| Chloride | **1200mg** | — unverified — | — unverified — | — unverified — |
-| Vitamin C | **100mg** | — unverified — | — unverified — | — unverified — |
-| Slow-release carbohydrate | **4g palatinose** | — none | — none | — none |
-| Added cane sugar | **None** | None | None | 11–21g |
-| Stimulants | **None** | None | None | None |
-
-We dosed ours for a twelve-hour day. Those are the numbers. Go read the panel on whatever's in your cabinet and put them side by side — that comparison is most of our argument, and we'd rather you make it yourself than take our word for it.
-
-⚠️ **BLOCKING BEFORE LAUNCH:** Valor's figures are confirmed against a photograph of the actual B1 back panel (sodium 800mg, potassium 300mg as potassium citrate, magnesium 75mg as magnesium malate, chloride 1200mg, vitamin C 100mg, isomaltulose as Palatinose™ 4g). **Every competitor figure above is an unverified placeholder and must be sourced from current published labels before this table goes live.** Build the table; do not launch it unverified.
-
-Made in the USA. Veteran-owned. Two flavors: **B1 Blue Raspberry** and **B2 Lemon Lime.** 30 sticks per bag. One stick per day.
+So we added palatinose.
 
 ---
 
-## `CTA_PRIMARY` — unchanged
+## `CTA_PRIMARY`
 
-*(Used at `cta-1`, `cta-2`, `cta-3`, `cta-5`, `cta-6`. Same label everywhere — consistency is what makes it read as one door rather than five different offers.)*
+*(One label, used at every buy button on the page. The approved copy uses three different labels — "ORDER YOUR FIRST BAG — $29", "TRY VALOR VITALS HYDRATION — FIRST BAG $29", "TRY YOUR FIRST BAG — $29". Standardised on the third, which is the shortest and lowest-commitment. Flagged for Tracy.)*
 
-**Button label:** `Get your first bag — $29`
-**Supporting line beneath, small:** 30 sticks. 30 days. Keep it if it doesn't work.
+**Button label:** `Try your first bag — $29`
 
----
+**Supporting line beneath, small:** 30 sticks. 90 days to try it. Keep the bag either way.
 
-## `S5_WHY_YOURS_QUITS` — COMPRESSED ~50% from v1's `S3_PROBLEM`, and moved below the mechanism
-
-### Why the One You're Using Now Quits on You
-
-Most people land here having already made peace with the wrong explanation: *you're getting older.* Your body's just not what it was. You've been hard on it. Fair enough — except that's not what's happening, and what is happening is a lot more fixable.
-
-Your body needs electrolytes to move fluid into your cells. Most people have that part figured out. But electrolytes don't power anything. They're the delivery system. If you want sustained energy — not a spike, not a buzz, just *functional hours* — you also need a carbohydrate source that lasts.
-
-There are two products on that shelf and both of them leave you somewhere.
-
-**The zero-sugar sticks** give you the sodium and skip the carbohydrate entirely. You end up properly hydrated with nothing to run on. Your cells got the water. They just don't have fuel.
-
-**The sugar-based packets** go the other direction — they carry their electrolytes on 11 to 21 grams of fast sugar. You get a lift. Then your blood sugar does what fast sugar always does, and you're back in the hole by hour three, except now you've got a little crash working against you too.
-
-Neither one was built for what you actually do.
-
-And all of that stays true **even if** you're drinking more water than anyone else on your crew. **Even if** you're eating well. **Even if** you've already tried two or three different products in this category and none of them quite got you there.
+⚠️ **ADDITION — needs Tracy's approval.** The supporting line is assembled from language already in the approved copy ("Try It for 90 Days. Keep the Bag Either Way"). It exists so the guarantee lands at the moment of the ask, where risk reversal does its work. No new claim is introduced.
 
 ---
 
-## `S6_BUILT_FOR` — NEW SECTION merging the stakes framing with v1's `S5_FOUNDER`
+## `S4_FORMULA`
 
-### A One-Hour Workout Has a Finish Line
+### We Were Late to the Electrolyte Category. That Helped.
 
-Most electrolyte packets are engineered for exactly that. A workout. A run. A forty-five-minute thing with a defined end point.
+There were already a lot of electrolyte products on the shelf when we started working on ours.
 
-Hour nine of a twelve-hour shift doesn't have one. Neither does a full day on a roof in August, or eight hours of work followed by a family that deserves more than whoever shows up to the couch at 5:30.
+That meant we didn't have to guess.
 
-That's the gap this was built into.
+We could turn over the bags, read the labels, and see exactly what everybody was doing.
 
-### My Name is Callon Nichols.
+Some had a lot of sodium but not much potassium.
 
-I'm a Marine Corps officer and a certified EMT. I've been hard on my body in the way that a lot of guys reading this will understand — not because I was careless, but because that was the job and I didn't want to do it halfway.
+Some had very little magnesium.
 
-I earned a perfect score on the Marine Corps Physical Fitness Test. I climbed Kilimanjaro. I ran the Marine Corps Marathon in my combat boots and utilities, just to see if I could.
+Some had plenty of fast sugar.
 
-In my own words: *I beat the hell out of my body — and it kept a tab.*
+Some removed the carbohydrate entirely.
 
-The bill came later. A neck injury from my time in the Corps got progressively worse. Chronic pain and inflammation became things I managed instead of things I recovered from. And at some point I looked up and realized that the amount of energy I was spending just getting through the day — just handling the accumulation of all of it — was costing me at home. Costing me at work. Costing the people around me.
+We took what we learned and built the formula we wanted to use ourselves.
 
-I started Valor Vitals with a friend who spent over a decade in the SEAL teams. The founding idea came directly from the Marine Corps: you take care of your gear, because your life and the lives of the people next to you depend on it.
+Here's what's in one stick of Valor Vitals Hydration:
 
-Your body is the one piece of gear you have on you every single day, for the rest of your life. Most of us are not maintaining it like it matters.
+**800mg sodium**
 
-**We were late to this category, and that turned out to be the advantage.** We didn't have to guess. We got to read every panel on the shelf, find the thing all of them had decided not to pay for, and put it in ours.
+**300mg potassium**
+
+**75mg magnesium, from magnesium malate**
+
+A lot of inexpensive formulas use magnesium oxide. We chose magnesium malate.
+
+Then there's another number on our label most people probably aren't used to looking for:
+
+**1,200mg chloride.**
+
+Most people hear "chloride" and think about a swimming pool.
+
+But chloride is also an electrolyte. In fact, it's one of the major electrolytes in your body.
+
+And each stick also contains:
+
+**100mg vitamin C — 111% of the Daily Value.**
+
+Then there's the ingredient that started this whole conversation:
+
+**4g palatinose.**
+
+Four grams of slow-release carbohydrate. 25 calories.
+
+No caffeine. No stimulants. No artificial dyes. No added cane sugar.
+
+And we actually wanted it to taste good.
+
+That sounds obvious until you've tried enough electrolyte products. A formula doesn't do you much good sitting in your cabinet because you hate drinking it.
+
+Valor comes in **B1 Blue Raspberry** and **B2 Lemon Lime**.
 
 ---
 
-## `S7_TRANSFORMATION` — unchanged
+## `S5_COMPARE`
 
-### What the Before and After Actually Looks Like
+### Put the Labels Next to Each Other
+
+You don't have to take our word for it.
+
+Look at the numbers.
+
+Then go turn over whatever's in your cabinet and read the back of that one.
+
+That's the argument.
+
+⚠️ **ADDITION — needs Tracy's approval.** The last two lines are new. Without the table, "look at the numbers" pointed at nothing; these turn the comparison outward and make the section's own promise literally true. Written in the page's established rhythm ("That's the ask." / "That's the guarantee."). Replace freely.
+
+📌 **The comparison table was deliberately cut from launch, not forgotten.** Competitor figures have never been sourced from current labels, and the section opened by promising numbers it couldn't deliver. See `comparison-table-sourcing.md` for what was found, what's missing, and why the chloride row should not come back. The table gets added in a later revision once real panels are photographed — the re-insert point is directly beneath "Look at the numbers."
+
+30 sticks. Your choice of B1 Blue Raspberry or B2 Lemon Lime.
+
+That works out to about **97 cents a day.**
+
+And if you want to try both flavors, add the second bag for **$19**.
+
+It ships in the same box. No extra shipping.
+
+---
+
+## `S6_WHY_OTHERS_QUIT`
+
+### So Why Do Other Hydration Packets Quit on You?
+
+Most electrolyte products were built around a workout.
+
+You mix one before you train, while you train, or afterward. You get your electrolytes. Then you move on.
+
+That's fine if that's what you need.
+
+But some days don't end after an hour.
+
+You might be working outside. You might be on your feet all day. You might have a long shift and still have things to do when you get home.
+
+That's the use case we had in mind.
+
+A zero-sugar electrolyte product gives you electrolytes without carbohydrates.
+
+A traditional sports drink gives you electrolytes with a much larger amount of faster sugar.
+
+We wanted something between those two.
+
+Enough carbohydrate to support the absorption process, but only 4 grams.
+
+And we wanted that carbohydrate to break down slowly.
+
+That's why palatinose is there.
+
+---
+
+## `S7_BUILT_FOR`
+
+### This Is Who We Built It For
+
+My name is Callon Nichols.
+
+I'm a former Marine Corps officer and certified EMT.
+
+I earned a perfect score on the Marine Corps Physical Fitness Test. I climbed Kilimanjaro. And I ran the Marine Corps Marathon in my combat boots and utilities.
+
+I've asked a lot from my body.
+
+Eventually, I started paying more attention to what I was putting back into it.
+
+I started Valor Vitals with a friend who spent over a decade in the SEAL teams.
+
+One idea from the Marine Corps stuck with me: take care of your gear.
+
+Your body is part of that.
+
+So when we started making products, we made things we actually wanted to use.
+
+That's where this hydration formula came from.
+
+Not because the world needed another electrolyte packet.
+
+There are already plenty of those.
+
+We thought there was room for one built differently.
+
+Something for the person whose day lasts longer than their workout.
+
+---
+
+## `S8_BEFORE_AFTER`
+
+### What That Can Look Like
 
 **Before:**
 
-You're doing the right things and they're not working. You're drinking water. You bought the packets specifically to fix this. And you still hit a wall in the middle of the afternoon. So you reach for the third coffee that you know, with absolute certainty, is not going to fix the actual problem — and you spend the last two hours of your day just trying to get through them.
+You already have electrolyte packets in the cabinet.
 
-The drive home is the hardest part. You walk in the door and go straight to the couch. The people who live with you get whatever's left. Which isn't much.
+You drink one. You drink water. Maybe you grab another coffee after lunch.
+
+And by late afternoon, you're still wondering why you feel like you've run out of gas.
+
+You assume that's just what a long day feels like.
 
 **After:**
 
-You know exactly why it wasn't working — and that's its own kind of relief. You don't think about coffee after lunch because you don't need it. The last two hours are just hours, not a countdown. You have the same energy at four that you had at nine.
+You understand what was missing from the product you were using.
 
-You walk in the door with something still in the tank. And the people at home get *you* instead of the leftovers.
+You've got electrolytes in the amounts we chose for our own formula, plus a small amount of slow-release carbohydrate.
 
----
+There's no caffeine to account for later.
 
-## `S8_OFFER` — unchanged from v1 except where noted
+No complicated routine.
 
-### Here's the Deal
+One stick in water.
 
-One bag. 30 sticks. A 30-day supply.
-
-Everything above, in a stick you mix into water, once a day.
-
-No complicated protocol. No stacking. No trying to figure out if you need to take it before, during, or after something. One stick. Water. Done.
-
-The science is already baked in. The ingredient panel is already complete. You don't have to research anything or make any decisions. You just stop running on a packet that was built for an hour and start using one that was built for the whole day.
-
-### The Price
-
-**$29 for your first bag.** Regular price $44.99.
-
-Thirty sticks. Thirty days. That works out to **97 cents a day** to not spend the last two hours of your shift surviving them.
-
-That's a first-order price, and I'll be straight with you about why it exists: we'd rather you try it than read about it. Reorders run at the regular $44.99.
-
-For context — the leading zero-sugar stick runs about $1.50 a serving, and has less potassium, less magnesium, and no carbohydrate source at all. You're already spending the money. The question is whether you're spending it on something that finishes the day with you.
-
-Skip two gas station energy drinks this week. You've covered it.
-
-**And I'm not asking you to switch.** Keep whatever's in your cabinet. Take one stick of this on the next day that's going to be a long one, and see whether the back half of it goes differently. That's the whole ask.
-
-**A note on the second flavor.** Most people can't tell which one they'll like until they've had a few. If you want both, add the second bag for $19 — it ships in the same box, so there's no extra shipping, and you're not guessing.
+Then you get on with your day.
 
 ---
 
-## `S9_STACK` — inline offer module at `cta-4` — unchanged
+## `S9_KEEP_YOURS`
 
-### Let's Stack It Up
+### We're Not Asking You to Throw Away What You Already Bought
 
-Here's what you get with one bag of Valor Vitals Hydration:
+Seriously.
 
-| What's included | |
-|---|---|
-| 30 stick packs — a full 30-day supply | **$29** *(regular $44.99)* |
-| 800mg sodium per stick — properly dosed | ✓ |
-| 300mg potassium — 50% more than the leading zero-sugar stick | ✓ |
-| 75mg magnesium as magnesium malate — more than any leading competitor | ✓ |
-| 1200mg chloride and 100mg vitamin C | ✓ |
-| 4g palatinose — the slow-release carbohydrate almost nobody uses | ✓ |
-| No caffeine, no stimulants, no artificial dyes, no added cane sugar | ✓ |
-| Made in the USA | ✓ |
-| Veteran-owned | ✓ |
-| 90-day keep-the-bag guarantee | ✓ |
+Keep the electrolyte packets that are already in your cabinet.
 
-**Flavor:** B1 Blue Raspberry / B2 Lemon Lime
-**Add the other flavor — $19.** Same box, no extra shipping.
+We're not asking you to decide today that Valor is the only hydration product you'll ever use again.
 
-**Button label:** `Add to cart — $29`
+That's a big ask for a bag of powder.
+
+Try one stick on your next long day.
+
+Pay attention to the back half of that day.
+
+Then decide.
+
+That's the ask.
 
 ---
 
-## `S10_GUARANTEE` — unchanged
+## `S10_OFFER`
 
-### The Guarantee
+### Your First Bag Is $29
 
-**Use the whole bag. 90 days. Keep it either way.**
+A bag contains 30 sticks.
 
-Take a stick a day for thirty days. If three o'clock isn't different — if the wall is still there, if you're still reaching for a third coffee, if the last two hours are still something to get through — email us and we'll refund every dollar.
+Your first bag is **$29**, which works out to about **97 cents per stick.**
 
-Don't send anything back. Keep the bag. We're not going to make you pay return shipping to tell us our product didn't work for you, and we're not going to make you prove you used it.
+Under a dollar a day.
 
-We built this to work. We guarantee it because we're confident it will. And if it doesn't work for you specifically, you shouldn't have to eat the cost of finding that out.
+Choose:
 
-That's it. That's the whole policy.
+**B1 Blue Raspberry**
 
----
+or
 
-## `S11_FAQ` — two answers added
+**B2 Lemon Lime**
 
-### Questions People Ask
+Want both?
 
-**What does it taste like?**
-Light, not syrupy. B1 is blue raspberry, B2 is lemon lime. Both are on the clean side of the category — there's no added cane sugar, so you're not getting that heavy candy finish some packets leave behind. Sweetened with stevia leaf extract. If you've found most electrolyte drinks too sweet, these will read as a relief.
+Add the second flavor for **$19** and we'll put it in the same box with no additional shipping charge.
 
-**When should I take it?**
-One stick, mixed into water, once a day. Most people go mid-morning so the palatinose is working through the afternoon rather than starting after the wall has already hit. There's no timing window to optimize and nothing to stack it with.
+Future reorders are $44.99 per bag.
 
-**Is there caffeine in it?**
-No. No caffeine, no stimulants of any kind. That's deliberate. Some products in this category put a small dose of caffeine in specifically so you feel something immediately — which is a good way to sell a product and a bad way to get through a twelve-hour day. What you feel from this comes from the fuel, not from a stimulant, and there's nothing to crash off at the back end.
+There's no complicated protocol and no need to stack it with something else.
 
-**Your label says "Includes 4g Added Sugars." What's that?** *(NEW)*
-That's the palatinose, and we'd rather you hear it from us than find it yourself. The FDA counts isomaltulose as an added sugar because of how it's classified, not because of how it behaves — it's derived from beet sugar but bonded differently, which is why it breaks down four to five times slower and lands at a glycemic index of 32 instead of 65. There's no cane sugar, no corn syrup and no artificial sweetener in the bag. The 4g on the panel is the ingredient that makes the product work.
-
-**I'm fasting / on keto / counting carbs. What are the actual numbers?** *(NEW)*
-Each stick is 25 calories and 4g of carbohydrate, all of it palatinose, at a glycemic index of 32 against roughly 65 for table sugar. If you're tracking carbs or fasting, that's the number — it's printed on the panel and we're not going to bury it or tell you it doesn't count. Whether 4g fits your day is your call to make, and you should make it with the real figure in front of you.
-
-**There's a carbohydrate in it — will that spike my blood sugar?**
-Palatinose is a carbohydrate, so this isn't a zero-carb product and we're not going to pretend otherwise. It's 4 grams, and it's the slow kind — glycemic index of 32, against roughly 65 for table sugar. That's the entire point of using it. If you're managing your blood sugar under medical guidance, talk to your doctor first, same as with anything else you'd add.
-
-**How is this different from what I'm already using?**
-Almost certainly the palatinose, and probably the magnesium. Most zero-sugar sticks give you electrolytes and nothing to run on. Most sugar-based ones give you 11 to 21 grams of fast sugar and a crash three hours later. Pull the panel on whatever's in your cabinet and read it against ours — that comparison is most of our argument.
-
-**Do I have to subscribe?**
-No. This is a one-time purchase of one bag. There's no subscription to cancel and nothing that auto-renews unless you go looking for it later.
-
-**What if I don't like it?**
-Email us inside 90 days and we'll refund you. Keep the bag — don't ship anything back, and don't worry about how much of it you used.
-
-**Which flavor should I get?**
-Genuinely a coin flip, and most people end up preferring the one they didn't expect. If you'd rather not guess, add the second flavor for $19 when you order — it's in the same box, so there's no extra shipping.
-
-**How fast does it ship?**
-Orders go out from the USA within one business day. You'll get tracking as soon as it moves.
-
-⚠️ **Builder note:** the added-sugars and fasting answers are the two with compliance exposure. Do not edit their wording. Both describe the ingredient and state figures rather than promising an outcome, which is deliberate — the earlier draft of the fasting answer asserted the product wouldn't break a fast, and that isn't true.
-
-**FAQ event IDs:** `taste`, `timing`, `caffeine`, `added_sugars`, `fasting`, `blood_sugar`, `difference`, `subscribe`, `guarantee`, `flavor`, `shipping`
+Mix one stick with water and drink it.
 
 ---
 
-## `S12_CLOSE` — unchanged
+## `S11_GUARANTEE`
 
-### One Last Thing
+### Try It for 90 Days. Keep the Bag Either Way.
 
-You've already been doing the right things. You've been drinking the water. You bought the packets. You've done the responsible thing for your body and it still hasn't fully closed the gap.
+You have 90 days to decide if Valor Vitals Hydration is right for you.
 
-Don't let that be the story for another 90 days. Don't let your family keep getting the leftover version of you because the afternoon took everything you had.
+If it isn't, ask for a refund.
 
-The fix is specific. The formula is complete. The guarantee removes all the risk.
+We'll refund your purchase.
 
-You know what to do.
+You don't have to send the bag back.
+
+You don't have to prove how many sticks you used.
+
+There's nothing to mail to us.
+
+You tried it. You didn't like it. We give you your money back.
+
+That's the guarantee.
 
 ---
 
-## `FOOTER` — unchanged
+## `S12_FAQ`
 
-*Valor Vitals Hydration — B1 Blue Raspberry / B2 Lemon Lime*
-*30 sticks. One a day. Made in the USA. Veteran-owned.*
-*90-day guarantee. Keep the bag.*
+### Frequently Asked Questions
+
+**What does it taste like?** *(id: `taste`)*
+Valor Vitals Hydration comes in two flavors: **B1 Blue Raspberry** and **B2 Lemon Lime**.
+
+Taste mattered to us because electrolyte products can get very salty very quickly. We wanted something you'd actually want to drink regularly, not something you have to force down because the ingredient panel looks good.
+
+**When should I take it?** *(id: `timing`)*
+Mix one stick with water and drink it during the part of your day when hydration matters most to you.
+
+There's no stimulant timing to worry about and no complicated before/during/after protocol.
+
+**Does it have caffeine?** *(id: `caffeine`)*
+No.
+
+There's no caffeine or other stimulant in Valor Vitals Hydration.
+
+**Why does the label say "Includes 4g Added Sugars"?** *(id: `added_sugars`)*
+That's the palatinose.
+
+Palatinose is a carbohydrate derived from beet sugar, so it has to be declared appropriately on the nutrition label.
+
+Each stick contains **4 grams of carbohydrate and 25 calories**.
+
+We use it intentionally because of how slowly it breaks down and because carbohydrate participates with sodium in the absorption process in the small intestine.
+
+There is **no added cane sugar**.
+
+**What if I'm fasting or counting carbohydrates?** *(id: `fasting`)*
+Each stick contains **25 calories and 4 grams of carbohydrate**.
+
+If you follow a particular fasting or carbohydrate protocol, use those numbers to decide whether it fits.
+
+**How is this different from the electrolyte product I already use?** *(id: `difference`)*
+Start with the label.
+
+Valor contains 800mg sodium, 300mg potassium, 75mg magnesium from magnesium malate, 1,200mg chloride, 100mg vitamin C, and 4g palatinose.
+
+The palatinose is the biggest difference.
+
+Most products in the category either contain no carbohydrate or use a faster sugar.
+
+We chose a small amount of slow-release carbohydrate instead.
+
+**Do I have to subscribe?** *(id: `subscribe`)*
+No.
+
+Your first bag is $29. Future reorders are $44.99 per bag.
+
+You can buy the product without committing to a subscription.
+
+**What if I don't like it?** *(id: `guarantee`)*
+Tell us.
+
+You have a 90-day money-back guarantee, and you don't have to send the bag back or provide proof of use.
+
+**Which flavor should I get?** *(id: `flavor`)*
+If Blue Raspberry sounds like your thing, start with B1.
+
+If you prefer citrus, start with B2 Lemon Lime.
+
+Or add the second flavor for $19 and try both. It ships in the same box with no additional shipping charge.
+
+**How fast does it ship?** *(id: `shipping`)*
+[INSERT CONFIRMED SHIPPING TIME]
+
+⚠️ **Placeholder — needs a real answer from Callon before launch.** Do not invent a shipping time.
+
+⚠️ **Builder note:** the `added_sugars` and `fasting` answers are compliance-sensitive. Do not edit their wording. Both state figures rather than promising outcomes, and that is deliberate.
+
+---
+
+## `S13_CLOSE`
+
+### You Don't Need Another Electrolyte Packet That Looks Like Everything Else
+
+You probably already have one of those.
+
+We made one change that most companies in this category don't make.
+
+We added palatinose.
+
+Then we built the rest of the formula around what we believe to be the right ratios: 800mg sodium, 300mg potassium, 75mg magnesium malate, 1,200mg chloride, and 100mg vitamin C.
+
+No caffeine. No stimulants. No artificial dyes. No added cane sugar.
+
+Your first bag is $29.
+
+Thirty sticks.
+
+About 97 cents each.
+
+And you have 90 days to try it.
+
+Keep whatever electrolyte product is already in your cabinet.
+
+Take one Valor stick on your next long day.
+
+See what you think.
+
+---
+
+## `FOOTER`
+
+**B1 Blue Raspberry / B2 Lemon Lime**
+
+30 sticks per bag. Made in the USA. Veteran-owned.
+
+90-day money-back guarantee. Nothing to send back.
 
 *[DSHEA disclaimer slot — pending the sitewide decision. Reserve the space.]*

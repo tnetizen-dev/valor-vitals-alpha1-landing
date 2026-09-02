@@ -21,11 +21,42 @@
   window.scrollY, and "flavour" was corrected to "flavor" throughout.
 
   ============================================================
+  V3 REBUILD — 2026-09-02
+  ============================================================
+  The copy was replaced wholesale (rewritten in Email Game Changers), not
+  edited — against PRD v3.0 / copy v3.0 / analytics-events.md v3.0. Roughly
+  half the length of v2. Every content section changed; old v2 IDs
+  (mechanism, panel, why-yours-quits, transformation) no longer exist —
+  replaced by why-carb, formula, compare, why-others-quit, before-after,
+  keep-yours. cta-1 is a placement addition (PRD §3) sitting right after
+  #why-carb, not part of the approved copy's own button count. There is NO
+  comparison table in this build — a deliberate decision per PRD v3 §5, not
+  an omission: competitor figures were never sourced from current labels,
+  and the section was previously promising numbers it couldn't deliver. All
+  six buy buttons now share one label, "Try your first bag — $29" — the
+  approved copy had three different labels; PRD §3/CTA_PRIMARY standardise
+  on this one. The interaction layer (dialog drawer, focus trap, scroll
+  lock, sticky bar, analytics dispatcher) is untouched from the verified
+  build, including the drawer_open depth-capture fix from before. Only
+  copy-driven string changes: the drawer/inline submit button's label text
+  ("Add to cart" -> "Try your first bag") and its guarantee line, both per
+  PRD v3 §4.1 items 5-6.
+
+  Four items are flagged in-source (copy-hydration-sales-page.md v3.0) as
+  additions needing Tracy's sign-off, per PRD v3 §8: the trust ribbon, the
+  CTA supporting line ("30 sticks. 90 days to try it..."), the two closing
+  lines in #compare ("That's the argument." onward), and the standardised
+  button label itself. Built as specified; not yet approved. The FAQ's
+  shipping-time placeholder ([INSERT CONFIRMED SHIPPING TIME]) is left
+  literal per instruction — do not invent a shipping time.
+
+  ============================================================
   FLAGS — read before this page goes live
   ============================================================
 
-  1. PLACEHOLDER ASSET: #transformation (S7_TRANSFORMATION) ships with no
-     photograph. assets-manifest.md lists trades/outdoor-work photography as
+  1. PLACEHOLDER ASSET: #before-after (S8_BEFORE_AFTER, was #transformation
+     pre-v3) ships with no photograph. assets-manifest.md lists trades/
+     outdoor-work photography as
      a gap for this section, and separately warns that most of the .png
      files in media/Lifestyle Photos/ may be AI-generated/composited and
      must not be used until provenance is confirmed — even though the
@@ -56,35 +87,29 @@
      nofollow"> is set (doesn't need a domain), but the canonical <link>
      is left commented out rather than guessed.
 
-  5. Comparison table (#panel) and supplement-fact figures: this build's
-     own compression of the B1 back-panel photo (images/panel-b1-back.webp)
-     confirms Valor's sodium/potassium/magnesium/palatinose numbers in the
-     copy match the real label. One thing worth Callon's eyes: the actual
+  5. Comparison table — REMOVED in v3, by decision, not omission. Read PRD
+     v3 §5 in full before restoring one. This build's own compression of
+     the B1 back-panel photo (images/panel-b1-back.webp, now in #formula)
+     confirms Valor's own sodium/potassium/magnesium/palatinose/chloride/
+     vitamin C numbers match the real label — that part was never the
+     problem. What was cut is the competitor-comparison table itself: no
+     competitor figure in it was ever sourced from a current published
+     label, and the section was promising numbers ("look at the numbers")
+     it then couldn't back up with a real table. #compare now hands the
+     comparison to the reader instead ("go turn over whatever's in your
+     cabinet"). When a table comes back, PRD v3 §5 has the placement (right
+     beneath "Look at the numbers"), the required dated footnote, and an
+     explicit instruction not to restore the chloride row even then — see
+     `comparison-table-sourcing.md` for the arithmetic on why.
+
+     One thing worth Callon's eyes regardless of the table: the actual
      label declares "Includes 4g Added Sugars" (this is the isomaltulose/
      palatinose itself under FDA sugar-labeling rules, not cane sugar) —
-     worth a look against the copy's "no added cane sugar" framing, even
-     though the two claims aren't technically in conflict. The three
-     competitor columns remain UNVERIFIED PLACEHOLDERS per the copy file's
-     own blocking warning — do not launch this table until those are
-     sourced from current published labels.
-
-     Round-1 fix added an "Includes 4g Added Sugars" FAQ (question_id
-     added_sugars) addressing this directly, and two more table rows —
-     Vitamin C 100mg and Chloride 1200mg — both confirmed from the same
-     real B1 panel photo.
-
-     v2 update: copy-hydration-sales-page.md v2.0 now specifies the
-     competitor cells for those two rows verbatim as "— unverified —"
-     (replacing round 1's builder-invented "Not published"), so the cell
-     text changed to match. v2's own table also drops the "Artificial
-     dyes" row that existed in v1 — it isn't in the v2 copy deck's table,
-     though the claim survives in the per-stick bullet list above it. Still
-     no competitor figures exist anywhere in the source docs for Vitamin C
-     or Chloride — source before launch if you want them filled in. The
-     added_sugars FAQ moved earlier in the accordion order per v2, and a
+     the added_sugars FAQ answers this directly and its wording is not to
+     be edited, per copy-hydration-sales-page.md's own builder note. A
      second compliance-sensitive answer (fasting/keto, question_id
-     "fasting") was added alongside it — do not edit either answer's
-     wording, per copy-hydration-sales-page.md's own builder note.
+     "fasting") sits right after it for the same reason — both state
+     figures rather than promise outcomes.
 
   6. Purchase / CAPI tracking is intentionally NOT implemented in this file.
      This page ends at a redirect to Shopify's real checkout — Purchase and
@@ -285,8 +310,7 @@
   .trust-list svg { width: 15px; height: 15px; flex: none; color: var(--accent); }
 
   /* ---------------- Body sections ---------------- */
-  #mechanism, #panel { padding: var(--space-front) 0; }
-  #mechanism { background: var(--panel); }
+  #why-carb { padding: var(--space-front) 0; }
   .mechanism-img { margin: 0.6rem 0; border-radius: 4px; overflow: hidden; max-width: 210px; margin-left: auto; margin-right: auto; }
 
   .founder-photo { margin: 0 0 0.6rem; border-radius: 4px; overflow: hidden; max-width: 210px; margin-left: auto; margin-right: auto; }
@@ -642,7 +666,7 @@
 
 <main>
 
-  <!-- ============ S1_HERO — v2, rewritten ============ -->
+  <!-- ============ S1_HERO — v3, rewritten in EGC ============ -->
   <section id="hero" class="hero">
     <div class="wrap measure">
       <h1>Every Electrolyte Stick Has the Same Three Ingredients. We Added a Fourth.</h1>
@@ -651,14 +675,15 @@
         <img src="images/hero-b1-front.webp" width="900" height="973" alt="Valor Vitals B1 Blue Raspberry hydration, 30-stick gusset bag" fetchpriority="high">
       </div>
 
-      <p>Sodium, potassium, magnesium. Every pack on the shelf has them, and so do we — dosed for a twelve-hour day rather than a forty-five-minute workout.</p>
-      <p>But the reason your current packet stops carrying you somewhere around two o'clock isn't the three it has. It's the one it doesn't.</p>
-
-      <div class="hero-price">
-        <p class="amount">$29 for your first bag. 30 sticks, 30 days.</p>
-        <p class="calories">25 calories and 4g of carbohydrate per stick — the full panel is further down, nothing hidden.</p>
-        <p class="sub">Use the whole bag. If three o'clock isn't different, keep it and we'll refund you.</p>
-      </div>
+      <p>It's called palatinose.</p>
+      <p>You've probably never seen it on an electrolyte label because almost nobody in this category uses it.</p>
+      <p>Most hydration packs have sodium, potassium, and magnesium. So does ours. We use them in what we believe to be the right ratios.</p>
+      <p>But we added something else.</p>
+      <p>Palatinose is a slow-release carbohydrate derived from beet sugar. The technical name is isomaltulose.</p>
+      <p>And before the word "carbohydrate" loses you: it's only 4 grams of carbohydrate and 25 calories per stick.</p>
+      <p>That's it.</p>
+      <p>Palatinose has a stronger molecular bond than table sugar, so your body breaks it down four to five times more slowly. It's low glycemic, with a glycemic index of 32.</p>
+      <p>And that matters for more than energy.</p>
 
       <div class="scroll-cue" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -666,7 +691,7 @@
     </div>
   </section>
 
-  <!-- ============ S2_TRUST — unchanged ============ -->
+  <!-- ============ S2_TRUST — flagged addition per PRD v3 §8, carried forward unchanged ============ -->
   <div class="trust" aria-label="Trust indicators">
     <ul class="trust-list">
       <li>
@@ -688,201 +713,162 @@
     </ul>
   </div>
 
-  <!-- ============ S3_MECHANISM — v2, promoted from 20% depth to second section ============ -->
-  <section id="mechanism">
+  <!-- ============ S3_WHY_CARB — v3, replaces mechanism ============ -->
+  <section id="why-carb">
     <div class="wrap measure">
-      <h2>The Fourth Ingredient Is Called Palatinose</h2>
-      <p>You've almost certainly never seen it on a label, because almost nobody in this category uses it.</p>
-      <p>The technical name is isomaltulose. It's a carbohydrate derived from beet sugar with a stronger molecular bond — which means your body breaks it down four to five times slower than it breaks down table sugar.</p>
+      <h2>Here's Why We Put a Carbohydrate in a Hydration Product</h2>
+      <p>Your small intestine absorbs glucose and sodium together.</p>
+      <p>That's one of the basic principles behind oral rehydration. When carbohydrate is available alongside sodium, it participates in the transport process your body uses to absorb sodium and fluid.</p>
+      <p>The difference with palatinose is how slowly it becomes available.</p>
+      <p>Regular sugar is broken down quickly. Palatinose breaks down more slowly and is absorbed along the full length of the small intestine.</p>
 
       <figure class="mechanism-img">
         <img src="images/mechanism-sticks.webp" width="900" height="805" alt="Valor Vitals B1 Blue Raspberry stick packs, the single-serving format that mixes into water" loading="lazy">
       </figure>
 
-      <p>Glycemic index of 32, compared to roughly 65 for regular sugar. That's not a smaller sugar rush. That's a <strong>different shape entirely.</strong> Not a spike and a drop. A level line across the whole back half of your day.</p>
-      <p>It also absorbs across the full length of the small intestine instead of dumping at the front — which means the energy is extended, not immediate. It doesn't hit you like a pre-workout. It just keeps the lights on.</p>
-      <p>Almost nobody uses it because it costs more than sugar, and most brands would rather keep that money and put it toward bigger sodium numbers and better packaging.</p>
-      <p>That's the whole difference. Everything below is us showing our work.</p>
+      <p>So instead of having the carbohydrate available for a short period, it remains available for that sodium-glucose transport process over a longer window.</p>
+      <p>If you've ever heard of someone taking casein protein before bed because it releases amino acids more slowly than other proteins, it's a similar idea.</p>
+      <p>Slow release is the point.</p>
+      <p>We wanted a hydration product for long days, so using a carbohydrate that gets burned through quickly didn't make much sense to us.</p>
+      <p>And using no carbohydrate at all meant leaving out part of the absorption equation.</p>
+      <p>So we added palatinose.</p>
     </div>
   </section>
 
-  <!-- ============ S4_PANEL — v2, promoted from 38% depth ============ -->
-  <section id="panel">
-    <div class="wrap measure">
-      <h2>Here's What "Made Right" Actually Looks Like</h2>
-      <p>I went through a lot of ingredient panels before we formulated this. And what I kept finding was that every leading product had at least one zero — or a near-zero — somewhere in the lineup that told you what they'd decided not to prioritize.</p>
-      <p>Valor Vitals Hydration, per stick:</p>
-      <ul>
-        <li><strong>800mg sodium</strong> — dosed for people who actually sweat for a living, not for someone who did a 45-minute spin class</li>
-        <li><strong>300mg potassium</strong> — 50% more than the leading zero-sugar stick</li>
-        <li><strong>75mg magnesium</strong> — as magnesium malate, not the oxide most cheap products use. More than any of the category leaders. The leading zero-sugar stick has 60mg. The leading tablet has 25mg. The leading sugar stick has none at all.</li>
-        <li><strong>1200mg chloride</strong> — the electrolyte nobody talks about and most products under-dose</li>
-        <li><strong>100mg vitamin C</strong> — 111% of your daily value</li>
-        <li><strong>4g palatinose</strong> — the slow-release carbohydrate that makes the whole thing actually work for the back half of your day</li>
-        <li><strong>No caffeine, no stimulants, no added cane sugar, no artificial dyes</strong> — nothing to crash from, nothing to regret at 9pm when you're trying to sleep</li>
-      </ul>
-      <p>Read across any comparison table and every competitor has a hole in the panel somewhere. We don't.</p>
-    </div>
-
-    <div class="wrap">
-      <div class="table-scroll">
-        <table>
-          <caption>Per-stick comparison. Generic category descriptors — no competitor named.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Per stick</th>
-              <th scope="col" class="col-valor">Valor Vitals</th>
-              <th scope="col">Leading zero-sugar stick</th>
-              <th scope="col">Leading tablet</th>
-              <th scope="col">Leading sugar stick</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Sodium</th>
-              <td class="col-valor">800mg</td>
-              <td>1000mg</td>
-              <td>300mg</td>
-              <td>500mg</td>
-            </tr>
-            <tr>
-              <th scope="row">Potassium</th>
-              <td class="col-valor">300mg</td>
-              <td>200mg</td>
-              <td>150mg</td>
-              <td>370mg</td>
-            </tr>
-            <tr>
-              <th scope="row">Magnesium</th>
-              <td class="col-valor">75mg (malate)</td>
-              <td>60mg</td>
-              <td>25mg</td>
-              <td class="cell-gap"><svg class="gap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="9"></circle><line x1="7" y1="7" x2="17" y2="17"></line></svg>none</td>
-            </tr>
-            <tr>
-              <th scope="row">Chloride</th>
-              <td class="col-valor">1200mg</td>
-              <td class="cell-unsourced">— unverified —</td>
-              <td class="cell-unsourced">— unverified —</td>
-              <td class="cell-unsourced">— unverified —</td>
-            </tr>
-            <tr>
-              <th scope="row">Vitamin C</th>
-              <td class="col-valor">100mg</td>
-              <td class="cell-unsourced">— unverified —</td>
-              <td class="cell-unsourced">— unverified —</td>
-              <td class="cell-unsourced">— unverified —</td>
-            </tr>
-            <tr>
-              <th scope="row">Slow-release carbohydrate</th>
-              <td class="col-valor">4g palatinose</td>
-              <td class="cell-gap"><svg class="gap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="9"></circle><line x1="7" y1="7" x2="17" y2="17"></line></svg>none</td>
-              <td class="cell-gap"><svg class="gap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="9"></circle><line x1="7" y1="7" x2="17" y2="17"></line></svg>none</td>
-              <td class="cell-gap"><svg class="gap-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="9"></circle><line x1="7" y1="7" x2="17" y2="17"></line></svg>none</td>
-            </tr>
-            <tr>
-              <th scope="row">Added cane sugar</th>
-              <td class="col-valor">None</td>
-              <td>None</td>
-              <td>None</td>
-              <td>11–21g</td>
-            </tr>
-            <tr>
-              <th scope="row">Stimulants</th>
-              <td class="col-valor">None</td>
-              <td>None</td>
-              <td>None</td>
-              <td>None</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="wrap measure">
-      <p>We dosed ours for a twelve-hour day. Those are the numbers. Go read the panel on whatever's in your cabinet and put them side by side — that comparison is most of our argument, and we'd rather you make it yourself than take our word for it.</p>
-      <p>Made in the USA. Veteran-owned. Two flavors: <strong>B1 Blue Raspberry</strong> and <strong>B2 Lemon Lime.</strong> 30 sticks per bag. One stick per day.</p>
-    </div>
-  </section>
-
-  <!-- ============ CTA_PRIMARY: cta-1 — v2, moved earlier: 21% ============ -->
+  <!-- ============ CTA_PRIMARY: cta-1 — v3, placement addition per PRD §3: 20% ============ -->
   <section id="cta-1" class="cta-block">
     <div class="wrap">
-      <button type="button" class="btn-primary" data-open-drawer="cta-1">Get your first bag — $29</button>
-      <p class="cta-sub">30 sticks. 30 days. Keep it if it doesn't work.</p>
+      <button type="button" class="btn-primary" data-open-drawer="cta-1">Try your first bag — $29</button>
+      <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
     </div>
   </section>
   <div id="sticky-bar-sentinel" aria-hidden="true"></div>
 
-  <!-- The panel-back photos moved here from inside #panel: the v2 depth
-       budget for #panel (14-21%) can't absorb bullets + table + both
-       photos and still land cta-1 in range. The table is the "highest-
-       leverage asset" per PRD v2 §5 and stays before cta-1 intact; these
-       photos are supplementary proof and still run early on the page,
-       just after the first ask instead of before it. -->
-  <div class="wrap measure">
-    <div class="panel-images">
-      <figure>
-        <img src="images/panel-b1-back.webp" width="900" height="973" alt="Valor Vitals B1 Blue Raspberry supplement facts panel" loading="lazy">
-        <figcaption>B1 Blue Raspberry — supplement facts</figcaption>
-      </figure>
-      <figure>
-        <img src="images/panel-b2-back.webp" width="900" height="973" alt="Valor Vitals B2 Lemon Lime supplement facts panel" loading="lazy">
-        <figcaption>B2 Lemon Lime — supplement facts</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <!-- ============ S5_WHY_YOURS_QUITS — v2, replaces S3_PROBLEM, compressed ~50% ============ -->
-  <section id="why-yours-quits">
+  <!-- ============ S4_FORMULA — v3, replaces panel; the real panel photos live here now, per PRD v3 §5 ("our own panel sits directly above" the comparison section) ============ -->
+  <section id="formula" class="on-panel">
     <div class="wrap measure">
-      <h2>Why the One You're Using Now Quits on You</h2>
-      <p>Most people land here having already made peace with the wrong explanation: <em>you're getting older.</em> Your body's just not what it was. You've been hard on it. Fair enough — except that's not what's happening, and what is happening is a lot more fixable.</p>
-      <p>Your body needs electrolytes to move fluid into your cells. Most people have that part figured out. But electrolytes don't power anything. They're the delivery system. If you want sustained energy — not a spike, not a buzz, just <em>functional hours</em> — you also need a carbohydrate source that lasts.</p>
-      <p>There are two products on that shelf and both of them leave you somewhere.</p>
-      <p><strong>The zero-sugar sticks</strong> give you the sodium and skip the carbohydrate entirely. You end up properly hydrated with nothing to run on. Your cells got the water. They just don't have fuel.</p>
-      <p><strong>The sugar-based packets</strong> go the other direction — they carry their electrolytes on 11 to 21 grams of fast sugar. You get a lift. Then your blood sugar does what fast sugar always does, and you're back in the hole by hour three, except now you've got a little crash working against you too.</p>
-      <p>Neither one was built for what you actually do.</p>
-      <p>And all of that stays true <strong>even if</strong> you're drinking more water than anyone else on your crew. <strong>Even if</strong> you're eating well. <strong>Even if</strong> you've already tried two or three different products in this category and none of them quite got you there.</p>
+      <h2>We Were Late to the Electrolyte Category. That Helped.</h2>
+      <p>There were already a lot of electrolyte products on the shelf when we started working on ours.</p>
+      <p>That meant we didn't have to guess.</p>
+      <p>We could turn over the bags, read the labels, and see exactly what everybody was doing.</p>
+      <p>Some had a lot of sodium but not much potassium.</p>
+      <p>Some had very little magnesium.</p>
+      <p>Some had plenty of fast sugar.</p>
+      <p>Some removed the carbohydrate entirely.</p>
+      <p>We took what we learned and built the formula we wanted to use ourselves.</p>
+      <p>Here's what's in one stick of Valor Vitals Hydration:</p>
+      <p><strong>800mg sodium</strong></p>
+      <p><strong>300mg potassium</strong></p>
+      <p><strong>75mg magnesium, from magnesium malate</strong></p>
+      <p>A lot of inexpensive formulas use magnesium oxide. We chose magnesium malate.</p>
+      <p>Then there's another number on our label most people probably aren't used to looking for:</p>
+      <p><strong>1,200mg chloride.</strong></p>
+      <p>Most people hear "chloride" and think about a swimming pool.</p>
+      <p>But chloride is also an electrolyte. In fact, it's one of the major electrolytes in your body.</p>
+      <p>And each stick also contains:</p>
+      <p><strong>100mg vitamin C — 111% of the Daily Value.</strong></p>
+      <p>Then there's the ingredient that started this whole conversation:</p>
+      <p><strong>4g palatinose.</strong></p>
+      <p>Four grams of slow-release carbohydrate. 25 calories.</p>
+      <p>No caffeine. No stimulants. No artificial dyes. No added cane sugar.</p>
+
+      <div class="panel-images">
+        <figure>
+          <img src="images/panel-b1-back.webp" width="900" height="973" alt="Valor Vitals B1 Blue Raspberry supplement facts panel" loading="lazy">
+          <figcaption>B1 Blue Raspberry — supplement facts</figcaption>
+        </figure>
+        <figure>
+          <img src="images/panel-b2-back.webp" width="900" height="973" alt="Valor Vitals B2 Lemon Lime supplement facts panel" loading="lazy">
+          <figcaption>B2 Lemon Lime — supplement facts</figcaption>
+        </figure>
+      </div>
+
+      <p>And we actually wanted it to taste good.</p>
+      <p>That sounds obvious until you've tried enough electrolyte products. A formula doesn't do you much good sitting in your cabinet because you hate drinking it.</p>
+      <p>Valor comes in <strong>B1 Blue Raspberry</strong> and <strong>B2 Lemon Lime</strong>.</p>
     </div>
   </section>
 
-  <!-- ============ S6_BUILT_FOR — v2, new: merges stakes framing + S5_FOUNDER ============ -->
-  <section id="built-for" class="on-panel">
+  <!-- ============ S5_COMPARE — v3: no table at launch, per PRD §5. Deliberate, not a gap. ============ -->
+  <section id="compare">
     <div class="wrap measure">
-      <h2>A One-Hour Workout Has a Finish Line</h2>
-      <p>Most electrolyte packets are engineered for exactly that. A workout. A run. A forty-five-minute thing with a defined end point.</p>
-      <p>Hour nine of a twelve-hour shift doesn't have one. Neither does a full day on a roof in August, or eight hours of work followed by a family that deserves more than whoever shows up to the couch at 5:30.</p>
-      <p>That's the gap this was built into.</p>
+      <h2>Put the Labels Next to Each Other</h2>
+      <p>You don't have to take our word for it.</p>
+      <p>Look at the numbers.</p>
+      <p>Then go turn over whatever's in your cabinet and read the back of that one.</p>
+      <p>That's the argument.</p>
+      <p>30 sticks. Your choice of B1 Blue Raspberry or B2 Lemon Lime.</p>
+      <p>That works out to about <strong>97 cents a day.</strong></p>
+      <p>And if you want to try both flavors, add the second bag for <strong>$19</strong>.</p>
+      <p>It ships in the same box. No extra shipping.</p>
+    </div>
+  </section>
 
-      <h3>My Name is Callon Nichols.</h3>
+  <!-- ============ CTA_PRIMARY: cta-2 ============ -->
+  <section id="cta-2" class="cta-block">
+    <div class="wrap">
+      <button type="button" class="btn-primary" data-open-drawer="cta-2">Try your first bag — $29</button>
+      <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
+    </div>
+  </section>
+
+  <!-- ============ S6_WHY_OTHERS_QUIT — v3, replaces why-yours-quits ============ -->
+  <section id="why-others-quit" class="on-panel">
+    <div class="wrap measure">
+      <h2>So Why Do Other Hydration Packets Quit on You?</h2>
+      <p>Most electrolyte products were built around a workout.</p>
+      <p>You mix one before you train, while you train, or afterward. You get your electrolytes. Then you move on.</p>
+      <p>That's fine if that's what you need.</p>
+      <p>But some days don't end after an hour.</p>
+      <p>You might be working outside. You might be on your feet all day. You might have a long shift and still have things to do when you get home.</p>
+      <p>That's the use case we had in mind.</p>
+      <p>A zero-sugar electrolyte product gives you electrolytes without carbohydrates.</p>
+      <p>A traditional sports drink gives you electrolytes with a much larger amount of faster sugar.</p>
+      <p>We wanted something between those two.</p>
+      <p>Enough carbohydrate to support the absorption process, but only 4 grams.</p>
+      <p>And we wanted that carbohydrate to break down slowly.</p>
+      <p>That's why palatinose is there.</p>
+    </div>
+  </section>
+
+  <!-- ============ S7_BUILT_FOR — v3 ============ -->
+  <section id="built-for">
+    <div class="wrap measure">
+      <h2>This Is Who We Built It For</h2>
 
       <figure class="founder-photo">
         <img src="images/founder-callon.jpg" width="900" height="675" alt="Callon Nichols, Valor Vitals co-founder, in the field during his Marine Corps service" loading="lazy">
       </figure>
 
-      <p>I'm a Marine Corps officer and a certified EMT. I've been hard on my body in the way that a lot of guys reading this will understand — not because I was careless, but because that was the job and I didn't want to do it halfway.</p>
-      <p>I earned a perfect score on the Marine Corps Physical Fitness Test. I climbed Kilimanjaro. I ran the Marine Corps Marathon in my combat boots and utilities, just to see if I could.</p>
-      <p class="founder-signoff">In my own words: <em>I beat the hell out of my body — and it kept a tab.</em></p>
-      <p>The bill came later. A neck injury from my time in the Corps got progressively worse. Chronic pain and inflammation became things I managed instead of things I recovered from. And at some point I looked up and realized that the amount of energy I was spending just getting through the day — just handling the accumulation of all of it — was costing me at home. Costing me at work. Costing the people around me.</p>
-      <p>I started Valor Vitals with a friend who spent over a decade in the SEAL teams. The founding idea came directly from the Marine Corps: you take care of your gear, because your life and the lives of the people next to you depend on it.</p>
-      <p>Your body is the one piece of gear you have on you every single day, for the rest of your life. Most of us are not maintaining it like it matters.</p>
-      <p><strong>We were late to this category, and that turned out to be the advantage.</strong> We didn't have to guess. We got to read every panel on the shelf, find the thing all of them had decided not to pay for, and put it in ours.</p>
+      <p>My name is Callon Nichols.</p>
+      <p>I'm a former Marine Corps officer and certified EMT.</p>
+      <p>I earned a perfect score on the Marine Corps Physical Fitness Test. I climbed Kilimanjaro. And I ran the Marine Corps Marathon in my combat boots and utilities.</p>
+      <p>I've asked a lot from my body.</p>
+      <p>Eventually, I started paying more attention to what I was putting back into it.</p>
+      <p>I started Valor Vitals with a friend who spent over a decade in the SEAL teams.</p>
+      <p>One idea from the Marine Corps stuck with me: take care of your gear.</p>
+      <p>Your body is part of that.</p>
+      <p>So when we started making products, we made things we actually wanted to use.</p>
+      <p>That's where this hydration formula came from.</p>
+      <p>Not because the world needed another electrolyte packet.</p>
+      <p>There are already plenty of those.</p>
+      <p>We thought there was room for one built differently.</p>
+      <p>Something for the person whose day lasts longer than their workout.</p>
     </div>
   </section>
 
-  <!-- ============ CTA_PRIMARY: cta-2 ============ -->
-  <section id="cta-2" class="cta-block on-panel">
+  <!-- ============ CTA_PRIMARY: cta-3 ============ -->
+  <section id="cta-3" class="cta-block">
     <div class="wrap">
-      <button type="button" class="btn-primary" data-open-drawer="cta-2">Get your first bag — $29</button>
-      <p class="cta-sub">30 sticks. 30 days. Keep it if it doesn't work.</p>
+      <button type="button" class="btn-primary" data-open-drawer="cta-3">Try your first bag — $29</button>
+      <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
     </div>
   </section>
 
-  <!-- ============ S7_TRANSFORMATION — unchanged ============ -->
-  <section id="transformation" class="on-panel">
+  <!-- ============ S8_BEFORE_AFTER — v3, replaces transformation ============ -->
+  <section id="before-after" class="on-panel">
     <div class="wrap measure before-after">
-      <h2>What the Before and After Actually Looks Like</h2>
+      <h2>What That Can Look Like</h2>
 
       <div class="asset-gap">
         <strong>Photography gap — flagged, not filled</strong>
@@ -890,183 +876,196 @@
       </div>
 
       <h4>Before:</h4>
-      <p>You're doing the right things and they're not working. You're drinking water. You bought the packets specifically to fix this. And you still hit a wall in the middle of the afternoon. So you reach for the third coffee that you know, with absolute certainty, is not going to fix the actual problem — and you spend the last two hours of your day just trying to get through them.</p>
-      <p>The drive home is the hardest part. You walk in the door and go straight to the couch. The people who live with you get whatever's left. Which isn't much.</p>
+      <p>You already have electrolyte packets in the cabinet.</p>
+      <p>You drink one. You drink water. Maybe you grab another coffee after lunch.</p>
+      <p>And by late afternoon, you're still wondering why you feel like you've run out of gas.</p>
+      <p>You assume that's just what a long day feels like.</p>
 
       <h4>After:</h4>
-      <p>You know exactly why it wasn't working — and that's its own kind of relief. You don't think about coffee after lunch because you don't need it. The last two hours are just hours, not a countdown. You have the same energy at four that you had at nine.</p>
-      <p>You walk in the door with something still in the tank. And the people at home get <em>you</em> instead of the leftovers.</p>
+      <p>You understand what was missing from the product you were using.</p>
+      <p>You've got electrolytes in the amounts we chose for our own formula, plus a small amount of slow-release carbohydrate.</p>
+      <p>There's no caffeine to account for later.</p>
+      <p>No complicated routine.</p>
+      <p>One stick in water.</p>
+      <p>Then you get on with your day.</p>
     </div>
   </section>
 
-  <!-- ============ CTA_PRIMARY: cta-3 ============ -->
-  <section id="cta-3" class="cta-block on-panel">
-    <div class="wrap">
-      <button type="button" class="btn-primary" data-open-drawer="cta-3">Get your first bag — $29</button>
-      <p class="cta-sub">30 sticks. 30 days. Keep it if it doesn't work.</p>
-    </div>
-  </section>
-
-  <!-- ============ S8_OFFER — v2, shortened (drops the "figure it out yourself" bullets) ============ -->
-  <section id="offer">
+  <!-- ============ S9_KEEP_YOURS — v3, new ============ -->
+  <section id="keep-yours">
     <div class="wrap measure">
-      <h2>Here's the Deal</h2>
-      <p>One bag. 30 sticks. A 30-day supply.</p>
-      <p>Everything above, in a stick you mix into water, once a day.</p>
-      <p>No complicated protocol. No stacking. No trying to figure out if you need to take it before, during, or after something. One stick. Water. Done.</p>
-      <p>The science is already baked in. The ingredient panel is already complete. You don't have to research anything or make any decisions. You just stop running on a packet that was built for an hour and start using one that was built for the whole day.</p>
-
-      <h3>The Price</h3>
-      <p><strong>$29 for your first bag.</strong> Regular price $44.99.</p>
-      <p>Thirty sticks. Thirty days. That works out to <strong>97 cents a day</strong> to not spend the last two hours of your shift surviving them.</p>
-      <p>That's a first-order price, and I'll be straight with you about why it exists: we'd rather you try it than read about it. Reorders run at the regular $44.99.</p>
-      <p>For context — the leading zero-sugar stick runs about $1.50 a serving, and has less potassium, less magnesium, and no carbohydrate source at all. You're already spending the money. The question is whether you're spending it on something that finishes the day with you.</p>
-
-      <p class="pull-quote">Skip two gas station energy drinks this week. You've covered it.</p>
-
-      <p><strong>And I'm not asking you to switch.</strong> Keep whatever's in your cabinet. Take one stick of this on the next day that's going to be a long one, and see whether the back half of it goes differently. That's the whole ask.</p>
-      <p><strong>A note on the second flavor.</strong> Most people can't tell which one they'll like until they've had a few. If you want both, add the second bag for $19 — it ships in the same box, so there's no extra shipping, and you're not guessing.</p>
+      <h2>We're Not Asking You to Throw Away What You Already Bought</h2>
+      <p>Seriously.</p>
+      <p>Keep the electrolyte packets that are already in your cabinet.</p>
+      <p>We're not asking you to decide today that Valor is the only hydration product you'll ever use again.</p>
+      <p>That's a big ask for a bag of powder.</p>
+      <p>Try one stick on your next long day.</p>
+      <p>Pay attention to the back half of that day.</p>
+      <p>Then decide.</p>
+      <p>That's the ask.</p>
     </div>
   </section>
 
-  <!-- ============ S9_STACK — inline offer module at cta-4 — v2, adds chloride/vitamin C row ============ -->
+  <!-- ============ S10_OFFER — v3, prose ============ -->
+  <section id="offer" class="on-panel">
+    <div class="wrap measure">
+      <h2>Your First Bag Is $29</h2>
+      <p>A bag contains 30 sticks.</p>
+      <p>Your first bag is <strong>$29</strong>, which works out to about <strong>97 cents per stick.</strong></p>
+      <p>Under a dollar a day.</p>
+      <p>Choose:</p>
+      <p><strong>B1 Blue Raspberry</strong></p>
+      <p>or</p>
+      <p><strong>B2 Lemon Lime</strong></p>
+      <p>Want both?</p>
+      <p>Add the second flavor for <strong>$19</strong> and we'll put it in the same box with no additional shipping charge.</p>
+      <p>Future reorders are $44.99 per bag.</p>
+      <p>There's no complicated protocol and no need to stack it with something else.</p>
+      <p>Mix one stick with water and drink it.</p>
+    </div>
+  </section>
+
+  <!-- ============ CTA_PRIMARY: cta-4 — v3, inline offer module, S10_OFFER shared copy key, no stack table this time ============ -->
   <section id="cta-4" class="on-panel">
     <div class="wrap measure">
-      <h2>Let's Stack It Up</h2>
-      <p>Here's what you get with one bag of Valor Vitals Hydration:</p>
-
-      <table class="stack-table">
-        <caption class="vh">Value stack for one bag of Valor Vitals Hydration</caption>
-        <tbody>
-          <tr><td>30 stick packs — a full 30-day supply</td><td>$29 <span style="font-weight:400;color:var(--ink-2);text-decoration:line-through;">$44.99</span></td></tr>
-          <tr><td>800mg sodium per stick — properly dosed</td><td class="check">✓</td></tr>
-          <tr><td>300mg potassium — 50% more than the leading zero-sugar stick</td><td class="check">✓</td></tr>
-          <tr><td>75mg magnesium as magnesium malate — more than any leading competitor</td><td class="check">✓</td></tr>
-          <tr><td>1200mg chloride and 100mg vitamin C</td><td class="check">✓</td></tr>
-          <tr><td>4g palatinose — the slow-release carbohydrate almost nobody uses</td><td class="check">✓</td></tr>
-          <tr><td>No caffeine, no stimulants, no artificial dyes, no added cane sugar</td><td class="check">✓</td></tr>
-          <tr><td>Made in the USA</td><td class="check">✓</td></tr>
-          <tr><td>Veteran-owned</td><td class="check">✓</td></tr>
-          <tr><td>90-day keep-the-bag guarantee</td><td class="check">✓</td></tr>
-        </tbody>
-      </table>
-
       <div class="buy-panel" data-buy-panel data-source="cta-4">
         <!-- populated by JS: flavor selector, upgrade row, price line, guarantee, submit -->
       </div>
     </div>
   </section>
 
-  <!-- ============ S10_GUARANTEE — unchanged ============ -->
+  <!-- ============ S11_GUARANTEE — v3 ============ -->
   <section id="guarantee">
     <div class="wrap measure">
-      <h2>The Guarantee</h2>
-      <p><strong>Use the whole bag. 90 days. Keep it either way.</strong></p>
-      <p>Take a stick a day for thirty days. If three o'clock isn't different — if the wall is still there, if you're still reaching for a third coffee, if the last two hours are still something to get through — email us and we'll refund every dollar.</p>
-      <p>Don't send anything back. Keep the bag. We're not going to make you pay return shipping to tell us our product didn't work for you, and we're not going to make you prove you used it.</p>
-      <p>We built this to work. We guarantee it because we're confident it will. And if it doesn't work for you specifically, you shouldn't have to eat the cost of finding that out.</p>
-      <p>That's it. That's the whole policy.</p>
+      <h2>Try It for 90 Days. Keep the Bag Either Way.</h2>
+      <p>You have 90 days to decide if Valor Vitals Hydration is right for you.</p>
+      <p>If it isn't, ask for a refund.</p>
+      <p>We'll refund your purchase.</p>
+      <p>You don't have to send the bag back.</p>
+      <p>You don't have to prove how many sticks you used.</p>
+      <p>There's nothing to mail to us.</p>
+      <p>You tried it. You didn't like it. We give you your money back.</p>
+      <p>That's the guarantee.</p>
     </div>
   </section>
 
   <!-- ============ CTA_PRIMARY: cta-5 ============ -->
   <section id="cta-5" class="cta-block">
     <div class="wrap">
-      <button type="button" class="btn-primary" data-open-drawer="cta-5">Get your first bag — $29</button>
-      <p class="cta-sub">30 sticks. 30 days. Keep it if it doesn't work.</p>
+      <button type="button" class="btn-primary" data-open-drawer="cta-5">Try your first bag — $29</button>
+      <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
     </div>
   </section>
 
-  <!-- ============ S11_FAQ — v2, reordered + added_sugars moved up + fasting added + taste updated ============ -->
+  <!-- ============ S12_FAQ — v3, 10 items (no blood_sugar this build) ============ -->
   <section id="faq" class="on-panel">
     <div class="wrap measure">
-      <h2>Questions People Ask</h2>
+      <h2>Frequently Asked Questions</h2>
 
       <div class="faq-item">
         <details data-question-id="taste" open>
           <summary>What does it taste like?</summary>
-          <p>Light, not syrupy. B1 is blue raspberry, B2 is lemon lime. Both are on the clean side of the category — there's no added cane sugar, so you're not getting that heavy candy finish some packets leave behind. Sweetened with stevia leaf extract. If you've found most electrolyte drinks too sweet, these will read as a relief.</p>
+          <p>Valor Vitals Hydration comes in two flavors: <strong>B1 Blue Raspberry</strong> and <strong>B2 Lemon Lime</strong>.</p>
+          <p>Taste mattered to us because electrolyte products can get very salty very quickly. We wanted something you'd actually want to drink regularly, not something you have to force down because the ingredient panel looks good.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="timing">
           <summary>When should I take it?</summary>
-          <p>One stick, mixed into water, once a day. Most people go mid-morning so the palatinose is working through the afternoon rather than starting after the wall has already hit. There's no timing window to optimize and nothing to stack it with.</p>
+          <p>Mix one stick with water and drink it during the part of your day when hydration matters most to you.</p>
+          <p>There's no stimulant timing to worry about and no complicated before/during/after protocol.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="caffeine">
-          <summary>Is there caffeine in it?</summary>
-          <p>No. No caffeine, no stimulants of any kind. That's deliberate. Some products in this category put a small dose of caffeine in specifically so you feel something immediately — which is a good way to sell a product and a bad way to get through a twelve-hour day. What you feel from this comes from the fuel, not from a stimulant, and there's nothing to crash off at the back end.</p>
+          <summary>Does it have caffeine?</summary>
+          <p>No.</p>
+          <p>There's no caffeine or other stimulant in Valor Vitals Hydration.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="added_sugars">
-          <summary>Your label says "Includes 4g Added Sugars." What's that?</summary>
-          <p>That's the palatinose, and we'd rather you hear it from us than find it yourself. The FDA counts isomaltulose as an added sugar because of how it's classified, not because of how it behaves — it's derived from beet sugar but bonded differently, which is why it breaks down four to five times slower and lands at a glycemic index of 32 instead of 65. There is no cane sugar, no corn syrup and no artificial sweetener in the bag. The 4g on the panel is the ingredient that makes the product work.</p>
+          <summary>Why does the label say "Includes 4g Added Sugars"?</summary>
+          <p>That's the palatinose.</p>
+          <p>Palatinose is a carbohydrate derived from beet sugar, so it has to be declared appropriately on the nutrition label.</p>
+          <p>Each stick contains <strong>4 grams of carbohydrate and 25 calories</strong>.</p>
+          <p>We use it intentionally because of how slowly it breaks down and because carbohydrate participates with sodium in the absorption process in the small intestine.</p>
+          <p>There is <strong>no added cane sugar</strong>.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="fasting">
-          <summary>I'm fasting / on keto / counting carbs. What are the actual numbers?</summary>
-          <p>Each stick is 25 calories and 4g of carbohydrate, all of it palatinose, at a glycemic index of 32 against roughly 65 for table sugar. If you're tracking carbs or fasting, that's the number — it's printed on the panel and we're not going to bury it or tell you it doesn't count. Whether 4g fits your day is your call to make, and you should make it with the real figure in front of you.</p>
-        </details>
-      </div>
-      <div class="faq-item">
-        <details data-question-id="blood_sugar">
-          <summary>There's a carbohydrate in it — will that spike my blood sugar?</summary>
-          <p>Palatinose is a carbohydrate, so this isn't a zero-carb product and we're not going to pretend otherwise. It's 4 grams, and it's the slow kind — glycemic index of 32, against roughly 65 for table sugar. That's the entire point of using it. If you're managing your blood sugar under medical guidance, talk to your doctor first, same as with anything else you'd add.</p>
+          <summary>What if I'm fasting or counting carbohydrates?</summary>
+          <p>Each stick contains <strong>25 calories and 4 grams of carbohydrate</strong>.</p>
+          <p>If you follow a particular fasting or carbohydrate protocol, use those numbers to decide whether it fits.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="difference">
-          <summary>How is this different from what I'm already using?</summary>
-          <p>Almost certainly the palatinose, and probably the magnesium. Most zero-sugar sticks give you electrolytes and nothing to run on. Most sugar-based ones give you 11 to 21 grams of fast sugar and a crash three hours later. Pull the panel on whatever's in your cabinet and read it against ours — that comparison is most of our argument.</p>
+          <summary>How is this different from the electrolyte product I already use?</summary>
+          <p>Start with the label.</p>
+          <p>Valor contains 800mg sodium, 300mg potassium, 75mg magnesium from magnesium malate, 1,200mg chloride, 100mg vitamin C, and 4g palatinose.</p>
+          <p>The palatinose is the biggest difference.</p>
+          <p>Most products in the category either contain no carbohydrate or use a faster sugar.</p>
+          <p>We chose a small amount of slow-release carbohydrate instead.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="subscribe">
           <summary>Do I have to subscribe?</summary>
-          <p>No. This is a one-time purchase of one bag. There's no subscription to cancel and nothing that auto-renews unless you go looking for it later.</p>
+          <p>No.</p>
+          <p>Your first bag is $29. Future reorders are $44.99 per bag.</p>
+          <p>You can buy the product without committing to a subscription.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="guarantee">
           <summary>What if I don't like it?</summary>
-          <p>Email us inside 90 days and we'll refund you. Keep the bag — don't ship anything back, and don't worry about how much of it you used.</p>
+          <p>Tell us.</p>
+          <p>You have a 90-day money-back guarantee, and you don't have to send the bag back or provide proof of use.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="flavor">
           <summary>Which flavor should I get?</summary>
-          <p>Genuinely a coin flip, and most people end up preferring the one they didn't expect. If you'd rather not guess, add the second flavor for $19 when you order — it's in the same box, so there's no extra shipping.</p>
+          <p>If Blue Raspberry sounds like your thing, start with B1.</p>
+          <p>If you prefer citrus, start with B2 Lemon Lime.</p>
+          <p>Or add the second flavor for $19 and try both. It ships in the same box with no additional shipping charge.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="shipping">
           <summary>How fast does it ship?</summary>
-          <p>Orders go out from the USA within one business day. You'll get tracking as soon as it moves.</p>
+          <p>[INSERT CONFIRMED SHIPPING TIME]</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- ============ S12_CLOSE — unchanged ============ -->
-  <section id="close" class="on-panel">
+  <!-- ============ S13_CLOSE — v3 ============ -->
+  <section id="close">
     <div class="wrap measure">
-      <h2>One Last Thing</h2>
-      <p>You've already been doing the right things. You've been drinking the water. You bought the packets. You've done the responsible thing for your body and it still hasn't fully closed the gap.</p>
-      <p>Don't let that be the story for another 90 days. Don't let your family keep getting the leftover version of you because the afternoon took everything you had.</p>
-      <p>The fix is specific. The formula is complete. The guarantee removes all the risk.</p>
-      <p class="close-final">You know what to do.</p>
+      <h2>You Don't Need Another Electrolyte Packet That Looks Like Everything Else</h2>
+      <p>You probably already have one of those.</p>
+      <p>We made one change that most companies in this category don't make.</p>
+      <p>We added palatinose.</p>
+      <p>Then we built the rest of the formula around what we believe to be the right ratios: 800mg sodium, 300mg potassium, 75mg magnesium malate, 1,200mg chloride, and 100mg vitamin C.</p>
+      <p>No caffeine. No stimulants. No artificial dyes. No added cane sugar.</p>
+      <p>Your first bag is $29.</p>
+      <p>Thirty sticks.</p>
+      <p>About 97 cents each.</p>
+      <p>And you have 90 days to try it.</p>
+      <p>Keep whatever electrolyte product is already in your cabinet.</p>
+      <p>Take one Valor stick on your next long day.</p>
+      <p class="close-final">See what you think.</p>
     </div>
   </section>
 
   <!-- ============ CTA_PRIMARY: cta-6 (final) ============ -->
   <section id="cta-6" class="cta-block">
     <div class="wrap">
-      <button type="button" class="btn-primary" data-open-drawer="cta-6">Get your first bag — $29</button>
-      <p class="cta-sub">30 sticks. 30 days. Keep it if it doesn't work.</p>
+      <button type="button" class="btn-primary" data-open-drawer="cta-6">Try your first bag — $29</button>
+      <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
     </div>
   </section>
 
@@ -1075,9 +1074,9 @@
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <div class="wrap">
-    <p><em>Valor Vitals Hydration — B1 Blue Raspberry / B2 Lemon Lime</em></p>
-    <p><em>30 sticks. One a day. Made in the USA. Veteran-owned.</em></p>
-    <p><em>90-day guarantee. Keep the bag.</em></p>
+    <p><em>B1 Blue Raspberry / B2 Lemon Lime</em></p>
+    <p><em>30 sticks per bag. Made in the USA. Veteran-owned.</em></p>
+    <p><em>90-day money-back guarantee. Nothing to send back.</em></p>
     <!-- DSHEA disclaimer slot — pending the sitewide compliance decision. Reserved, intentionally empty. -->
     <p class="disclaimer-slot" data-disclaimer-slot></p>
   </div>
@@ -1089,7 +1088,7 @@
     <div class="sticky-bar-name">Valor Vitals Hydration</div>
     <div class="sticky-bar-price">$29</div>
   </div>
-  <button type="button" data-open-drawer="sticky_bar" aria-label="Get your first bag — $29">Get your first bag</button>
+  <button type="button" data-open-drawer="sticky_bar" aria-label="Try your first bag — $29">Try your first bag</button>
 </div>
 
 <!-- ============ Buy drawer ============ -->
@@ -1133,8 +1132,8 @@
       <span>Same box. No extra shipping.</span>
     </span>
   </label>
-  <p class="guarantee-line">Use the whole bag. If three o'clock isn't different, keep it and we'll refund you.</p>
-  <button type="button" class="btn-primary" data-submit disabled>Add to cart — $29</button>
+  <p class="guarantee-line">90 days to try it. Keep the bag either way.</p>
+  <button type="button" class="btn-primary" data-submit disabled>Try your first bag — $29</button>
 </template>
 
 <script>
@@ -1178,7 +1177,7 @@
 
   /* ============ Section-view scroll depth ============ */
   (function () {
-    var ids = ['mechanism', 'panel', 'cta-1', 'why-yours-quits', 'built-for', 'transformation', 'offer', 'guarantee', 'faq', 'close'];
+    var ids = ['why-carb', 'formula', 'cta-1', 'compare', 'why-others-quit', 'built-for', 'before-after', 'keep-yours', 'offer', 'guarantee', 'faq', 'close'];
     var fired = {};
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -1254,7 +1253,7 @@
       var s = state();
       var total = s.upgrade ? 48 : 29;
       totalEl.textContent = '$' + total;
-      submitBtn.textContent = 'Add to cart — $' + total;
+      submitBtn.textContent = 'Try your first bag — $' + total;
       submitBtn.disabled = !s.flavor;
       if (s.flavor) { thumb.src = FLAVOR_THUMB[s.flavor]; thumb.alt = 'Valor Vitals ' + FLAVOR_NAME[s.flavor] + ' hydration, 30-stick gusset bag'; }
     }
