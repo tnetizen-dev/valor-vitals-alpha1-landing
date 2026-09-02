@@ -1,0 +1,898 @@
+{% layout 'hydration' %}
+
+<!--
+  ============================================================
+  PORT NOTES — read before editing or launching
+  ============================================================
+  This is a direct port of the verified static build at
+  product-landing-page/hydration/index.html (v3, 2026-09-02). The design,
+  every word of copy, and the whole interaction layer (dialog drawer,
+  focus trap, scroll lock, sticky bar, analytics dispatcher) are UNCHANGED
+  from that file — for the full build history and the flags that still
+  apply (checkout price, unsourced comparison figures, missing pixel IDs,
+  the four PRD-flagged copy additions awaiting sign-off, the FAQ shipping
+  placeholder), read that file's own header comment. Nothing here repeats
+  those; this comment covers only what's different about the liquid port.
+
+  1. IMAGES moved from ./images/*.webp|jpg to theme assets, referenced via
+     the asset_url filter. The actual files were copied into
+     shopify/assets/ alongside the existing font files — they need to ship
+     with the theme (or get uploaded to Shopify Files and swapped to CDN
+     URLs, matching how the A1 template references its product images —
+     either works, asset_url was simpler to keep this a clean port).
+
+  2. MONSTER CART — the post-add-to-cart flow changed, and this is the
+     part that most needs a live test before launch. Per Tracy's
+     direction, this page no longer forces a redirect to /checkout after
+     a successful add (the static build did, matching the PRD's original
+     "skip straight to checkout" spec, which was based on real A/B data
+     for THIS page's own drawer-vs-scroll test). Instead it does a
+     standard fetch('/cart/add.js') and stops — the assumption is that
+     Monster Cart's own site-wide script (loaded via the layout's
+     content-for-header injection point, same as every other app) intercepts that call and
+     opens its drawer automatically, the same way it presumably behaves
+     on every other product page already.
+
+     THIS ASSUMPTION IS UNVERIFIED. Nothing in this repository documents
+     Monster Cart's actual trigger mechanism, and the A1 template's own
+     add-to-cart flow doesn't integrate with it either — it just redirects
+     to /cart, so there was no existing pattern here to copy with
+     confidence. Before launch: add an item on a real preview/dev theme
+     and confirm Monster Cart's drawer actually opens. If it doesn't, the
+     likely fix is a specific JS call or event Monster Cart's own app
+     documentation or admin settings would specify — not something
+     guessable from this codebase.
+
+     One consequence: InitiateCheckout no longer fires from this page.
+     The static build fired it immediately before its own redirect to
+     /checkout; now that Monster Cart owns everything after the cart
+     mutation, this page has no way to know if or when the shopper
+     actually starts checkout. If that event matters for the ad account,
+     it needs to come from inside Monster Cart's own checkout button,
+     which is outside this codebase.
+
+  3. CANONICAL now uses the real canonical_url Shopify object instead
+     of the static build's TODO placeholder.
+
+  4. Pixel / GA4 / Clarity: the static build had a manual "paste snippets
+     here" placeholder in <head>. That's replaced by the layout's
+     content-for-header injection point, which is Shopify's real injection point for every
+     configured pixel and app embed (Monster Cart included) — nothing
+     manual should be needed here. Flag it if a live check shows otherwise.
+
+  5. No site header/nav/cart-icon was added. The static build never had
+     one — deliberately, per the PRD ("the $29 must never be discoverable
+     from the main site") and the long-form format's single-path design.
+     A1's header/cart-link pattern was not carried over; flag if that's
+     wanted here too.
+  ============================================================
+-->
+
+<a class="vh" href="#hero">Skip to content</a>
+
+<main>
+
+  <!-- ============ S1_HERO ============ -->
+  <section id="hero" class="hero">
+    <div class="wrap measure">
+      <h1>Every Electrolyte Stick Has the Same Three Ingredients. We Added a Fourth.</h1>
+
+      <div class="hero-images">
+        <img src="{{ 'hero-b1-front.webp' | asset_url }}" width="900" height="973" alt="Valor Vitals B1 Blue Raspberry hydration, 30-stick gusset bag" fetchpriority="high">
+      </div>
+
+      <p>It's called palatinose.</p>
+      <p>You've probably never seen it on an electrolyte label because almost nobody in this category uses it.</p>
+      <p>Most hydration packs have sodium, potassium, and magnesium. So does ours. We use them in what we believe to be the right ratios.</p>
+      <p>But we added something else.</p>
+      <p>Palatinose is a slow-release carbohydrate derived from beet sugar. The technical name is isomaltulose.</p>
+      <p>And before the word "carbohydrate" loses you: it's only 4 grams of carbohydrate and 25 calories per stick.</p>
+      <p>That's it.</p>
+      <p>Palatinose has a stronger molecular bond than table sugar, so your body breaks it down four to five times more slowly. It's low glycemic, with a glycemic index of 32.</p>
+      <p>And that matters for more than energy.</p>
+
+      <div class="scroll-cue" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S2_TRUST — flagged addition per PRD v3 §8, carried forward unchanged ============ -->
+  <div class="trust" aria-label="Trust indicators">
+    <ul class="trust-list">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 14.5 8.5 21 9.3 16 13.9 17.5 20.5 12 17 6.5 20.5 8 13.9 3 9.3 9.5 8.5 12 2Z"></path></svg>
+        Veteran-owned
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v6c0 6-4.5 9.5-9 11-4.5-1.5-9-5-9-11V5Z"></path><rect x="7" y="8" width="10" height="6"></rect></svg>
+        Made in the USA
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>
+        90-day guarantee
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 3 4 13h6l-1 8 8-11h-6l1-7Z"></path><line x1="3" y1="21" x2="21" y2="3"></line></svg>
+        No stimulants
+      </li>
+    </ul>
+  </div>
+
+  <!-- ============ S3_WHY_CARB ============ -->
+  <section id="why-carb">
+    <div class="wrap measure">
+      <h2>Here's Why We Put a Carbohydrate in a Hydration Product</h2>
+      <p>Your small intestine absorbs glucose and sodium together.</p>
+      <p>That's one of the basic principles behind oral rehydration. When carbohydrate is available alongside sodium, it participates in the transport process your body uses to absorb sodium and fluid.</p>
+      <p>The difference with palatinose is how slowly it becomes available.</p>
+      <p>Regular sugar is broken down quickly. Palatinose breaks down more slowly and is absorbed along the full length of the small intestine.</p>
+
+      <figure class="mechanism-img">
+        <img src="{{ 'mechanism-sticks.webp' | asset_url }}" width="900" height="805" alt="Valor Vitals B1 Blue Raspberry stick packs, the single-serving format that mixes into water" loading="lazy">
+      </figure>
+
+      <p>So instead of having the carbohydrate available for a short period, it remains available for that sodium-glucose transport process over a longer window.</p>
+      <p>If you've ever heard of someone taking casein protein before bed because it releases amino acids more slowly than other proteins, it's a similar idea.</p>
+      <p>Slow release is the point.</p>
+      <p>We wanted a hydration product for long days, so using a carbohydrate that gets burned through quickly didn't make much sense to us.</p>
+      <p>And using no carbohydrate at all meant leaving out part of the absorption equation.</p>
+      <p>So we added palatinose.</p>
+    </div>
+  </section>
+
+  <!-- ============ CTA_PRIMARY: cta-1 — placement addition per PRD §3: 20% ============ -->
+  <section id="cta-1" class="cta-block">
+    <div class="wrap">
+      <button type="button" class="btn-primary" data-open-drawer="cta-1">Try your first bag — $29</button>
+      <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
+    </div>
+  </section>
+  <div id="sticky-bar-sentinel" aria-hidden="true"></div>
+
+  <!-- ============ S4_FORMULA ============ -->
+  <section id="formula" class="on-panel">
+    <div class="wrap measure">
+      <h2>We Were Late to the Electrolyte Category. That Helped.</h2>
+      <p>There were already a lot of electrolyte products on the shelf when we started working on ours.</p>
+      <p>That meant we didn't have to guess.</p>
+      <p>We could turn over the bags, read the labels, and see exactly what everybody was doing.</p>
+      <p>Some had a lot of sodium but not much potassium.</p>
+      <p>Some had very little magnesium.</p>
+      <p>Some had plenty of fast sugar.</p>
+      <p>Some removed the carbohydrate entirely.</p>
+      <p>We took what we learned and built the formula we wanted to use ourselves.</p>
+      <p>Here's what's in one stick of Valor Vitals Hydration:</p>
+      <p><strong>800mg sodium</strong></p>
+      <p><strong>300mg potassium</strong></p>
+      <p><strong>75mg magnesium, from magnesium malate</strong></p>
+      <p>A lot of inexpensive formulas use magnesium oxide. We chose magnesium malate.</p>
+      <p>Then there's another number on our label most people probably aren't used to looking for:</p>
+      <p><strong>1,200mg chloride.</strong></p>
+      <p>Most people hear "chloride" and think about a swimming pool.</p>
+      <p>But chloride is also an electrolyte. In fact, it's one of the major electrolytes in your body.</p>
+      <p>And each stick also contains:</p>
+      <p><strong>100mg vitamin C — 111% of the Daily Value.</strong></p>
+      <p>Then there's the ingredient that started this whole conversation:</p>
+      <p><strong>4g palatinose.</strong></p>
+      <p>Four grams of slow-release carbohydrate. 25 calories.</p>
+      <p>No caffeine. No stimulants. No artificial dyes. No added cane sugar.</p>
+
+      <div class="panel-images">
+        <figure>
+          <img src="{{ 'panel-b1-back.webp' | asset_url }}" width="900" height="973" alt="Valor Vitals B1 Blue Raspberry supplement facts panel" loading="lazy">
+          <figcaption>B1 Blue Raspberry — supplement facts</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ 'panel-b2-back.webp' | asset_url }}" width="900" height="973" alt="Valor Vitals B2 Lemon Lime supplement facts panel" loading="lazy">
+          <figcaption>B2 Lemon Lime — supplement facts</figcaption>
+        </figure>
+      </div>
+
+      <p>And we actually wanted it to taste good.</p>
+      <p>That sounds obvious until you've tried enough electrolyte products. A formula doesn't do you much good sitting in your cabinet because you hate drinking it.</p>
+      <p>Valor comes in <strong>B1 Blue Raspberry</strong> and <strong>B2 Lemon Lime</strong>.</p>
+    </div>
+  </section>
+
+  <!-- ============ S5_COMPARE — no table at launch, per PRD §5. Deliberate, not a gap. ============ -->
+  <section id="compare">
+    <div class="wrap measure">
+      <h2>Put the Labels Next to Each Other</h2>
+      <p>You don't have to take our word for it.</p>
+      <p>Look at the numbers.</p>
+      <p>Then go turn over whatever's in your cabinet and read the back of that one.</p>
+      <p>That's the argument.</p>
+      <p>30 sticks. Your choice of B1 Blue Raspberry or B2 Lemon Lime.</p>
+      <p>That works out to about <strong>97 cents a day.</strong></p>
+      <p>And if you want to try both flavors, add the second bag for <strong>$19</strong>.</p>
+      <p>It ships in the same box. No extra shipping.</p>
+    </div>
+  </section>
+
+  <!-- ============ CTA_PRIMARY: cta-2 ============ -->
+  <section id="cta-2" class="cta-block">
+    <div class="wrap">
+      <button type="button" class="btn-primary" data-open-drawer="cta-2">Try your first bag — $29</button>
+      <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
+    </div>
+  </section>
+
+  <!-- ============ S6_WHY_OTHERS_QUIT ============ -->
+  <section id="why-others-quit" class="on-panel">
+    <div class="wrap measure">
+      <h2>So Why Do Other Hydration Packets Quit on You?</h2>
+      <p>Most electrolyte products were built around a workout.</p>
+      <p>You mix one before you train, while you train, or afterward. You get your electrolytes. Then you move on.</p>
+      <p>That's fine if that's what you need.</p>
+      <p>But some days don't end after an hour.</p>
+      <p>You might be working outside. You might be on your feet all day. You might have a long shift and still have things to do when you get home.</p>
+      <p>That's the use case we had in mind.</p>
+      <p>A zero-sugar electrolyte product gives you electrolytes without carbohydrates.</p>
+      <p>A traditional sports drink gives you electrolytes with a much larger amount of faster sugar.</p>
+      <p>We wanted something between those two.</p>
+      <p>Enough carbohydrate to support the absorption process, but only 4 grams.</p>
+      <p>And we wanted that carbohydrate to break down slowly.</p>
+      <p>That's why palatinose is there.</p>
+    </div>
+  </section>
+
+  <!-- ============ S7_BUILT_FOR ============ -->
+  <section id="built-for">
+    <div class="wrap measure">
+      <h2>This Is Who We Built It For</h2>
+
+      <figure class="founder-photo">
+        <img src="{{ 'founder-callon.jpg' | asset_url }}" width="900" height="675" alt="Callon Nichols, Valor Vitals co-founder, in the field during his Marine Corps service" loading="lazy">
+      </figure>
+
+      <p>My name is Callon Nichols.</p>
+      <p>I'm a former Marine Corps officer and certified EMT.</p>
+      <p>I earned a perfect score on the Marine Corps Physical Fitness Test. I climbed Kilimanjaro. And I ran the Marine Corps Marathon in my combat boots and utilities.</p>
+      <p>I've asked a lot from my body.</p>
+      <p>Eventually, I started paying more attention to what I was putting back into it.</p>
+      <p>I started Valor Vitals with a friend who spent over a decade in the SEAL teams.</p>
+      <p>One idea from the Marine Corps stuck with me: take care of your gear.</p>
+      <p>Your body is part of that.</p>
+      <p>So when we started making products, we made things we actually wanted to use.</p>
+      <p>That's where this hydration formula came from.</p>
+      <p>Not because the world needed another electrolyte packet.</p>
+      <p>There are already plenty of those.</p>
+      <p>We thought there was room for one built differently.</p>
+      <p>Something for the person whose day lasts longer than their workout.</p>
+    </div>
+  </section>
+
+  <!-- ============ CTA_PRIMARY: cta-3 ============ -->
+  <section id="cta-3" class="cta-block">
+    <div class="wrap">
+      <button type="button" class="btn-primary" data-open-drawer="cta-3">Try your first bag — $29</button>
+      <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
+    </div>
+  </section>
+
+  <!-- ============ S8_BEFORE_AFTER ============ -->
+  <section id="before-after" class="on-panel">
+    <div class="wrap measure before-after">
+      <h2>What That Can Look Like</h2>
+
+      <div class="asset-gap">
+        <strong>Photography gap — flagged, not filled</strong>
+        Real trades / outdoor-work lifestyle photography for this section doesn't exist yet. The available library skews to fire/EMS and its provenance is unconfirmed for several files. Per the Authenticity Rule, this section ships text-only until real photography is sourced.
+      </div>
+
+      <h4>Before:</h4>
+      <p>You already have electrolyte packets in the cabinet.</p>
+      <p>You drink one. You drink water. Maybe you grab another coffee after lunch.</p>
+      <p>And by late afternoon, you're still wondering why you feel like you've run out of gas.</p>
+      <p>You assume that's just what a long day feels like.</p>
+
+      <h4>After:</h4>
+      <p>You understand what was missing from the product you were using.</p>
+      <p>You've got electrolytes in the amounts we chose for our own formula, plus a small amount of slow-release carbohydrate.</p>
+      <p>There's no caffeine to account for later.</p>
+      <p>No complicated routine.</p>
+      <p>One stick in water.</p>
+      <p>Then you get on with your day.</p>
+    </div>
+  </section>
+
+  <!-- ============ S9_KEEP_YOURS ============ -->
+  <section id="keep-yours">
+    <div class="wrap measure">
+      <h2>We're Not Asking You to Throw Away What You Already Bought</h2>
+      <p>Seriously.</p>
+      <p>Keep the electrolyte packets that are already in your cabinet.</p>
+      <p>We're not asking you to decide today that Valor is the only hydration product you'll ever use again.</p>
+      <p>That's a big ask for a bag of powder.</p>
+      <p>Try one stick on your next long day.</p>
+      <p>Pay attention to the back half of that day.</p>
+      <p>Then decide.</p>
+      <p>That's the ask.</p>
+    </div>
+  </section>
+
+  <!-- ============ S10_OFFER — prose ============ -->
+  <section id="offer" class="on-panel">
+    <div class="wrap measure">
+      <h2>Your First Bag Is $29</h2>
+      <p>A bag contains 30 sticks.</p>
+      <p>Your first bag is <strong>$29</strong>, which works out to about <strong>97 cents per stick.</strong></p>
+      <p>Under a dollar a day.</p>
+      <p>Choose:</p>
+      <p><strong>B1 Blue Raspberry</strong></p>
+      <p>or</p>
+      <p><strong>B2 Lemon Lime</strong></p>
+      <p>Want both?</p>
+      <p>Add the second flavor for <strong>$19</strong> and we'll put it in the same box with no additional shipping charge.</p>
+      <p>Future reorders are $44.99 per bag.</p>
+      <p>There's no complicated protocol and no need to stack it with something else.</p>
+      <p>Mix one stick with water and drink it.</p>
+    </div>
+  </section>
+
+  <!-- ============ CTA_PRIMARY: cta-4 — inline offer module, S10_OFFER shared copy key, no stack table this time ============ -->
+  <section id="cta-4" class="on-panel">
+    <div class="wrap measure">
+      <div class="buy-panel" data-buy-panel data-source="cta-4">
+        <!-- populated by JS: flavor selector, upgrade row, price line, guarantee, submit -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S11_GUARANTEE ============ -->
+  <section id="guarantee">
+    <div class="wrap measure">
+      <h2>Try It for 90 Days. Keep the Bag Either Way.</h2>
+      <p>You have 90 days to decide if Valor Vitals Hydration is right for you.</p>
+      <p>If it isn't, ask for a refund.</p>
+      <p>We'll refund your purchase.</p>
+      <p>You don't have to send the bag back.</p>
+      <p>You don't have to prove how many sticks you used.</p>
+      <p>There's nothing to mail to us.</p>
+      <p>You tried it. You didn't like it. We give you your money back.</p>
+      <p>That's the guarantee.</p>
+    </div>
+  </section>
+
+  <!-- ============ CTA_PRIMARY: cta-5 ============ -->
+  <section id="cta-5" class="cta-block">
+    <div class="wrap">
+      <button type="button" class="btn-primary" data-open-drawer="cta-5">Try your first bag — $29</button>
+      <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
+    </div>
+  </section>
+
+  <!-- ============ S12_FAQ — 10 items (no blood_sugar this build) ============ -->
+  <section id="faq" class="on-panel">
+    <div class="wrap measure">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <details data-question-id="taste" open>
+          <summary>What does it taste like?</summary>
+          <p>Valor Vitals Hydration comes in two flavors: <strong>B1 Blue Raspberry</strong> and <strong>B2 Lemon Lime</strong>.</p>
+          <p>Taste mattered to us because electrolyte products can get very salty very quickly. We wanted something you'd actually want to drink regularly, not something you have to force down because the ingredient panel looks good.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details data-question-id="timing">
+          <summary>When should I take it?</summary>
+          <p>Mix one stick with water and drink it during the part of your day when hydration matters most to you.</p>
+          <p>There's no stimulant timing to worry about and no complicated before/during/after protocol.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details data-question-id="caffeine">
+          <summary>Does it have caffeine?</summary>
+          <p>No.</p>
+          <p>There's no caffeine or other stimulant in Valor Vitals Hydration.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details data-question-id="added_sugars">
+          <summary>Why does the label say "Includes 4g Added Sugars"?</summary>
+          <p>That's the palatinose.</p>
+          <p>Palatinose is a carbohydrate derived from beet sugar, so it has to be declared appropriately on the nutrition label.</p>
+          <p>Each stick contains <strong>4 grams of carbohydrate and 25 calories</strong>.</p>
+          <p>We use it intentionally because of how slowly it breaks down and because carbohydrate participates with sodium in the absorption process in the small intestine.</p>
+          <p>There is <strong>no added cane sugar</strong>.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details data-question-id="fasting">
+          <summary>What if I'm fasting or counting carbohydrates?</summary>
+          <p>Each stick contains <strong>25 calories and 4 grams of carbohydrate</strong>.</p>
+          <p>If you follow a particular fasting or carbohydrate protocol, use those numbers to decide whether it fits.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details data-question-id="difference">
+          <summary>How is this different from the electrolyte product I already use?</summary>
+          <p>Start with the label.</p>
+          <p>Valor contains 800mg sodium, 300mg potassium, 75mg magnesium from magnesium malate, 1,200mg chloride, 100mg vitamin C, and 4g palatinose.</p>
+          <p>The palatinose is the biggest difference.</p>
+          <p>Most products in the category either contain no carbohydrate or use a faster sugar.</p>
+          <p>We chose a small amount of slow-release carbohydrate instead.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details data-question-id="subscribe">
+          <summary>Do I have to subscribe?</summary>
+          <p>No.</p>
+          <p>Your first bag is $29. Future reorders are $44.99 per bag.</p>
+          <p>You can buy the product without committing to a subscription.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details data-question-id="guarantee">
+          <summary>What if I don't like it?</summary>
+          <p>Tell us.</p>
+          <p>You have a 90-day money-back guarantee, and you don't have to send the bag back or provide proof of use.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details data-question-id="flavor">
+          <summary>Which flavor should I get?</summary>
+          <p>If Blue Raspberry sounds like your thing, start with B1.</p>
+          <p>If you prefer citrus, start with B2 Lemon Lime.</p>
+          <p>Or add the second flavor for $19 and try both. It ships in the same box with no additional shipping charge.</p>
+        </details>
+      </div>
+      <div class="faq-item">
+        <details data-question-id="shipping">
+          <summary>How fast does it ship?</summary>
+          <p>[INSERT CONFIRMED SHIPPING TIME]</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ S13_CLOSE ============ -->
+  <section id="close">
+    <div class="wrap measure">
+      <h2>You Don't Need Another Electrolyte Packet That Looks Like Everything Else</h2>
+      <p>You probably already have one of those.</p>
+      <p>We made one change that most companies in this category don't make.</p>
+      <p>We added palatinose.</p>
+      <p>Then we built the rest of the formula around what we believe to be the right ratios: 800mg sodium, 300mg potassium, 75mg magnesium malate, 1,200mg chloride, and 100mg vitamin C.</p>
+      <p>No caffeine. No stimulants. No artificial dyes. No added cane sugar.</p>
+      <p>Your first bag is $29.</p>
+      <p>Thirty sticks.</p>
+      <p>About 97 cents each.</p>
+      <p>And you have 90 days to try it.</p>
+      <p>Keep whatever electrolyte product is already in your cabinet.</p>
+      <p>Take one Valor stick on your next long day.</p>
+      <p class="close-final">See what you think.</p>
+    </div>
+  </section>
+
+  <!-- ============ CTA_PRIMARY: cta-6 (final) ============ -->
+  <section id="cta-6" class="cta-block">
+    <div class="wrap">
+      <button type="button" class="btn-primary" data-open-drawer="cta-6">Try your first bag — $29</button>
+      <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p><em>B1 Blue Raspberry / B2 Lemon Lime</em></p>
+    <p><em>30 sticks per bag. Made in the USA. Veteran-owned.</em></p>
+    <p><em>90-day money-back guarantee. Nothing to send back.</em></p>
+    <!-- DSHEA disclaimer slot — pending the sitewide compliance decision. Reserved, intentionally empty. -->
+    <p class="disclaimer-slot" data-disclaimer-slot></p>
+  </div>
+</footer>
+
+<!-- ============ Sticky bar (hidden until cta-1 is passed) ============ -->
+<div class="sticky-bar" id="sticky-bar" hidden>
+  <div class="sticky-bar-info">
+    <div class="sticky-bar-name">Valor Vitals Hydration</div>
+    <div class="sticky-bar-price">$29</div>
+  </div>
+  <button type="button" data-open-drawer="sticky_bar" aria-label="Try your first bag — $29">Try your first bag</button>
+</div>
+
+<!-- ============ Buy drawer ============ -->
+<dialog id="buy-drawer" aria-labelledby="drawer-title">
+  <div class="drawer-sheet">
+    <div class="drawer-handle" aria-hidden="true"></div>
+    <button type="button" class="drawer-close" data-close-drawer aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+    </button>
+    <h2 id="drawer-title" class="vh">Add Valor Vitals Hydration to your order</h2>
+    <div class="buy-panel" data-buy-panel data-drawer-instance data-source="">
+      <!-- populated by JS -->
+    </div>
+  </div>
+</dialog>
+
+<template id="buy-panel-template">
+  <img class="buy-panel-thumb" src="{{ 'hero-b1-front.webp' | asset_url }}" data-thumb alt="Valor Vitals Hydration, 30-stick gusset bag" width="900" height="973">
+  <fieldset style="border:none;padding:0;margin:0 0 1rem;">
+    <legend class="vh">Choose a flavor</legend>
+    <div class="flavor-group" data-flavor-group>
+      <div class="flavor-option">
+        <input type="radio" name="flavor" value="B1" id="fl-b1">
+        <label for="fl-b1">B1 Blue Raspberry</label>
+      </div>
+      <div class="flavor-option">
+        <input type="radio" name="flavor" value="B2" id="fl-b2">
+        <label for="fl-b2">B2 Lemon Lime</label>
+      </div>
+    </div>
+  </fieldset>
+  <div class="price-line">
+    <span class="now" data-total>$29</span>
+    <span class="was">$44.99</span>
+    <span class="label">first bag</span>
+  </div>
+  <label class="upgrade-row">
+    <input type="checkbox" data-upgrade>
+    <span class="upgrade-copy">
+      <strong>Add the other flavor — $19</strong>
+      <span>Same box. No extra shipping.</span>
+    </span>
+  </label>
+  <p class="guarantee-line">90 days to try it. Keep the bag either way.</p>
+  <button type="button" class="btn-primary" data-submit disabled>Try your first bag — $29</button>
+</template>
+
+<script>
+(function () {
+  'use strict';
+
+  var DEBUG = /[?&]debug=1\b/.test(window.location.search);
+
+  var B1_VARIANT = 44474517717091;
+  var B2_VARIANT = 44474517749859;
+  // Flag: no discount code / automatic-discount name was supplied in any
+  // source doc to bring these $44.99 variants to the $29/$19 prices shown
+  // on this page. This is a Shopify-admin configuration task, not
+  // something this file can fix — do not launch until a live test
+  // purchase confirms $29 at checkout.
+
+  /* ============ ANALYTICS CORE ============ */
+  function isMobile() {
+    return window.matchMedia('(max-width: 767px)').matches;
+  }
+
+  function docHeight() {
+    return document.documentElement.scrollHeight || document.body.scrollHeight;
+  }
+
+  function depthPctFor(el) {
+    var top = el.getBoundingClientRect().top + window.scrollY;
+    return Math.round((top / docHeight()) * 100);
+  }
+
+  function track(name, params) {
+    params = params || {};
+    if (DEBUG) { console.log('[track]', name, params); }
+    try { if (window.gtag) { window.gtag('event', name, params); } } catch (e) {}
+    try {
+      if (window.fbq) {
+        if (name === 'Purchase') { window.fbq('track', 'Purchase', params); }
+        else { window.fbq('trackCustom', name, params); }
+      }
+    } catch (e) {}
+    try { if (window.clarity) { window.clarity('event', name); } } catch (e) {}
+  }
+
+  /* ============ Section-view scroll depth ============ */
+  (function () {
+    var ids = ['why-carb', 'formula', 'cta-1', 'compare', 'why-others-quit', 'built-for', 'before-after', 'keep-yours', 'offer', 'guarantee', 'faq', 'close'];
+    var fired = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var id = entry.target.id;
+        if (fired[id]) return;
+        fired[id] = true;
+        track('section_view_' + id.replace(/-/g, '_'), {
+          section: id,
+          depth_pct: depthPctFor(entry.target),
+          device: isMobile() ? 'mobile' : 'desktop'
+        });
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0 });
+    ids.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  })();
+
+  /* ============ Sticky bar ============ */
+  var stickyBar = document.getElementById('sticky-bar');
+  var stickyShown = false;
+  (function () {
+    var sentinel = document.getElementById('sticky-bar-sentinel');
+    if (!sentinel) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !stickyShown) {
+          stickyShown = true;
+          stickyBar.hidden = false;
+          requestAnimationFrame(function () { stickyBar.classList.add('is-visible'); });
+          track('sticky_bar_shown', { depth_pct: depthPctFor(sentinel) });
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0 });
+    io.observe(sentinel);
+  })();
+  stickyBar.querySelector('button').addEventListener('click', function () {
+    track('sticky_bar_click', { depth_pct: depthPctFor(stickyBar) });
+    openDrawer('sticky_bar', this);
+  });
+
+  /* ============ Buy panel (shared logic for drawer + inline cta-4) ============ */
+  var FLAVOR_NAME = { B1: 'B1 Blue Raspberry', B2: 'B2 Lemon Lime' };
+  var FLAVOR_VARIANT = { B1: B1_VARIANT, B2: B2_VARIANT };
+  var FLAVOR_THUMB = { B1: '{{ "hero-b1-front.webp" | asset_url }}', B2: '{{ "hero-b2-front.webp" | asset_url }}' };
+
+  function initBuyPanel(container) {
+    var tpl = document.getElementById('buy-panel-template');
+    container.appendChild(tpl.content.cloneNode(true));
+
+    var source = container.getAttribute('data-source') || 'cta-4';
+    var flavorInputs = container.querySelectorAll('input[name="flavor"]');
+    var upgrade = container.querySelector('[data-upgrade]');
+    var totalEl = container.querySelector('[data-total]');
+    var submitBtn = container.querySelector('[data-submit]');
+    var thumb = container.querySelector('[data-thumb]');
+
+    function state() {
+      var picked = null;
+      flavorInputs.forEach(function (r) { if (r.checked) picked = r.value; });
+      return { flavor: picked, upgrade: upgrade.checked };
+    }
+
+    function currentSource() {
+      return container.getAttribute('data-source') || source;
+    }
+
+    function render() {
+      var s = state();
+      var total = s.upgrade ? 48 : 29;
+      totalEl.textContent = '$' + total;
+      submitBtn.textContent = 'Try your first bag — $' + total;
+      submitBtn.disabled = !s.flavor;
+      if (s.flavor) { thumb.src = FLAVOR_THUMB[s.flavor]; thumb.alt = 'Valor Vitals ' + FLAVOR_NAME[s.flavor] + ' hydration, 30-stick gusset bag'; }
+    }
+
+    flavorInputs.forEach(function (r) {
+      r.addEventListener('change', function () {
+        render();
+        track('drawer_flavor_select', { flavor: r.value, source: currentSource() });
+      });
+    });
+
+    upgrade.addEventListener('change', function () {
+      render();
+      track('drawer_upgrade_toggle', { checked: upgrade.checked, source: currentSource() });
+    });
+
+    submitBtn.addEventListener('click', function () {
+      var s = state();
+      if (!s.flavor) return;
+      submitToCart(s.flavor, s.upgrade, currentSource());
+    });
+
+    render();
+
+    return {
+      reset: function () {
+        flavorInputs.forEach(function (r) { r.checked = false; });
+        upgrade.checked = false;
+        render();
+      },
+      flavorSelected: function () { return !!state().flavor; }
+    };
+  }
+
+  // Monster Cart owns everything after a successful add-to-cart (see PORT
+  // NOTES #2 above). This function used to redirect straight to /checkout
+  // on success — that redirect is gone. It now just posts the cart
+  // mutation and lets Monster Cart's own site-wide script react, the same
+  // way it presumably does on every other product page. The catch-path
+  // fallback (cart permalink) is kept for resilience if the fetch itself
+  // fails outright — Monster Cart can't react to a request that never
+  // succeeded, so this still needs to land the shopper somewhere that
+  // works, hence /cart rather than /checkout.
+  function submitToCart(flavor, upgrade, source) {
+    var total = upgrade ? 48 : 29;
+    track('drawer_add_to_cart', { source: source, flavor: flavor, upgrade: upgrade, value: total });
+    track('AddToCart', { source: source, flavor: flavor, upgrade: upgrade, value: total, currency: 'USD' });
+
+    var items = [{ id: FLAVOR_VARIANT[flavor], quantity: 1 }];
+    if (upgrade) {
+      var other = flavor === 'B1' ? 'B2' : 'B1';
+      items.push({ id: FLAVOR_VARIANT[other], quantity: 1 });
+    }
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ items: items })
+    }).then(function (r) {
+      if (!r.ok) { throw new Error('cart/add ' + r.status); }
+      // Success: no redirect. Monster Cart's own script is expected to
+      // take it from here — see PORT NOTES #2. Verify on a live preview.
+    }).catch(function () {
+      window.location.href = '/cart/' + FLAVOR_VARIANT[flavor] + ':1' + (upgrade ? ',' + FLAVOR_VARIANT[flavor === 'B1' ? 'B2' : 'B1'] + ':1' : '');
+    });
+  }
+
+  // Inline module at cta-4
+  var inlinePanels = [];
+  document.querySelectorAll('[data-buy-panel]:not([data-drawer-instance])').forEach(function (el) {
+    inlinePanels.push(initBuyPanel(el));
+  });
+
+  /* ============ Drawer: open / close / focus trap ============ */
+  var drawer = document.getElementById('buy-drawer');
+  var drawerContainer = drawer.querySelector('[data-buy-panel]');
+  var drawerPanel = initBuyPanel(drawerContainer);
+  var lastTrigger = null;
+  var openedAt = 0;
+  var scrollLockY = 0;
+
+  function lockScroll() {
+    scrollLockY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = (-scrollLockY) + 'px';
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+  }
+  function unlockScroll() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    window.scrollTo(0, scrollLockY);
+  }
+
+  function getFocusable(root) {
+    return Array.prototype.slice.call(
+      root.querySelectorAll('a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])')
+    ).filter(function (el) { return el.offsetParent !== null; });
+  }
+
+  function trapFocus(e) {
+    if (e.key !== 'Tab') return;
+    var focusable = getFocusable(drawer);
+    if (!focusable.length) return;
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  }
+
+  function openDrawer(source, triggerEl) {
+    drawerContainer.setAttribute('data-source', source);
+    drawerPanel.reset();
+    lastTrigger = triggerEl || document.activeElement;
+    openedAt = Date.now();
+
+    // Depth must be captured before lockScroll() sets body{position:fixed},
+    // which collapses window.scrollY to 0 for the duration of the lock.
+    var depthPct = Math.round((window.scrollY / docHeight()) * 100);
+
+    stickyBar.classList.add('is-hidden-for-drawer');
+
+    drawer.showModal();
+    lockScroll();
+    document.addEventListener('keydown', trapFocus);
+
+    var focusable = getFocusable(drawer);
+    (focusable[0] || drawer).focus();
+
+    track('drawer_open', { source: source, depth_pct: depthPct });
+  }
+
+  function closeDrawer(added) {
+    if (!drawer.open) return;
+    var source = drawerContainer.getAttribute('data-source');
+    if (!added) {
+      track('drawer_dismiss', {
+        source: source,
+        seconds_open: Math.round((Date.now() - openedAt) / 1000),
+        flavor_selected: drawerPanel.flavorSelected()
+      });
+    }
+    drawer.close();
+    unlockScroll();
+    document.removeEventListener('keydown', trapFocus);
+    stickyBar.classList.remove('is-hidden-for-drawer');
+    if (lastTrigger && typeof lastTrigger.focus === 'function') { lastTrigger.focus(); }
+  }
+
+  document.querySelectorAll('[data-open-drawer]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openDrawer(btn.getAttribute('data-open-drawer'), btn);
+    });
+  });
+  drawer.querySelector('[data-close-drawer]').addEventListener('click', function () { closeDrawer(false); });
+  drawer.addEventListener('cancel', function (e) { e.preventDefault(); closeDrawer(false); });
+  drawer.addEventListener('click', function (e) {
+    if (e.target === drawer) { closeDrawer(false); }
+  });
+
+  // Close on successful add-to-cart: patch submitToCart's caller to close first.
+  drawerContainer.addEventListener('click', function (e) {
+    if (e.target.closest('[data-submit]') && drawerPanel.flavorSelected()) {
+      // Let submitToCart fire (bound above), then close the sheet immediately —
+      // Monster Cart's drawer is expected to take over from here.
+      closeDrawer(true);
+    }
+  });
+
+  /* ============ FAQ open events ============ */
+  document.querySelectorAll('.faq-item details').forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open) { track('faq_open', { question_id: d.getAttribute('data-question-id') }); }
+    });
+  });
+
+  /* ============ Engagement: time on page ============ */
+  (function () {
+    var marks = [15, 30, 60, 120, 240];
+    var maxDepth = 0;
+    function updateMaxDepth() {
+      var pct = Math.round(((window.scrollY + window.innerHeight) / docHeight()) * 100);
+      if (pct > maxDepth) maxDepth = Math.min(pct, 100);
+    }
+    window.addEventListener('scroll', updateMaxDepth, { passive: true });
+    updateMaxDepth();
+    var start = Date.now();
+    marks.forEach(function (s) {
+      setTimeout(function () {
+        track('time_on_page', { seconds: s, max_depth_pct: maxDepth });
+      }, s * 1000);
+    });
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') {
+        track('page_exit', {
+          max_depth_pct: maxDepth,
+          seconds: Math.round((Date.now() - start) / 1000),
+          reached_cta_1: (function () {
+            var el = document.getElementById('cta-1');
+            return el ? el.getBoundingClientRect().top < window.innerHeight : false;
+          })()
+        });
+      }
+    });
+  })();
+
+  /* ============ Rage click ============ */
+  (function () {
+    var clicks = [];
+    document.addEventListener('click', function (e) {
+      var now = Date.now();
+      clicks.push({ t: now, x: e.clientX, y: e.clientY });
+      clicks = clicks.filter(function (c) { return now - c.t < 500; });
+      var cluster = clicks.filter(function (c) {
+        return Math.abs(c.x - e.clientX) < 40 && Math.abs(c.y - e.clientY) < 40;
+      });
+      if (cluster.length >= 3) {
+        track('rage_click', {
+          element: e.target.tagName.toLowerCase() + (e.target.id ? '#' + e.target.id : ''),
+          depth_pct: Math.round((window.scrollY / docHeight()) * 100)
+        });
+        clicks = [];
+      }
+    });
+  })();
+
+})();
+</script>
