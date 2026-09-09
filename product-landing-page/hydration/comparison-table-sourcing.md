@@ -1,7 +1,7 @@
 # Comparison Table — Competitor Figure Sourcing
 
 **Date:** 2026-09-03
-**Status:** partially sourced, not safe to print. **The table was cut from the launch build by decision on 3 Sep.** This file is the starting point for adding it back later — see PRD §5 for the re-insert point.
+**Status: CLOSED, 3 Sep 2026.** Partially sourced and never safe to print. The table was cut from the launch build, and Callon then reviewed the table-less section in his copy pass and kept it — so the cut is permanent, not deferred (PRD §5). This file is retained as a record of what was found, and specifically of why the chloride row should not come back if anyone ever reopens the decision.
 
 ## What was found
 

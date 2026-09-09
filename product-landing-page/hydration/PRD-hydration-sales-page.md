@@ -1,17 +1,46 @@
 # PRD: Valor Vitals Hydration Long-Form Sales Page
 
-**Version:** 3.0 — 2026-09-03
+**Version:** 4.0 — 2026-09-03
 **Format:** Single-column long-form sales page, cold Meta traffic
-**Copy:** `copy-hydration-sales-page.md` v3.0 — rewritten in Email Game Changers, approved by Tracy
-**Prior versions:** `_superseded/PRD-v2-archive.md`
+**Copy:** `copy-hydration-sales-page.md` v4.1 — Callon's accepted review edits plus the 3 Sep price decision
+**Prior versions:** `_superseded/PRD-v3-archive.md`, `_superseded/PRD-v2-archive.md`
 
 > **v3 replaced the copy entirely.** The page was rewritten in EGC rather than edited, and it is roughly half the length of v2. Section IDs have changed. If you are coming from the v2 build, read §3 before touching anything — most of the old IDs no longer exist.
 
 ---
 
+## 0. What changed in v4 — read this before anything else
+
+Two changes, and one of them will look like a mistake if you don't read this section first.
+
+### 0.1 🚫 There is no comparison table. Do not build one.
+
+**`S5_COMPARE` renders as prose only.** No table element, no grid, no side-by-side columns, no "vs" graphic, no placeholder for one later.
+
+This will feel wrong while you build it, because the section is called "Put the Labels Next to Each Other" and it says *"Look at the numbers."* Those numbers are **our own supplement-facts panels, which sit immediately above it in `S4_FORMULA`**, and the invitation is for the reader to go read the back of whatever they already own. The comparison happens in their kitchen, not on the page. That is the design.
+
+It is a decision, made twice. Competitor figures were never sourced from current labels, so the table was cut from launch scope on 3 Sep; Callon then reviewed the table-less section in his copy pass, kept it, and Tracy accepted — which makes the cut **permanent, not deferred**. Full reasoning in §5.
+
+**What this means for the build:**
+
+- The horizontal-scroll container in §2 has nothing to contain. No element on this page scrolls horizontally.
+- `S4_FORMULA` carries two supplement-facts panel images (`[IMAGE:]` slots in the copy, paths in `assets-manifest.md`). **These are load-bearing.** They are the proof the comparison section points at. Ship them legible at 375px and tappable to zoom. A blurry panel breaks the argument two sections later.
+- `section_view_compare` still fires. The section still exists; it just has no table in it.
+- Do not add one back on your own judgement, and do not leave a commented-out stub inviting someone else to.
+
+### 0.2 The first-order price is $33, stated as a price
+
+Changed from $29 on 3 Sep. **State the number. Never present it as a discount** — no "25% off," no percentage anywhere, no crossed-out $44.99 in body copy, no "first-time customer" badge, no deadline. Reasoning in `offer/2026-09-03-first-order-price-framing.md`.
+
+The one exception is the buy drawer — see §4.1, item 3, which is explained there and is deliberate.
+
+Two copy lines were rewritten rather than recalculated because they were built around $29 being exactly a dollar a day. Copy v4.1 flag 3 has the detail. Take every price string from the copy file; don't compute any of them yourself.
+
+---
+
 ## 1. What this page is for
 
-One job: convert a stranger who already owns an electrolyte product into a first-time buyer of a $29 bag.
+One job: convert a stranger who already owns an electrolyte product into a first-time buyer of a $33 bag.
 
 **Audience:** men, roughly 30–55, who work long physical or high-stress days — trades, first responders, shift workers, active civilians.
 
@@ -39,7 +68,7 @@ The v3 copy already satisfies all of this. The risk in this build is reintroduci
 
 - **Dark text on a light ground.** Not the A1 page's dark tactical treatment. Two thousand words of reversed-out type does not get read.
 - **Georgia (or equivalent screen serif), 17px minimum on mobile**, 19px desktop, line height 1.6, measure 40–80 characters.
-- Single column throughout. The comparison table is the only element permitted to scroll horizontally, inside its own container.
+- Single column throughout. **No element on this page scrolls horizontally.** (v3 permitted it for the comparison table; there is no table — see §0.1.)
 - Tokens, type scale and rhythm rules carry forward from v2 unchanged.
 - Dark mode out of scope. Set colours explicitly.
 
@@ -55,7 +84,7 @@ The v3 copy already satisfies all of this. The risk in this build is reintroduci
 | 2 | `trust` | Trust ribbon | ~7% | `S2_TRUST` |
 | 3 | `why-carb` | Why a carbohydrate is in a hydration product | 9–20% | `S3_WHY_CARB` |
 | 4 | `cta-1` | **Buy button 1 + sticky bar activates** | **20%** | `CTA_PRIMARY` |
-| 5 | `formula` | We were late — and the full panel | 21–40% | `S4_FORMULA` |
+| 5 | `formula` | What we decided to do different — and the full panel | 21–40% | `S4_FORMULA` |
 | 6 | `compare` | Put the labels next to each other — no table at launch | 40–44% | `S5_COMPARE` |
 | 7 | `cta-2` | Buy button 2 | 44% | `CTA_PRIMARY` |
 | 8 | `why-others-quit` | Why other packets quit on you | 45–56% | `S6_WHY_OTHERS_QUIT` |
@@ -63,7 +92,7 @@ The v3 copy already satisfies all of this. The risk in this build is reintroduci
 | 10 | `cta-3` | Buy button 3 | 67% | `CTA_PRIMARY` |
 | 11 | `before-after` | What that can look like | 68–73% | `S8_BEFORE_AFTER` |
 | 12 | `keep-yours` | We're not asking you to throw anything away | 74–78% | `S9_KEEP_YOURS` |
-| 13 | `offer` | Your first bag is $29 | 79–84% | `S10_OFFER` |
+| 13 | `offer` | Your first bag is $33 | 79–84% | `S10_OFFER` |
 | 14 | `cta-4` | **Buy button 4 — inline offer module** | 84% | `S10_OFFER` |
 | 15 | `guarantee` | Try it for 90 days | 85–89% | `S11_GUARANTEE` |
 | 16 | `cta-5` | Buy button 5 | 89% | `CTA_PRIMARY` |
@@ -97,16 +126,18 @@ Drawer contents, in order:
 
 1. Product image thumbnail
 2. Flavour selector — B1 Blue Raspberry / B2 Lemon Lime. Required, nothing preselected, primary action disabled until one is chosen
-3. Price line: `$29` with `$44.99` struck through, labelled `first bag`
-4. Second-bag upgrade as a distinct row: `Add the other flavor — $19` / `Same box. No extra shipping.` **Unchecked by default.** Total updates to `$48` when checked
+3. Price line: `$33` with `$44.99` struck through, labelled `first bag`
+4. Second-bag upgrade as a distinct row: `Add the other flavor — $19` / `Same box. No extra shipping.` **Unchecked by default.** Total updates to `$52` when checked
 5. Guarantee line: `90 days to try it. Keep the bag either way.`
-6. Primary action: `Try your first bag — $29`, label reflecting live total
+6. Primary action: `Try your first bag — $33`, label reflecting live total
+
+⚠️ **Item 3 is the only crossed-out price allowed anywhere in this build, and it is deliberate.** The page argues the value and states $33; the drawer is where someone who has already decided verifies what they'll be charged, and $44.99 is the real catalogue price they'll pay on reorder. Showing it there is disclosure. Showing it in body copy, in the sticky bar, in the hero, or in an ad would be discount framing, which §0.2 forbids. If Tracy would rather the drawer show $33 alone, that's a one-line change — flagged in §8.
 
 Behaviour: scrim click, Escape and an explicit close all dismiss. Focus trapped while open, returned on close. Page scroll locked via `body{position:fixed; top:-Ypx}` with the offset captured **before** the lock and restored on close. 250ms slide, disabled under `prefers-reduced-motion`. Submits to cart and proceeds straight to checkout.
 
 ### 4.2 The sticky bar
 
-Hidden until the user scrolls past `cta-1`. Once shown, persists. Hidden while the drawer is open. Compact — product name, `$29`, button. Respects iOS safe-area insets.
+Hidden until the user scrolls past `cta-1`. Once shown, persists. Hidden while the drawer is open. Compact — product name, `$33`, button. **No struck-through price in the bar.** Respects iOS safe-area insets.
 
 ### 4.3 The inline offer module (`cta-4`)
 
@@ -118,9 +149,9 @@ Native `<details>`/`<summary>`. First item open, rest closed. Each open emits an
 
 ---
 
-## 5. The comparison section (`S5_COMPARE`) — no table at launch
+## 5. The comparison section (`S5_COMPARE`) — no table, permanently
 
-**There is no comparison table in this build. This is a decision, not an omission.**
+**There is no comparison table in this build. This is a decision, not an omission.** Summary for builders is in §0.1; this section is the reasoning.
 
 The competitor figures have never been sourced from current labels. Third-party nutrition aggregators lag reformulations, Liquid I.V. has reformulated and expanded its line, and serving sizes differ across the category. The section opened with *"You don't have to take our word for it. Look at the numbers"* and then showed an empty table — a promise the page could not keep, made to the most label-literate audience in the category.
 
@@ -128,7 +159,11 @@ Rather than block launch on sourcing, the section now keeps its framing and hand
 
 `S4_FORMULA` still makes the comparison in prose — *"Some had a lot of sodium but not much potassium. Some had very little magnesium."* Directionally true, nothing to substantiate.
 
-### When the table comes back
+### The table is not coming back
+
+**Closed out 3 Sep.** Callon reviewed the table-less section in his copy pass and kept it. That converts a launch-scope decision into a permanent one — the section is now the section as designed, not a version waiting on data. Do not reinstate the table without a new decision from Tracy and Callon. Two supplement-facts panel images were added to `S4_FORMULA` in copy v4 and now carry the proof directly; they are what the reader compares against, in place of a table.
+
+If that decision is ever reopened, the constraints below still hold.
 
 Build it as a real table, not an image. Readable at 375px, horizontal scroll in its own `overflow-x: auto` container. Never name a competitor — generic descriptors only, per the 24 Aug decision. Re-insert directly beneath "Look at the numbers." Add a dated footnote: *"Figures from published labels, [month year]. Formulations change — check the panel on whatever you're using."*
 
@@ -155,7 +190,7 @@ Read `core/brand-voice.md` and `memory/glossary.md`. Load-bearing for this page:
 - Meta Pixel + CAPI, with a **custom conversion distinct from the A1 page's Purchase event** — the two campaigns must not optimise against each other.
 - Microsoft Clarity from day one.
 - Every event in `analytics-events.md` v3 fires.
-- `noindex, nofollow`. Excluded from sitemap. **The $29 must never be discoverable from the main site** — the $44.99 anchor has to survive.
+- `noindex, nofollow`. Excluded from sitemap. **The $33 must never be discoverable from the main site** — the $44.99 anchor has to survive.
 - No external font hosts, no CDN scripts, no third-party embeds beyond pixel and Clarity.
 - Mobile-first at 375px. Total page weight under 1.5MB. LCP under 2.5s on mid-range mobile over 4G.
 - Semantic landmarks, one `h1`, headings in order, visible focus states, 4.5:1 contrast on body text.
@@ -166,13 +201,15 @@ Read `core/brand-voice.md` and `memory/glossary.md`. Load-bearing for this page:
 
 | # | Item | Owner |
 |---|---|---|
-| 1 | Comparison table — cut from launch by decision. Photograph real panels when there's time, then re-insert per §5 | Tracy, later |
+| 1 | ~~Comparison table — cut from launch by decision~~ **Closed 3 Sep: cut permanently, see §0.1 and §5** | — |
 | 2 | 🛑 Shipping time — the FAQ has `[INSERT CONFIRMED SHIPPING TIME]`. Only remaining hard blocker | Callon |
 | 3 | Approve the trust ribbon (addition, not in the EGC copy) | Tracy |
 | 4 | Approve the guarantee line at the buy buttons (addition, assembled from approved copy) | Tracy |
-| 4b | Approve the two new closing lines in `S5_COMPARE` | Tracy |
+| 4b | ~~Approve the two new closing lines in `S5_COMPARE`~~ **Closed 3 Sep: Callon kept them** | — |
 | 5 | Approve the single standardised button label | Tracy |
-| 6 | Shopify: checkout currently charges $44.99. Being handled separately at wiring | Tracy |
+| 6 | 🛑 Shopify: checkout charges $44.99, not $33, and the second-flavor upgrade adds $44.99 rather than $19. No discount mechanism configured. **Blocks traffic.** Needs a live test purchase | Tracy |
+| 8 | ~~First-order price~~ **Closed 3 Sep: $33, stated as a price, no percentage. See §0.2** | — |
+| 9 | Confirm the drawer keeps the struck-through $44.99 (§4.1 item 3) — the only crossed-out price in the build | Tracy |
 | 7 | DSHEA disclaimer — sitewide or not | Callon |
 
 ## 9. Out of scope
