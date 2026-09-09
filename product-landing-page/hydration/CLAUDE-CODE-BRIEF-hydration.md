@@ -10,7 +10,7 @@ Build a **single-column long-form sales page** for Valor Vitals Hydration (B1 Bl
 
 | File | What it is |
 |---|---|
-| `PRD-hydration-sales-page.md` | **Read first.** Full requirements: section order, scroll-depth targets, CTA positions, interaction spec, visual system |
+| `PRD-hydration-sales-page.md` | **Read first, starting at §0.** Full requirements: section order, scroll-depth targets, CTA positions, interaction spec, visual system. §0 carries the two things most likely to be built wrong |
 | `copy-hydration-sales-page.md` | **All page copy. Use verbatim.** Do not write your own copy. Every section is keyed to a PRD section ID |
 | `assets-manifest.md` | Which image goes in which section, and which assets don't exist yet |
 | `analytics-events.md` | Events the page must emit. Not optional — the page cannot be evaluated without them |
@@ -92,6 +92,9 @@ Valor Vitals/
 
 - **Don't write copy.** Every word comes from `copy-hydration-sales-page.md`. If something is missing, flag it rather than filling the gap.
 - **Don't add sections.** No "as seen in" strip, no review carousel, no countdown timer, no exit-intent popup. The brand voice explicitly forbids manufactured urgency and this audience punishes it.
+- **Don't build a comparison table.** `S5_COMPARE` is prose. The section says "look at the numbers" and points at our own supplement-facts panels two sections above; the comparison is something the reader runs at home. Permanent decision — PRD §0.1.
+- **Don't present the price as a discount.** The first bag is $33. No percentage, no crossed-out $44.99 outside the buy drawer, no "first-time customer" badge, no deadline. PRD §0.2.
+- **Don't compute a price yourself.** Every price string comes from the copy file verbatim, including the per-stick figure.
 - **Don't put a buy button in the hero.** This is deliberate and it is explained in the PRD.
 - **Don't anchor-scroll on CTA click.** Tested, and it produces more clicks and no more orders.
 - **Don't name a competitor.** The comparison is generic — "the leading zero-sugar stick." This was a decision, not an oversight.
@@ -102,6 +105,9 @@ Valor Vitals/
 ## Definition of done
 
 - [ ] Renders correctly at 375px, 768px, 1440px
+- [ ] No comparison table, and no commented-out stub for one
+- [ ] Both supplement-facts panels render legibly at 375px and open to zoom
+- [ ] Every price on the page reads $33 / $1.10 / $19 / $44.99, matching the copy file exactly
 - [ ] First buy button falls between 20% and 28% of total page height on a 375px viewport
 - [ ] Six buy buttons, at the depths specified in the PRD
 - [ ] Sticky bar appears at button 1 and not before

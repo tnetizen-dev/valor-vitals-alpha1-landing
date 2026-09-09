@@ -33,7 +33,7 @@
   comparison table in this build — a deliberate decision per PRD v3 §5, not
   an omission: competitor figures were never sourced from current labels,
   and the section was previously promising numbers it couldn't deliver. All
-  six buy buttons now share one label, "Try your first bag — $29" — the
+  six buy buttons now share one label, "Try your first bag — $33" — the
   approved copy had three different labels; PRD §3/CTA_PRIMARY standardise
   on this one. The interaction layer (dialog drawer, focus trap, scroll
   lock, sticky bar, analytics dispatcher) is untouched from the verified
@@ -48,7 +48,167 @@
   lines in #compare ("That's the argument." onward), and the standardised
   button label itself. Built as specified; not yet approved. The FAQ's
   shipping-time placeholder ([INSERT CONFIRMED SHIPPING TIME]) is left
-  literal per instruction — do not invent a shipping time.
+  literal per instruction — do not invent a shipping time. (Superseded by
+  v4 below: the shipping placeholder now has a real answer.)
+
+  ============================================================
+  V4 COPY REFRESH — 2026-09-03
+  ============================================================
+  Copy refresh only, per PRD v4.0 / copy v4.1 — no structural, drawer,
+  sticky-bar, analytics, or CSS changes. Applies Callon's 12 accepted
+  review edits plus the same-day $29 -> $33 first-order price decision.
+
+  PRICE: 17 literal "$29" strings became "$33" (13 in visible page copy —
+  5 buy buttons, the sticky bar, the offer heading/paragraph, the
+  subscribe FAQ, the close section, the drawer template's default total
+  and submit label; 1 in the meta description; 3 in this file's own
+  build-documentation comments, not customer-facing). Two more price
+  strings were rewritten rather than recalculated, per copy v4.1's own
+  note that the arithmetic no longer produced a clean line: "97 cents a
+  day" -> "$1.10 a stick" in #compare, and "Under a dollar a day." ->
+  "That's a month of hydration." in #offer. A third "97 cents each" in
+  #close became "$1.10 each" (same arithmetic, not separately flagged in
+  the copy doc but clearly the same fix). The drawer/inline module's live
+  total (JS: 48/29 -> 52/33) now computes $33 or $52 with the upgrade
+  checked — this never existed as literal "$48" text anywhere, only as a
+  number in the render() and submitToCart() functions. Per PRD §4.1 item
+  3, the drawer's struck-through $44.99 stays exactly as-is — the one
+  deliberate exception to "never show a crossed-out price" elsewhere on
+  the page.
+
+  WORDING (Callon's 12 edits): S1_HERO, S4_FORMULA (heading + palatinose
+  line), S6_WHY_OTHERS_QUIT (long-days paragraph + one sentence),
+  S7_BUILT_FOR (closing line), S8_BEFORE_AFTER (both Before and After
+  blocks), S12_FAQ timing/added_sugars/difference, and S13_CLOSE all
+  updated verbatim from copy v4.1. The added_sugars FAQ answer was a
+  do-not-edit block in v3 and Callon rewrote it anyway (an outcome
+  sentence in place of the old mechanism sentence, and "There is no added
+  cane sugar." removed) — shipped as he wrote it per the copy doc's own
+  instruction, but copy v4.1 flags this as one of eight lines across the
+  page that now carry a "steady energy" structure/function claim, to
+  revisit if the still-open sitewide DSHEA disclaimer decision lands
+  conservatively. The other seven: S1_HERO, S4_FORMULA (palatinose line),
+  S6_WHY_OTHERS_QUIT (two), S8_BEFORE_AFTER After block, S12_FAQ timing,
+  S12_FAQ difference, S13_CLOSE.
+
+  ONE CORRECTION NOT FROM CALLON'S EDITS: both the trust ribbon and the
+  footer now read "Manufactured in the USA." Per copy v4.1's own flag #1,
+  Callon's accepted document still used the unqualified origin phrasing
+  in both spots — carried along incidentally rather than deliberately
+  kept, per the copy doc — and the corrected phrasing was locked as the
+  only claim this product can support on 2026-08-27 (some ingredients
+  are sourced outside the US). Copy v4.1 says confirm with him but do not
+  ship the unqualified phrasing; built as instructed. This page never
+  uses the unqualified phrasing anywhere, including in this comment.
+
+  FLAGGED, NOT FILLED: copy v4.1's own "every price string" reference
+  table lists "$33" for FOOTER, but the actual FOOTER section content in
+  that same file has no price string in it anywhere — no $ sign at all.
+  Followed the actual section content, which is what ships; did not
+  invent a price mention in the footer to match the summary table. Worth
+  a look if a footer price was actually intended.
+
+  No copy in this file lacked a matching source in copy v4.1, and nothing
+  in copy v4.1 went unplaced.
+
+  ============================================================
+  POST-REVIEW EDITS — 2026-09-03, Tracy's direct instruction
+  ============================================================
+  Three changes, given verbally during client-review prep, none from a
+  copy-doc revision:
+
+  1. #before-after's photography placeholder is filled: images/before-
+     after-ruck.webp (from media/Lifestyle Photos/vv_lifestyle_ruck.png,
+     compressed the same way as the other product photography). This
+     folder's .png files are the ones assets-manifest.md specifically
+     flags as possibly AI-generated/composited pending Tracy's
+     confirmation of provenance — she named this file directly and
+     confirmed any image she names by name is pre-approved, which is
+     the confirmation that manifest note was waiting on. Not a
+     unilateral call; noting it here for the record since the Authenticity
+     Rule is otherwise absolute on this account.
+
+  2. .founder-photo no longer caps at 210px — it now fills the full
+     measure-width text column, matching the new before-after image's
+     width. Was capped and centered; Tracy asked for it "the same width
+     as the text block."
+
+  3. ⚠️ THE SECOND-FLAVOR UPGRADE IS REMOVED, NOT JUST HIDDEN — "we're
+     not ready for that deal yet." This is a deliberate departure from
+     copy-hydration-sales-page.md v4.1, which still specifies it (S5_COMPARE,
+     S10_OFFER, S12_FAQ flavor all still describe it in the copy doc as
+     shipped v4.1 copy). Removed from three places in the visible page
+     (the sentences in those three sections promising "add the second
+     flavor for $19"), from the buy-panel template (the whole upgrade-row
+     checkbox), and simplified out of the JS (state/render/submitToCart no
+     longer carry an upgrade concept at all; total is a flat $33 rather
+     than a 33/52 ternary). The CSS (.upgrade-row and children) was left
+     in place, unused, specifically so this is easy to reverse. The
+     analytics-events.md v3 event drawer_upgrade_toggle will simply never
+     fire now — there's no checkbox left to toggle — and drawer_add_to_cart
+     / AddToCart no longer carry an upgrade key at all (previously
+     true|false). Copy-hydration-sales-page.md v4.1 has not been updated to
+     match; it still describes the $19 offer as live. Whoever owns that
+     doc should either update it or confirm this page should diverge from
+     it intentionally.
+
+  ============================================================
+  BUY-DRAWER FIX — 2026-09-09, per 2026-09-09-buy-drawer-fix-brief.md
+  ============================================================
+  Batch 10 (4-8 Sep): $312 spend, 3 purchases, $104 CPA against a ~$44
+  order. Clarity (126 sessions) located the failure in the drawer, not
+  checkout — 26 sessions recorded dead clicks, clustered almost entirely
+  on two elements. This pass addresses items 1 and 2 of the brief; items
+  3-5 (in-app-browser <dialog> support, FAQ double-clicks, and a sitewide
+  price audit) are not yet started.
+
+  ITEM 1 (126 dead clicks — the larger of the two): the drawer's product
+  thumbnail (img.buy-panel-thumb) has never had a click handler — it's
+  decoration. Verified in a real 375px render that it does NOT overlap or
+  intercept taps meant for the flavor tiles below it (separate elements,
+  12px apart; each tile hit-tests to its own radio input correctly), and
+  that the tiles themselves are amply sized (163x47px, over Apple's 44px
+  minimum) — so the brief's interception and tap-target-size hypotheses
+  are both RULED OUT, not fixed. The actual cause: the thumbnail visibly
+  swaps when a flavor is picked, which reads as a flavor control even
+  though it isn't one. Fix shipped: a tap now scrolls to and briefly
+  outlines the real flavor tiles instead of doing nothing (see
+  .flavor-group--nudge in the CSS and the thumb click handler in the
+  script). A bigger redesign — putting each flavor's own photo inside its
+  own tile, so the tap that's already happening becomes the correct one —
+  was flagged as a follow-up candidate, not built now; it's a real layout
+  change that needs its own review pass.
+
+  ITEM 2 (33 dead clicks): the drawer's submit button ships disabled with
+  no visible reason until a flavor is picked, carrying the exact same
+  label as the button that opened the drawer — session recordings show
+  opener tap, drawer opens, dead tap on a button that looks like the one
+  they just pressed, exit. Three options were in front of Tracy (pre-
+  select a default flavor / add a visible reason + nudge / differentiate
+  the two labels); she chose the reason-plus-nudge option specifically to
+  preserve the flavor choice as deliberate friction rather than remove it.
+  Shipped: a one-line hint ("Pick a flavor to continue" — functional
+  microcopy, not sourced from copy-hydration-sales-page.md, flagged for
+  her sign-off per CLAUDE.md's flag-rather-than-fill rule) that shows only
+  while the button is disabled, plus the same tile-nudge as item 1 on a
+  blocked tap.
+
+  INSTRUMENTATION: a disabled <button> never dispatches 'click' in any
+  browser tested (verified in headless Chrome) — 'pointerup' still fires
+  and still targets the button while disabled, so that's the hook used.
+  Both dead-tap cases now fire a shared `drawer_dead_tap` event with a
+  `target: 'thumb' | 'submit_disabled'` param — not yet added to
+  analytics-events.md (v3.0, already stale re: the $19 upgrade removal);
+  whoever owns that doc should add it alongside the next real update.
+
+  VERIFIED: headless Chrome at a 375px viewport, both this file and the
+  Shopify liquid port (kept in lockstep) — dead-tap events fire with
+  correct params, the hint toggles correctly, the flavor-tile nudge
+  animation applies, and the full open -> pick -> submit -> /checkout
+  redirect flow and Escape-to-close still work with no console errors.
+  NOT verified in an actual Facebook/Instagram in-app WebView (87% of
+  this page's traffic) — the brief calls this out explicitly as a real
+  gap; flagging rather than claiming a check that wasn't possible here.
 
   ============================================================
   FLAGS — read before this page goes live
@@ -66,15 +226,26 @@
      ships as a clearly labeled placeholder box, not an image. Flagging,
      not filling.
 
-  2. CHECKOUT PRICE IS NOT WIRED. The flavor selector and cart submission
-     use the real Shopify variant IDs for B1 (44474517717091) and B2
-     (44474517749859), sourced from ../index.html's working cart
-     integration — both are catalogue-priced at $44.99. No document
-     supplied a discount code or automatic-discount name that drops the
-     price to $29 at checkout. As built, a customer who completes checkout
-     will be charged $44.99 (+ $44.99 for the upgrade) unless a Shopify-side
-     automatic discount or discount code is configured before launch. Do
-     not launch without confirming this with Tracy/Callon.
+  2. ⚠️ RESOLVED 2026-09-04: checkout price. Rather than a discount code
+     (ruled out — the native /discount/CODE?redirect= mechanism has known
+     reliability problems on mobile Safari and in-app browsers, which is
+     most of this audience), Tracy created a dedicated, unlisted duplicate
+     product ("B1 Hydration — Intro Offer") with both flavor variants
+     priced at $33 flat — no discount logic involved, the price is just
+     what the SKU costs. The flavor selector and cart submission now point
+     at those variants: B1 Blue Raspberry 44552611397731, B2 Lemon Lime
+     44552611430499. The original $44.99 catalogue variants
+     (44474517717091 / 44474517749859) are no longer referenced anywhere
+     on this page.
+
+     STILL OPEN: the duplicate's inventory was copied as a one-time
+     snapshot at creation and will NOT stay in sync with the real
+     product's stock — selling one here doesn't decrement the original.
+     Turn off inventory tracking on the duplicate's variants (or
+     reconcile manually) before real traffic runs. Also do one live test
+     purchase to confirm checkout actually charges $33.00 before this
+     goes live — a dedicated variant removes the discount-application
+     risk, but hasn't been tested end-to-end yet.
 
   3. NO PIXEL / GA4 / CLARITY IDS SUPPLIED ANYWHERE IN THE SOURCE DOCS.
      The analytics dispatcher (search "ANALYTICS CORE" below) calls
@@ -132,7 +303,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Every Electrolyte Stick Has the Same Three Ingredients — Valor Vitals Hydration</title>
-<meta name="description" content="Every electrolyte stick has the same three ingredients. We added a fourth. $29 for your first bag — 30 sticks, 30 days.">
+<meta name="description" content="Every electrolyte stick has the same three ingredients. We added a fourth. $33 for your first bag — 30 sticks, 30 days.">
 <meta name="robots" content="noindex, nofollow">
 <!-- <link rel="canonical" href="https://TODO-production-domain/PATH"> -->
 
@@ -313,8 +484,10 @@
   #why-carb { padding: var(--space-front) 0; }
   .mechanism-img { margin: 0.6rem 0; border-radius: 4px; overflow: hidden; max-width: 210px; margin-left: auto; margin-right: auto; }
 
-  .founder-photo { margin: 0 0 0.6rem; border-radius: 4px; overflow: hidden; max-width: 210px; margin-left: auto; margin-right: auto; }
+  .founder-photo { margin: 0 0 0.6rem; border-radius: 4px; overflow: hidden; }
   .founder-photo img { width: 100%; height: auto; }
+  .before-after-img { margin: 0.6rem 0 1rem; border-radius: 4px; overflow: hidden; }
+  .before-after-img img { width: 100%; height: auto; }
   .founder-signoff { font-style: italic; color: var(--ink-2); }
 
   /* ---------------- Comparison table ---------------- */
@@ -494,7 +667,33 @@
     border-top: 1px solid var(--rule);
   }
 
+  /* Added 2026-09-09 (buy-drawer fix brief, item 2): 33 dead clicks land on
+     the submit button while it's disabled, with no visible reason why. */
+  .submit-hint {
+    margin: 0 0 0.6rem;
+    font-size: 0.82rem;
+    color: var(--ink-2);
+    text-align: center;
+  }
+  .submit-hint[hidden] { display: none; }
+
   .buy-panel-thumb { width: 84px; height: auto; float: none; margin: 0 0 0.75rem; }
+
+  /* Added 2026-09-09 (buy-drawer fix brief, item 1): the thumbnail has no
+     click handler by design — it's decoration, not a control — but Clarity
+     showed 126 dead clicks on it across both its alt-text states, more than
+     any other element on the page. It swaps when a flavor is picked, which
+     reads as a flavor control even though it isn't one. Rather than making
+     it fake-interactive, a tap now scrolls to and briefly outlines the real
+     flavor tiles. This animation is that outline. */
+  .flavor-group--nudge { animation: flavor-nudge 0.9s ease-out; border-radius: 4px; }
+  @keyframes flavor-nudge {
+    0% { box-shadow: 0 0 0 0 rgba(199,164,85,0.5); }
+    100% { box-shadow: 0 0 0 8px rgba(199,164,85,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flavor-group--nudge { animation: none; }
+  }
 
   /* ---------------- Drawer ---------------- */
   dialog#buy-drawer {
@@ -606,6 +805,27 @@
     cursor: pointer;
   }
 
+  /* ---------------- Cart return bar ---------------- */
+  /* Added 2026-09-04: this page has no header/nav/cart icon by design, so a
+     shopper who adds to cart, gets redirected to checkout, then hits Back
+     has no way back to their cart. This bar only appears (via sessionStorage,
+     set in submitToCart) after a successful add on this device — a first-time
+     visitor sees nothing extra. */
+  .cart-return-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 45;
+    background: var(--panel);
+    color: var(--ink);
+    text-align: center;
+    padding: 0.55rem 1rem;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cart-return-bar[hidden] { display: none; }
+  .cart-return-bar a { color: var(--ink); text-decoration: underline; }
+
   /* ---------------- FAQ ---------------- */
   .faq-item {
     border-bottom: 1px solid var(--rule);
@@ -664,6 +884,10 @@
 
 <a class="vh" href="#hero">Skip to content</a>
 
+<div id="cart-return-bar" class="cart-return-bar" hidden>
+  <a href="/cart">You have an item in your cart — view cart</a>
+</div>
+
 <main>
 
   <!-- ============ S1_HERO — v3, rewritten in EGC ============ -->
@@ -679,7 +903,7 @@
       <p>You've probably never seen it on an electrolyte label because almost nobody in this category uses it.</p>
       <p>Most hydration packs have sodium, potassium, and magnesium. So does ours. We use them in what we believe to be the right ratios.</p>
       <p>But we added something else.</p>
-      <p>Palatinose is a slow-release carbohydrate derived from beet sugar. The technical name is isomaltulose.</p>
+      <p>Palatinose is a slow-release carbohydrate for steady energy derived from beet sugar. The technical name is isomaltulose.</p>
       <p>And before the word "carbohydrate" loses you: it's only 4 grams of carbohydrate and 25 calories per stick.</p>
       <p>That's it.</p>
       <p>Palatinose has a stronger molecular bond than table sugar, so your body breaks it down four to five times more slowly. It's low glycemic, with a glycemic index of 32.</p>
@@ -700,7 +924,7 @@
       </li>
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v6c0 6-4.5 9.5-9 11-4.5-1.5-9-5-9-11V5Z"></path><rect x="7" y="8" width="10" height="6"></rect></svg>
-        Made in the USA
+        Manufactured in the USA
       </li>
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>
@@ -738,7 +962,7 @@
   <!-- ============ CTA_PRIMARY: cta-1 — v3, placement addition per PRD §3: 20% ============ -->
   <section id="cta-1" class="cta-block">
     <div class="wrap">
-      <button type="button" class="btn-primary" data-open-drawer="cta-1">Try your first bag — $29</button>
+      <button type="button" class="btn-primary" data-open-drawer="cta-1">Try your first bag — $33</button>
       <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
     </div>
   </section>
@@ -747,7 +971,7 @@
   <!-- ============ S4_FORMULA — v3, replaces panel; the real panel photos live here now, per PRD v3 §5 ("our own panel sits directly above" the comparison section) ============ -->
   <section id="formula" class="on-panel">
     <div class="wrap measure">
-      <h2>We Were Late to the Electrolyte Category. That Helped.</h2>
+      <h2>What we decided to do different.</h2>
       <p>There were already a lot of electrolyte products on the shelf when we started working on ours.</p>
       <p>That meant we didn't have to guess.</p>
       <p>We could turn over the bags, read the labels, and see exactly what everybody was doing.</p>
@@ -769,7 +993,7 @@
       <p><strong>100mg vitamin C — 111% of the Daily Value.</strong></p>
       <p>Then there's the ingredient that started this whole conversation:</p>
       <p><strong>4g palatinose.</strong></p>
-      <p>Four grams of slow-release carbohydrate. 25 calories.</p>
+      <p>Four grams of slow-release carbohydrate for steady energy over a longer period. 25 calories.</p>
       <p>No caffeine. No stimulants. No artificial dyes. No added cane sugar.</p>
 
       <div class="panel-images">
@@ -798,16 +1022,14 @@
       <p>Then go turn over whatever's in your cabinet and read the back of that one.</p>
       <p>That's the argument.</p>
       <p>30 sticks. Your choice of B1 Blue Raspberry or B2 Lemon Lime.</p>
-      <p>That works out to about <strong>97 cents a day.</strong></p>
-      <p>And if you want to try both flavors, add the second bag for <strong>$19</strong>.</p>
-      <p>It ships in the same box. No extra shipping.</p>
+      <p>That works out to about <strong>$1.10 a stick.</strong></p>
     </div>
   </section>
 
   <!-- ============ CTA_PRIMARY: cta-2 ============ -->
   <section id="cta-2" class="cta-block">
     <div class="wrap">
-      <button type="button" class="btn-primary" data-open-drawer="cta-2">Try your first bag — $29</button>
+      <button type="button" class="btn-primary" data-open-drawer="cta-2">Try your first bag — $33</button>
       <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
     </div>
   </section>
@@ -820,13 +1042,12 @@
       <p>You mix one before you train, while you train, or afterward. You get your electrolytes. Then you move on.</p>
       <p>That's fine if that's what you need.</p>
       <p>But some days don't end after an hour.</p>
-      <p>You might be working outside. You might be on your feet all day. You might have a long shift and still have things to do when you get home.</p>
+      <p>You might be in the mountains with a 40-pound pack, pushing up the mountain, or out in the field for days training. You might have a long shift that demands something from you the entire time, in 100-plus degree heat.</p>
       <p>That's the use case we had in mind.</p>
       <p>A zero-sugar electrolyte product gives you electrolytes without carbohydrates.</p>
       <p>A traditional sports drink gives you electrolytes with a much larger amount of faster sugar.</p>
       <p>We wanted something between those two.</p>
-      <p>Enough carbohydrate to support the absorption process, but only 4 grams.</p>
-      <p>And we wanted that carbohydrate to break down slowly.</p>
+      <p>Something that could help with energy over a sustained period of time.</p>
       <p>That's why palatinose is there.</p>
     </div>
   </section>
@@ -852,7 +1073,7 @@
       <p>That's where this hydration formula came from.</p>
       <p>Not because the world needed another electrolyte packet.</p>
       <p>There are already plenty of those.</p>
-      <p>We thought there was room for one built differently.</p>
+      <p>We thought there was room for one built differently and tailored to meet the needs of people who wanted to be an asset to themselves and those around them in any situation.</p>
       <p>Something for the person whose day lasts longer than their workout.</p>
     </div>
   </section>
@@ -860,7 +1081,7 @@
   <!-- ============ CTA_PRIMARY: cta-3 ============ -->
   <section id="cta-3" class="cta-block">
     <div class="wrap">
-      <button type="button" class="btn-primary" data-open-drawer="cta-3">Try your first bag — $29</button>
+      <button type="button" class="btn-primary" data-open-drawer="cta-3">Try your first bag — $33</button>
       <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
     </div>
   </section>
@@ -870,21 +1091,18 @@
     <div class="wrap measure before-after">
       <h2>What That Can Look Like</h2>
 
-      <div class="asset-gap">
-        <strong>Photography gap — flagged, not filled</strong>
-        Real trades / outdoor-work lifestyle photography for this section doesn't exist yet. The available library skews to fire/EMS and its provenance is unconfirmed for several files. Per the Authenticity Rule, this section ships text-only until real photography is sourced.
-      </div>
+      <figure class="before-after-img">
+        <img src="images/before-after-ruck.webp" width="900" height="890" alt="A man rucking with a weighted pack on a mountain trail" loading="lazy">
+      </figure>
 
       <h4>Before:</h4>
       <p>You already have electrolyte packets in the cabinet.</p>
-      <p>You drink one. You drink water. Maybe you grab another coffee after lunch.</p>
-      <p>And by late afternoon, you're still wondering why you feel like you've run out of gas.</p>
-      <p>You assume that's just what a long day feels like.</p>
+      <p>You go out, push yourself hard in the mountains, on a long day of training, or face a day on the job that takes everything out of you.</p>
+      <p>You know you have more to put out, but need something to help you get there.</p>
 
       <h4>After:</h4>
       <p>You understand what was missing from the product you were using.</p>
-      <p>You've got electrolytes in the amounts we chose for our own formula, plus a small amount of slow-release carbohydrate.</p>
-      <p>There's no caffeine to account for later.</p>
+      <p>You've got electrolytes in the amounts we chose for our own formula, plus a slow-release carbohydrate to give you a steady energy release and not just a rush of sugar leading to a crash.</p>
       <p>No complicated routine.</p>
       <p>One stick in water.</p>
       <p>Then you get on with your day.</p>
@@ -909,16 +1127,14 @@
   <!-- ============ S10_OFFER — v3, prose ============ -->
   <section id="offer" class="on-panel">
     <div class="wrap measure">
-      <h2>Your First Bag Is $29</h2>
+      <h2>Your First Bag Is $33</h2>
       <p>A bag contains 30 sticks.</p>
-      <p>Your first bag is <strong>$29</strong>, which works out to about <strong>97 cents per stick.</strong></p>
-      <p>Under a dollar a day.</p>
+      <p>Your first bag is <strong>$33</strong>, which works out to about <strong>$1.10 per stick.</strong></p>
+      <p>That's a month of hydration.</p>
       <p>Choose:</p>
       <p><strong>B1 Blue Raspberry</strong></p>
       <p>or</p>
       <p><strong>B2 Lemon Lime</strong></p>
-      <p>Want both?</p>
-      <p>Add the second flavor for <strong>$19</strong> and we'll put it in the same box with no additional shipping charge.</p>
       <p>Future reorders are $44.99 per bag.</p>
       <p>There's no complicated protocol and no need to stack it with something else.</p>
       <p>Mix one stick with water and drink it.</p>
@@ -929,7 +1145,7 @@
   <section id="cta-4" class="on-panel">
     <div class="wrap measure">
       <div class="buy-panel" data-buy-panel data-source="cta-4">
-        <!-- populated by JS: flavor selector, upgrade row, price line, guarantee, submit -->
+        <!-- populated by JS: flavor selector, price line, guarantee, submit -->
       </div>
     </div>
   </section>
@@ -952,7 +1168,7 @@
   <!-- ============ CTA_PRIMARY: cta-5 ============ -->
   <section id="cta-5" class="cta-block">
     <div class="wrap">
-      <button type="button" class="btn-primary" data-open-drawer="cta-5">Try your first bag — $29</button>
+      <button type="button" class="btn-primary" data-open-drawer="cta-5">Try your first bag — $33</button>
       <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
     </div>
   </section>
@@ -973,7 +1189,7 @@
         <details data-question-id="timing">
           <summary>When should I take it?</summary>
           <p>Mix one stick with water and drink it during the part of your day when hydration matters most to you.</p>
-          <p>There's no stimulant timing to worry about and no complicated before/during/after protocol.</p>
+          <p>There's no stimulant timing to worry about, just a slow and steady energy release to help keep you pushing.</p>
         </details>
       </div>
       <div class="faq-item">
@@ -989,8 +1205,7 @@
           <p>That's the palatinose.</p>
           <p>Palatinose is a carbohydrate derived from beet sugar, so it has to be declared appropriately on the nutrition label.</p>
           <p>Each stick contains <strong>4 grams of carbohydrate and 25 calories</strong>.</p>
-          <p>We use it intentionally because of how slowly it breaks down and because carbohydrate participates with sodium in the absorption process in the small intestine.</p>
-          <p>There is <strong>no added cane sugar</strong>.</p>
+          <p>We use it intentionally because it breaks down four to five times slower than sucrose, giving you a steady energy release over a longer period without a spike and a crash.</p>
         </details>
       </div>
       <div class="faq-item">
@@ -1007,14 +1222,14 @@
           <p>Valor contains 800mg sodium, 300mg potassium, 75mg magnesium from magnesium malate, 1,200mg chloride, 100mg vitamin C, and 4g palatinose.</p>
           <p>The palatinose is the biggest difference.</p>
           <p>Most products in the category either contain no carbohydrate or use a faster sugar.</p>
-          <p>We chose a small amount of slow-release carbohydrate instead.</p>
+          <p>We chose a small amount of slow-release carbohydrate instead for a steady energy release over a longer period.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="subscribe">
           <summary>Do I have to subscribe?</summary>
           <p>No.</p>
-          <p>Your first bag is $29. Future reorders are $44.99 per bag.</p>
+          <p>Your first bag is $33. Future reorders are $44.99 per bag.</p>
           <p>You can buy the product without committing to a subscription.</p>
         </details>
       </div>
@@ -1030,13 +1245,12 @@
           <summary>Which flavor should I get?</summary>
           <p>If Blue Raspberry sounds like your thing, start with B1.</p>
           <p>If you prefer citrus, start with B2 Lemon Lime.</p>
-          <p>Or add the second flavor for $19 and try both. It ships in the same box with no additional shipping charge.</p>
         </details>
       </div>
       <div class="faq-item">
         <details data-question-id="shipping">
           <summary>How fast does it ship?</summary>
-          <p>[INSERT CONFIRMED SHIPPING TIME]</p>
+          <p>We typically ship out the next business day after we receive your order.</p>
         </details>
       </div>
     </div>
@@ -1048,12 +1262,12 @@
       <h2>You Don't Need Another Electrolyte Packet That Looks Like Everything Else</h2>
       <p>You probably already have one of those.</p>
       <p>We made one change that most companies in this category don't make.</p>
-      <p>We added palatinose.</p>
+      <p>We added palatinose, which is derived from sugar beets and releases energy more slowly and steadily than sucrose, without a spike or crash.</p>
       <p>Then we built the rest of the formula around what we believe to be the right ratios: 800mg sodium, 300mg potassium, 75mg magnesium malate, 1,200mg chloride, and 100mg vitamin C.</p>
       <p>No caffeine. No stimulants. No artificial dyes. No added cane sugar.</p>
-      <p>Your first bag is $29.</p>
+      <p>Your first bag is $33.</p>
       <p>Thirty sticks.</p>
-      <p>About 97 cents each.</p>
+      <p>About $1.10 each.</p>
       <p>And you have 90 days to try it.</p>
       <p>Keep whatever electrolyte product is already in your cabinet.</p>
       <p>Take one Valor stick on your next long day.</p>
@@ -1064,7 +1278,7 @@
   <!-- ============ CTA_PRIMARY: cta-6 (final) ============ -->
   <section id="cta-6" class="cta-block">
     <div class="wrap">
-      <button type="button" class="btn-primary" data-open-drawer="cta-6">Try your first bag — $29</button>
+      <button type="button" class="btn-primary" data-open-drawer="cta-6">Try your first bag — $33</button>
       <p class="cta-sub">30 sticks. 90 days to try it. Keep the bag either way.</p>
     </div>
   </section>
@@ -1075,7 +1289,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p><em>B1 Blue Raspberry / B2 Lemon Lime</em></p>
-    <p><em>30 sticks per bag. Made in the USA. Veteran-owned.</em></p>
+    <p><em>30 sticks per bag. Manufactured in the USA. Veteran-owned.</em></p>
     <p><em>90-day money-back guarantee. Nothing to send back.</em></p>
     <!-- DSHEA disclaimer slot — pending the sitewide compliance decision. Reserved, intentionally empty. -->
     <p class="disclaimer-slot" data-disclaimer-slot></p>
@@ -1086,9 +1300,9 @@
 <div class="sticky-bar" id="sticky-bar" hidden>
   <div class="sticky-bar-info">
     <div class="sticky-bar-name">Valor Vitals Hydration</div>
-    <div class="sticky-bar-price">$29</div>
+    <div class="sticky-bar-price">$33</div>
   </div>
-  <button type="button" data-open-drawer="sticky_bar" aria-label="Try your first bag — $29">Try your first bag</button>
+  <button type="button" data-open-drawer="sticky_bar" aria-label="Try your first bag — $33">Try your first bag</button>
 </div>
 
 <!-- ============ Buy drawer ============ -->
@@ -1121,19 +1335,22 @@
     </div>
   </fieldset>
   <div class="price-line">
-    <span class="now" data-total>$29</span>
+    <span class="now" data-total>$33</span>
     <span class="was">$44.99</span>
     <span class="label">first bag</span>
   </div>
-  <label class="upgrade-row">
-    <input type="checkbox" data-upgrade>
-    <span class="upgrade-copy">
-      <strong>Add the other flavor — $19</strong>
-      <span>Same box. No extra shipping.</span>
-    </span>
-  </label>
+  <!-- Second-flavor upgrade row removed 2026-09-03 at Tracy's direction —
+       "we're not ready for that deal yet." Was: a checkbox row here adding
+       the other flavor for $19, total updating to $52. See flag in the
+       top-of-file comment for what this touched (copy in three sections,
+       the JS total/upgrade logic, analytics params) and how to restore it. -->
   <p class="guarantee-line">90 days to try it. Keep the bag either way.</p>
-  <button type="button" class="btn-primary" data-submit disabled>Try your first bag — $29</button>
+  <!-- Added 2026-09-09 (buy-drawer fix brief, item 2): functional microcopy,
+       not sourced from copy-hydration-sales-page.md — flagged for Tracy's
+       sign-off, per CLAUDE.md's "flag rather than fill." Toggled by
+       render() below; hidden once a flavor is picked. -->
+  <p class="submit-hint" data-submit-hint role="status">Pick a flavor to continue</p>
+  <button type="button" class="btn-primary" data-submit disabled>Try your first bag — $33</button>
 </template>
 
 <script>
@@ -1142,11 +1359,11 @@
 
   var DEBUG = /[?&]debug=1\b/.test(window.location.search);
 
-  var B1_VARIANT = 44474517717091;
-  var B2_VARIANT = 44474517749859;
-  // Flag: no discount code / automatic-discount name was supplied in any
-  // source doc to bring these $44.99 variants to the $29/$19 prices shown
-  // on this page. See flag #2 in the top-of-file comment.
+  // Dedicated $33 variants (unlisted "B1 Hydration — Intro Offer" product),
+  // not the $44.99 catalogue variants — see flag #2 in the top-of-file
+  // comment for how this was decided and what's still open.
+  var B1_VARIANT = 44552611397731;
+  var B2_VARIANT = 44552611430499;
 
   /* ============ ANALYTICS CORE ============ */
   function isMobile() {
@@ -1174,6 +1391,30 @@
     } catch (e) {}
     try { if (window.clarity) { window.clarity('event', name); } } catch (e) {}
   }
+
+  /* ============ Cart return bar ============ */
+  // This page has no header/nav/cart link by design. If a shopper adds to
+  // cart, gets sent to /checkout, then hits Back, they'd otherwise have no
+  // way to reach /cart from here. markCartReturnable() flags that an add
+  // happened (sessionStorage — this device/tab only); syncCartReturnBar()
+  // reveals the bar when that flag is set. Runs on load and on 'pageshow'
+  // because a Back navigation is often a bfcache restore, which doesn't
+  // re-run scripts from scratch — only 'pageshow' fires reliably there.
+  function markCartReturnable() {
+    try { sessionStorage.setItem('vv_cart_has_item', '1'); } catch (e) {}
+  }
+  function syncCartReturnBar() {
+    var bar = document.getElementById('cart-return-bar');
+    if (!bar) return;
+    var hasItem = false;
+    try { hasItem = sessionStorage.getItem('vv_cart_has_item') === '1'; } catch (e) {}
+    bar.hidden = !hasItem;
+    // Fixed-position bar doesn't reserve space on its own — nudge the page
+    // down so it doesn't sit over the hero heading when shown.
+    document.body.style.paddingTop = hasItem ? bar.offsetHeight + 'px' : '';
+  }
+  syncCartReturnBar();
+  window.addEventListener('pageshow', syncCartReturnBar);
 
   /* ============ Section-view scroll depth ============ */
   (function () {
@@ -1234,27 +1475,46 @@
 
     var source = container.getAttribute('data-source') || 'cta-4';
     var flavorInputs = container.querySelectorAll('input[name="flavor"]');
-    var upgrade = container.querySelector('[data-upgrade]');
     var totalEl = container.querySelector('[data-total]');
     var submitBtn = container.querySelector('[data-submit]');
     var thumb = container.querySelector('[data-thumb]');
+    var submitHint = container.querySelector('[data-submit-hint]');
 
     function state() {
       var picked = null;
       flavorInputs.forEach(function (r) { if (r.checked) picked = r.value; });
-      return { flavor: picked, upgrade: upgrade.checked };
+      return { flavor: picked };
     }
 
     function currentSource() {
       return container.getAttribute('data-source') || source;
     }
 
+    // Added 2026-09-09 (buy-drawer fix brief, items 1 and 2): scrolls to and
+    // briefly outlines the flavor tiles — used both when the thumbnail is
+    // tapped (it isn't a flavor control, see below) and when the submit
+    // button is tapped while still disabled (see the pointerup listener
+    // below for why 'disabled' doesn't just block this on its own).
+    function nudgeFlavorGroup() {
+      var group = container.querySelector('[data-flavor-group]');
+      if (!group) return;
+      group.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      group.classList.remove('flavor-group--nudge');
+      // Force reflow so the animation restarts on a repeat tap.
+      void group.offsetWidth;
+      group.classList.add('flavor-group--nudge');
+    }
+
+    // Second-flavor upgrade removed 2026-09-03 (not ready to offer it yet) —
+    // total is a flat $33 for now. See the removal note above the template
+    // for what else this touched.
     function render() {
       var s = state();
-      var total = s.upgrade ? 48 : 29;
+      var total = 33;
       totalEl.textContent = '$' + total;
       submitBtn.textContent = 'Try your first bag — $' + total;
       submitBtn.disabled = !s.flavor;
+      if (submitHint) { submitHint.hidden = !!s.flavor; }
       if (s.flavor) { thumb.src = FLAVOR_THUMB[s.flavor]; thumb.alt = 'Valor Vitals ' + FLAVOR_NAME[s.flavor] + ' hydration, 30-stick gusset bag'; }
     }
 
@@ -1265,15 +1525,35 @@
       });
     });
 
-    upgrade.addEventListener('change', function () {
-      render();
-      track('drawer_upgrade_toggle', { checked: upgrade.checked, source: currentSource() });
+    // Added 2026-09-09 (buy-drawer fix brief, item 1): the thumbnail has no
+    // selection behavior of its own — see the CSS comment above .flavor-
+    // group--nudge for why this exists. A tap logs it, then points at the
+    // real flavor tiles instead of doing nothing.
+    thumb.addEventListener('click', function () {
+      track('drawer_dead_tap', { target: 'thumb', source: currentSource(), flavor_selected: !!state().flavor });
+      nudgeFlavorGroup();
+    });
+
+    // Added 2026-09-09 (buy-drawer fix brief, item 2 instrumentation): a
+    // disabled <button> never dispatches 'click' in any browser tested, so
+    // a tap on it while no flavor is selected was previously invisible to
+    // analytics — only inferable from Clarity dead-click counts. 'pointerup'
+    // still fires and still targets the button even when disabled (verified
+    // in headless Chrome), so this is the one reliable hook for measuring
+    // the failed attempt. Also nudges toward the flavor tiles — the same
+    // recovery as the thumbnail tap above, decided 2026-09-09 in place of
+    // pre-selecting a default flavor, to keep the flavor choice deliberate.
+    submitBtn.addEventListener('pointerup', function () {
+      if (submitBtn.disabled) {
+        track('drawer_dead_tap', { target: 'submit_disabled', source: currentSource() });
+        nudgeFlavorGroup();
+      }
     });
 
     submitBtn.addEventListener('click', function () {
       var s = state();
       if (!s.flavor) return;
-      submitToCart(s.flavor, s.upgrade, currentSource());
+      submitToCart(s.flavor, currentSource());
     });
 
     render();
@@ -1281,23 +1561,18 @@
     return {
       reset: function () {
         flavorInputs.forEach(function (r) { r.checked = false; });
-        upgrade.checked = false;
         render();
       },
       flavorSelected: function () { return !!state().flavor; }
     };
   }
 
-  function submitToCart(flavor, upgrade, source) {
-    var total = upgrade ? 48 : 29;
-    track('drawer_add_to_cart', { source: source, flavor: flavor, upgrade: upgrade, value: total });
-    track('AddToCart', { source: source, flavor: flavor, upgrade: upgrade, value: total, currency: 'USD' });
+  function submitToCart(flavor, source) {
+    var total = 33;
+    track('drawer_add_to_cart', { source: source, flavor: flavor, value: total });
+    track('AddToCart', { source: source, flavor: flavor, value: total, currency: 'USD' });
 
     var items = [{ id: FLAVOR_VARIANT[flavor], quantity: 1 }];
-    if (upgrade) {
-      var other = flavor === 'B1' ? 'B2' : 'B1';
-      items.push({ id: FLAVOR_VARIANT[other], quantity: 1 });
-    }
 
     fetch('/cart/add.js', {
       method: 'POST',
@@ -1305,11 +1580,13 @@
       body: JSON.stringify({ items: items })
     }).then(function (r) {
       if (!r.ok) { throw new Error('cart/add ' + r.status); }
+      markCartReturnable();
       track('InitiateCheckout', { value: total, currency: 'USD' });
       window.location.href = '/checkout';
     }).catch(function () {
+      markCartReturnable();
       track('InitiateCheckout', { value: total, currency: 'USD' });
-      window.location.href = '/cart/' + FLAVOR_VARIANT[flavor] + ':1' + (upgrade ? ',' + FLAVOR_VARIANT[flavor === 'B1' ? 'B2' : 'B1'] + ':1' : '') + '?checkout';
+      window.location.href = '/cart/' + FLAVOR_VARIANT[flavor] + ':1?checkout';
     });
   }
 
